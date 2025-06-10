@@ -14,10 +14,13 @@ import { validateGuestQrCode, saveGuestExperience, getPublicGuestExperiences, cr
 import { subscribeFromBooking, sendNewYogaDateNotification } from "./mailing-list";
 import { generateVoucherCode } from "./voucher-system";
 
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error('Missing required Stripe secret: STRIPE_SECRET_KEY');
+let stripe: Stripe | null = null;
+if (process.env.STRIPE_SECRET_KEY) {
+  stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+  console.log("Stripe initialized");
+} else {
+  console.warn("STRIPE_SECRET_KEY not set - payment features will be disabled");
 }
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 import { insertBookingSchema, insertExperienceSchema } from "@shared/schema";
 import { guestExperiences } from "@shared/guest-experience-schema";
 import { db } from "./db";
