@@ -2,10 +2,20 @@ import mysql from 'mysql2/promise';
 import { drizzle } from 'drizzle-orm/mysql2';
 import * as schema from "../shared/schema";
 
-if (!process.env.DATABASE_URL) {
-  console.error("DATABASE_URL must be set. Did you forget to provision a database?");
-  process.exit(1);
+let pool: mysql.Pool | null = null;
+let db: any = null;
+
+try {
+  if (process.env.DATABASE_URL) {
+    pool = mysql.createPool(process.env.DATABASE_URL);
+    db = drizzle(pool, { schema, mode: 'default' });
+    console.log("Database connection established");
+  } else {
+    console.warn("DATABASE_URL not set - database features will be disabled");
+  }
+} catch (error) {
+  console.error("Database connection failed:", error);
+  console.warn("Continuing without database - some features may not work");
 }
 
-export const pool = mysql.createPool(process.env.DATABASE_URL);
-export const db = drizzle(pool, { schema, mode: 'default' });
+export { pool, db };

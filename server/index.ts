@@ -40,30 +40,40 @@ app.use((req, res, next) => {
   next();
 });
 
+// Add health check endpoint before other routes
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "healthy", timestamp: new Date().toISOString() });
+});
+
 (async () => {
-  const server = await registerRoutes(app);
+  try {
+    const server = await registerRoutes(app);
 
-  app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
-    const status = err.status || err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
+    app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
+      const status = err.status || err.statusCode || 500;
+      const message = err.message || "Internal Server Error";
+      console.error(`Error ${status}: ${message}`);
+      res.status(status).json({ message });
+    });
 
-    res.status(status).json({ message });
-    throw err;
-  });
+    // importantly only setup vite in development and after
+    // setting up all the other routes so the catch-all route
+    // doesn't interfere with the other routes
+    if (process.env.NODE_ENV === "development") {
+      await setupVite(app, server);
+    } else {
+      serveStatic(app);
+    }
 
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
-  if (app.get("env") === "development") {
-    await setupVite(app, server);
-  } else {
-    serveStatic(app);
+    // Use Railway's PORT environment variable or fallback to 5000
+    const port = parseInt(process.env.PORT || "5000");
+    server.listen(port, "0.0.0.0", () => {
+      console.log(`Server running on port ${port}`);
+      console.log(`Health check available at http://localhost:${port}/health`);
+      log(`serving on port ${port}`);
+    });
+  } catch (error) {
+    console.error("Failed to start server:", error);
+    process.exit(1);
   }
-
-  // Use Railway's PORT environment variable or fallback to 5000
-  const port = parseInt(process.env.PORT || "5000");
-  server.listen(port, "0.0.0.0", () => {
-    console.log(`Server running on port ${port}`);
-    log(`serving on port ${port}`);
-  });
 })();
