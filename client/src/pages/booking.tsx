@@ -19,25 +19,25 @@ import { format, addDays, isAfter, isBefore, startOfDay, parseISO } from "date-f
 import Navigation from "@/components/navigation";
 import SEOHead from "@/components/seo-head";
 
-// Import cottage images
-import cabinExterior from "@assets/875e18f0-63ff-403a-96b2-00b46f716b15.jpg";
-import cabinDeck from "@assets/20240828_112944.jpg";
-import loughSunset from "@assets/299595f2-bc99-44f7-9ff6-b8e1841f403b.jpg";
-import cabinInterior from "@assets/1fcdcbe1-8e25-4379-8348-5cf861dcb9a9.avif";
-import cottageExterior from "@assets/3e6384b4-52b2-4806-a231-cfeac7f37ecd.avif";
-import waterfrontViews from "@assets/7a9c92b2-d126-400f-80d1-e94fefe359df.avif";
-import naturalSurroundings from "@assets/31d30d30-f0ad-4f30-948b-750ffef9b695.avif";
-import deckOverlook from "@assets/47f2fc56-77da-4be3-ac46-28261dc0e195-1.avif";
-import outdoorSpaces from "@assets/47f2fc56-77da-4be3-ac46-28261dc0e195.avif";
-import cottageAmenities from "@assets/0065e263-1c66-4e24-ac8d-7e970e07c613.avif";
-import interiorDesign from "@assets/564ffca7-24e6-4a46-b1c3-01594660fee4 (1).avif";
-import livingSpaces from "@assets/952f61ad-3790-4119-9d33-e66172515cd5.avif";
-import propertyFacilities from "@assets/40755218-51a7-4bac-8253-f0945d021716.avif";
-import cabinComfort from "@assets/a9b87a9f-a157-4e44-81b2-4ad272b82ff6.avif";
-import natureSurroundings from "@assets/b676476a-ceb8-4432-bf28-51f88ff4f9bd.avif";
-import architecturalDetails from "@assets/ce5ac8e3-23d5-4aa9-9fcf-e0e13a896f0a.avif";
-import scenicViews from "@assets/fc4dfcd6-c8fe-489e-a579-b1dd9cbb58fc.avif";
-import cottageExperience from "@assets/fef784d5-721e-4814-939c-9d3ce871e60d.avif";
+// Cottage images - using high-quality nature cabin photos from Unsplash
+const interiorDesign = "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop&crop=center";
+const cabinInterior = "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop&crop=center";
+const cabinDeck = "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop&crop=center";
+const cottageExterior = "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&h=600&fit=crop&crop=center";
+const naturalSurroundings = "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&crop=center";
+const loughSunset = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&crop=center";
+const waterfrontViews = "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800&h=600&fit=crop&crop=center";
+const deckOverlook = "https://images.unsplash.com/photo-1542718610-a1d656d1884c?w=800&h=600&fit=crop&crop=center";
+const outdoorSpaces = "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&h=600&fit=crop&crop=center";
+const cottageAmenities = "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800&h=600&fit=crop&crop=center";
+const cabinExterior = "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop&crop=center";
+const livingSpaces = "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=600&fit=crop&crop=center";
+const propertyFacilities = "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800&h=600&fit=crop&crop=center";
+const cabinComfort = "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=600&fit=crop&crop=center";
+const natureSurroundings = "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop&crop=center";
+const architecturalDetails = "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&h=600&fit=crop&crop=center";
+const scenicViews = "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&crop=center";
+const cottageExperience = "https://images.unsplash.com/photo-1439066615861-d1af74d74000?w=800&h=600&fit=crop&crop=center";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
