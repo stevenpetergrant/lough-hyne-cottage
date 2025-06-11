@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "start": "node dist/server/index.js",
+    "start": "tsx server/simple.ts",
     "dev": "NODE_ENV=development tsx server/index.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
