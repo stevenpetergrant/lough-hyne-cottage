@@ -1,14 +1,18 @@
-import mysql from 'mysql2/promise';
-import { drizzle } from 'drizzle-orm/mysql2';
+import { Pool, neonConfig } from '@neondatabase/serverless';
+import { drizzle } from 'drizzle-orm/neon-serverless';
+import ws from "ws";
 import * as schema from "../shared/schema";
 
-let pool: mysql.Pool | null = null;
+neonConfig.webSocketConstructor = ws;
+
+let pool: Pool | null = null;
 let db: any = null;
 
 try {
   if (process.env.DATABASE_URL) {
-    pool = mysql.createPool(process.env.DATABASE_URL);
-    db = drizzle(pool, { schema, mode: 'default' });
+    console.log("Initializing PostgreSQL connection...");
+    pool = new Pool({ connectionString: process.env.DATABASE_URL });
+    db = drizzle({ client: pool, schema });
     console.log("Database connection established");
   } else {
     console.warn("DATABASE_URL not set - database features will be disabled");
