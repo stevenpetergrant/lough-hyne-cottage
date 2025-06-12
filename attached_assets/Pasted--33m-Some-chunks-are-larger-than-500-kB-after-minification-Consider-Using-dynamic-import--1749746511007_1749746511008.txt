@@ -1,0 +1,102 @@
+[33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+
+[32m✓ built in 4.55s[39m
+
+server/airbnb-integration.ts(1,18): error TS2307: Cannot find module 'node-ical' or its corresponding type declarations.
+
+
+server/db.ts(3,16): error TS2307: Cannot find module 'ws' or its corresponding type declarations.
+
+server/db.ts(15,29): error TS2353: Object literal may only specify known properties, and 'client' does not exist in type 'NeonClient'.
+
+
+server/email.ts(1,24): error TS2307: Cannot find module 'nodemailer' or its corresponding type declarations.
+
+
+server/replitAuth.ts(1,25): error TS2307: Cannot find module 'openid-client' or its corresponding type declarations.
+
+server/replitAuth.ts(2,47): error TS2307: Cannot find module 'openid-client/passport' or its corresponding type declarations.
+
+
+server/replitAuth.ts(4,22): error TS2307: Cannot find module 'passport' or its corresponding type declarations.
+
+server/replitAuth.ts(5,21): error TS2307: Cannot find module 'express-session' or its corresponding type declarations.
+
+
+server/replitAuth.ts(7,21): error TS7016: Could not find a declaration file for module 'memoizee'. '/app/node_modules/memoizee/index.js' implicitly has an 'any' type.
+
+  Try `npm i --save-dev @types/memoizee` if it exists or add a new declaration (.d.ts) file containing `declare module 'memoizee';`
+
+server/replitAuth.ts(8,23): error TS2307: Cannot find module 'connect-pg-simple' or its corresponding type declarations.
+
+server/replitAuth.ts(101,41): error TS2694: Namespace 'global.Express' has no exported member 'User'.
+
+
+server/replitAuth.ts(101,47): error TS7006: Parameter 'cb' implicitly has an 'any' type.
+
+
+server/replitAuth.ts(102,43): error TS2694: Namespace 'global.Express' has no exported member 'User'.
+
+
+server/replitAuth.ts(102,49): error TS7006: Parameter 'cb' implicitly has an 'any' type.
+
+
+server/replitAuth.ts(119,9): error TS2339: Property 'logout' does not exist on type 'Request<{}, any, any, ParsedQs, Record<string, any>>'.
+
+
+server/replitAuth.ts(131,20): error TS2339: Property 'user' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+server/replitAuth.ts(133,12): error TS2339: Property 'isAuthenticated' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+
+
+server/storage.ts(57,11): error TS2322: Type 'string[]' is not assignable to type 'string'.
+
+server/storage.ts(67,11): error TS2322: Type 'string[]' is not assignable to type 'string'.
+
+
+server/storage.ts(82,11): error TS2322: Type 'string[]' is not assignable to type 'string'.
+
+
+server/storage.ts(92,11): error TS2322: Type 'string[]' is not assignable to type 'string'.
+
+
+server/storage.ts(101,47): error TS2769: No overload matches this call.
+
+  Overload 1 of 2, '(value: { type: string | SQL<unknown> | Placeholder<string, any>; name: string | SQL<unknown> | Placeholder<string, any>; description: string | SQL<unknown> | Placeholder<...>; ... 5 more ...; available?: boolean | ... 3 more ... | undefined; }): PgInsertBase<...>', gave the following error.
+    Argument of type '{ type: string; name: string; description: string; basePrice: string; duration?: string | null | undefined; maxGuests?: number | null | undefined; amenities?: string | null | undefined; available?: boolean | ... 1 more ... | undefined; }' is not assignable to parameter of type '{ type: string | SQL<unknown> | Placeholder<string, any>; name: string | SQL<unknown> | Placeholder<string, any>; description: string | SQL<unknown> | Placeholder<...>; ... 5 more ...; available?: boolean | ... 3 more ... | undefined; }'.
+      Types of property 'amenities' are incompatible.
+        Type 'string | null | undefined' is not assignable to type 'string[] | SQL<unknown> | Placeholder<string, any> | null | undefined'.
+          Type 'string' is not assignable to type 'string[] | SQL<unknown> | Placeholder<string, any> | null | undefined'.
+  Overload 2 of 2, '(values: { type: string | SQL<unknown> | Placeholder<string, any>; name: string | SQL<unknown> | Placeholder<string, any>; description: string | SQL<unknown> | Placeholder<...>; ... 5 more ...; available?: boolean | ... 3 more ... | undefined; }[]): PgInsertBase<...>', gave the following error.
+    Argument of type '{ type: string; name: string; description: string; basePrice: string; duration?: string | null | undefined; maxGuests?: number | null | undefined; amenities?: string | null | undefined; available?: boolean | ... 1 more ... | undefined; }' is not assignable to parameter of type '{ type: string | SQL<unknown> | Placeholder<string, any>; name: string | SQL<unknown> | Placeholder<string, any>; description: string | SQL<unknown> | Placeholder<...>; ... 5 more ...; available?: boolean | ... 3 more ... | undefined; }[]'.
+      Type '{ type: string; name: string; description: string; basePrice: string; duration?: string | null | undefined; maxGuests?: number | null | undefined; amenities?: string | null | undefined; available?: boolean | ... 1 more ... | undefined; }' is missing the following properties from type '{ type: string | SQL<unknown> | Placeholder<string, any>; name: string | SQL<unknown> | Placeholder<string, any>; description: string | SQL<unknown> | Placeholder<...>; ... 5 more ...; available?: boolean | ... 3 more ... | undefined; }[]': length, pop, push, concat, and 35 more.
+
+server/storage.ts(311,62): error TS2769: No overload matches this call.
+
+  Overload 1 of 2, '(value: { type: string | SQL<unknown> | Placeholder<string, any>; name: string | SQL<unknown> | Placeholder<string, any>; description: string | SQL<unknown> | Placeholder<...>; ... 5 more ...; available?: boolean | ... 3 more ... | undefined; }): PgInsertBase<...>', gave the following error.
+    Argument of type '{ type: string; name: string; description: string; basePrice: string; duration?: string | null | undefined; maxGuests?: number | null | undefined; amenities?: string | null | undefined; available?: boolean | ... 1 more ... | undefined; }' is not assignable to parameter of type '{ type: string | SQL<unknown> | Placeholder<string, any>; name: string | SQL<unknown> | Placeholder<string, any>; description: string | SQL<unknown> | Placeholder<...>; ... 5 more ...; available?: boolean | ... 3 more ... | undefined; }'.
+      Types of property 'amenities' are incompatible.
+        Type 'string | null | undefined' is not assignable to type 'string[] | SQL<unknown> | Placeholder<string, any> | null | undefined'.
+          Type 'string' is not assignable to type 'string[] | SQL<unknown> | Placeholder<string, any> | null | undefined'.
+  Overload 2 of 2, '(values: { type: string | SQL<unknown> | Placeholder<string, any>; name: string | SQL<unknown> | Placeholder<string, any>; description: string | SQL<unknown> | Placeholder<...>; ... 5 more ...; available?: boolean | ... 3 more ... | undefined; }[]): PgInsertBase<...>', gave the following error.
+    Argument of type '{ type: string; name: string; description: string; basePrice: string; duration?: string | null | undefined; maxGuests?: number | null | undefined; amenities?: string | null | undefined; available?: boolean | ... 1 more ... | undefined; }' is not assignable to parameter of type '{ type: string | SQL<unknown> | Placeholder<string, any>; name: string | SQL<unknown> | Placeholder<string, any>; description: string | SQL<unknown> | Placeholder<...>; ... 5 more ...; available?: boolean | ... 3 more ... | undefined; }[]'.
+      Type '{ type: string; name: string; description: string; basePrice: string; duration?: string | null | undefined; maxGuests?: number | null | undefined; amenities?: string | null | undefined; available?: boolean | ... 1 more ... | undefined; }' is missing the following properties from type '{ type: string | SQL<unknown> | Placeholder<string, any>; name: string | SQL<unknown> | Placeholder<string, any>; description: string | SQL<unknown> | Placeholder<...>; ... 5 more ...; available?: boolean | ... 3 more ... | undefined; }[]': length, pop, push, concat, and 35 more.
+
+server/storage.ts(317,12): error TS2345: Argument of type 'Partial<{ type: string; name: string; description: string; basePrice: string; duration?: string | null | undefined; maxGuests?: number | null | undefined; amenities?: string | null | undefined; available?: boolean | ... 1 more ... | undefined; }>' is not assignable to parameter of type '{ id?: number | SQL<unknown> | undefined; type?: string | SQL<unknown> | undefined; name?: string | SQL<unknown> | undefined; description?: string | SQL<unknown> | undefined; basePrice?: string | SQL<...> | undefined; maxGuests?: number | ... 2 more ... | undefined; duration?: string | ... 2 more ... | undefined; am...'.
+
+  Types of property 'amenities' are incompatible.
+    Type 'string | null | undefined' is not assignable to type 'string[] | SQL<unknown> | null | undefined'.
+      Type 'string' is not assignable to type 'string[] | SQL<unknown> | null | undefined'.
+
+server/vite.ts(39,5): error TS2322: Type '{ middlewareMode: boolean; hmr: { server: Server<typeof IncomingMessage, typeof ServerResponse>; }; allowedHosts: boolean; }' is not assignable to type 'ServerOptions'.
+
+  Types of property 'allowedHosts' are incompatible.
+    Type 'boolean' is not assignable to type 'true | string[] | undefined'.
+shared/schema.ts(13,3): error TS2345: Argument of type '(table: { sid: PgColumn<{ name: "sid"; tableName: "sessions"; dataType: "string"; columnType: "PgVarchar"; data: string; driverParam: string; notNull: true; hasDefault: false; enumValues: [string, ...string[]]; baseColumn: never; }, {}, {}>; sess: PgColumn<...>; expire: PgColumn<...>; }) => IndexBuilder[]' is not assignable to parameter of type '(self: { sid: PgColumn<{ name: "sid"; tableName: "sessions"; dataType: "string"; columnType: "PgVarchar"; data: string; driverParam: string; notNull: true; hasDefault: false; enumValues: [string, ...string[]]; baseColumn: never; }, {}, {}>; sess: PgColumn<...>; expire: PgColumn<...>; }) => PgTableExtraConfig'.
+
+  Type 'IndexBuilder[]' is not assignable to type 'PgTableExtraConfig'.
+    Index signature for type 'string' is missing in type 'IndexBuilder[]'.
