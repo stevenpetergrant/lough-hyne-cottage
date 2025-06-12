@@ -3,32 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lough Hyne Cottage - Eco Retreat West Cork Ireland</title>
-    <meta name="description" content="Experience luxury eco accommodation at Lough Hyne Cottage, Ireland's first marine nature reserve. Book cabin stays, sauna sessions, yoga retreats and bread making workshops in West Cork.">
-    <meta name="keywords" content="Lough Hyne cottage, West Cork accommodation, eco retreat Ireland, marine nature reserve, sauna booking, yoga retreat, bread making workshop">
+    <title>Lough Hyne Cottage - Eco Luxury Accommodation in West Cork, Ireland</title>
+    <meta name="description" content="Experience sustainable luxury at Lough Hyne Cottage, Ireland's first marine nature reserve. Book cabin stays, sauna sessions, yoga retreats and bread making workshops in beautiful West Cork.">
+    <meta name="keywords" content="West Cork accommodation, eco cottage Ireland, Lough Hyne, sustainable tourism, cabin rental Cork, yoga retreat Ireland, sauna West Cork, bread making workshop, marine nature reserve">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://loughhynecottage.com/">
-    <meta property="og:title" content="Lough Hyne Cottage - Eco Retreat West Cork Ireland">
-    <meta property="og:description" content="Experience luxury eco accommodation at Lough Hyne Cottage, Ireland's first marine nature reserve.">
+    <meta property="og:title" content="Lough Hyne Cottage - Eco Luxury Accommodation in West Cork, Ireland">
+    <meta property="og:description" content="Experience sustainable luxury at Lough Hyne Cottage, Ireland's first marine nature reserve.">
     <meta property="og:image" content="/assets/875e18f0-63ff-403a-96b2-00b46f716b15.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://loughhynecottage.com/">
-    <meta property="twitter:title" content="Lough Hyne Cottage - Eco Retreat West Cork Ireland">
-    <meta property="twitter:description" content="Experience luxury eco accommodation at Lough Hyne Cottage, Ireland's first marine nature reserve.">
+    <meta property="twitter:title" content="Lough Hyne Cottage - Eco Luxury Accommodation in West Cork, Ireland">
+    <meta property="twitter:description" content="Experience sustainable luxury at Lough Hyne Cottage, Ireland's first marine nature reserve.">
     <meta property="twitter:image" content="/assets/875e18f0-63ff-403a-96b2-00b46f716b15.jpg">
 
     <link rel="icon" type="image/png" href="/assets/generated-icon.png">
     <style>
         /* Import Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
         
         :root {
             --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-heading: 'Playfair Display', serif;
+            --font-heading: 'Crimson Text', serif;
             
             /* Color System */
             --forest: #1e3a3a;
@@ -36,7 +36,6 @@
             --terracotta: #d2691e;
             --cream: #f5f1eb;
             --natural-white: #fafafa;
-            --warm-brown: #8b4513;
             
             /* Semantic Colors */
             --background: 250 250 250;
@@ -247,12 +246,19 @@
             margin-bottom: 1rem;
         }
         
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+        
         .section-subtitle {
             font-size: 1.25rem;
             color: #6b7280;
             text-align: center;
-            max-width: 42rem;
+            max-width: 48rem;
             margin: 0 auto 3rem auto;
+            line-height: 1.7;
         }
         
         /* Grid Layouts */
@@ -269,30 +275,48 @@
             grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
         }
         
-        .grid-6 {
-            grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
         }
         
         /* Card Styles */
         .card {
             background: white;
             border-radius: 1rem;
-            padding: 2rem;
+            overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
         
         .card:hover {
             transform: translateY(-0.5rem);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .experience-card {
+            border: 2px solid rgba(125, 168, 125, 0.1);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .experience-card:hover {
+            border-color: rgba(125, 168, 125, 0.3);
+            transform: translateY(-0.5rem);
         }
         
         .card-image {
             width: 100%;
-            height: 12rem;
+            height: 16rem;
             object-fit: cover;
-            border-radius: 0.75rem;
-            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .card-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
         }
         
         .card-title {
@@ -306,6 +330,7 @@
         .card-description {
             color: #6b7280;
             margin-bottom: 1rem;
+            line-height: 1.6;
         }
         
         .card-price {
@@ -314,7 +339,107 @@
             color: var(--terracotta);
         }
         
-        /* Image Gallery */
+        /* Resort Overview */
+        .resort-overview {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: flex-start;
+            margin-bottom: 4rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .resort-overview {
+                flex-direction: row;
+            }
+        }
+        
+        .resort-image-container {
+            flex-shrink: 0;
+        }
+        
+        .resort-hero-image {
+            width: 20rem;
+            height: 16rem;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .resort-content {
+            flex: 1;
+        }
+        
+        .resort-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--forest);
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .resort-title {
+                font-size: 3rem;
+            }
+        }
+        
+        .resort-subtitle {
+            font-size: 1.25rem;
+            color: #374151;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .resort-description {
+            font-size: 1.125rem;
+            color: #374151;
+            line-height: 1.7;
+        }
+        
+        /* Unplug Section */
+        .unplug-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .unplug-cards {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .unplug-card {
+            background: var(--cream);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .unplug-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin: 0 auto 0.75rem;
+            object-fit: contain;
+        }
+        
+        .unplug-title {
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            font-weight: bold;
+            color: var(--forest);
+            margin-bottom: 0.5rem;
+        }
+        
+        .unplug-description {
+            color: #6b7280;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        
+        /* Accommodations */
         .image-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
@@ -402,6 +527,18 @@
             90% {
                 transform: translateX(-50%) translateY(-0.25rem);
             }
+        }
+        
+        /* Feature Icons */
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            background-color: var(--sage);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
         }
         
         /* Footer */
@@ -496,6 +633,124 @@
         </div>
     </section>
 
+    <!-- Resort Overview Section -->
+    <section class="section bg-cream">
+        <div class="container">
+            <div class="resort-overview">
+                <!-- Image on left -->
+                <div class="resort-image-container">
+                    <img 
+                        src="/assets/875e18f0-63ff-403a-96b2-00b46f716b15.jpg"
+                        alt="Peaceful countryside view at Lough Hyne Cottage"
+                        class="resort-hero-image"
+                    />
+                </div>
+                
+                <!-- Text content on right -->
+                <div class="resort-content">
+                    <h2 class="resort-title">
+                        Unplug. Unwind. Uncover Lough Hyne.
+                    </h2>
+                    <p class="resort-subtitle">
+                        Perched on the edge of Ireland's only marine nature reserve, Lough Hyne Cottage is a retreat for those who crave the extraordinary.
+                    </p>
+                    <p class="resort-description">
+                        Here, morning swims replace alarms, starlit soaks outshine screen time and the air is thick with the scent of saltwater and sourdough. Whether you're diving into adventure or sinking into stillness, welcome to a retreat that feels like it was made just for you.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="grid grid-3">
+                <div class="text-center">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M7 20h10"></path>
+                            <path d="M7 16v4"></path>
+                            <path d="M17 16v4"></path>
+                            <path d="M11 12h2"></path>
+                            <path d="M11 8h2"></path>
+                            <path d="M11 4h2"></path>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--forest); margin-bottom: 0.5rem;">100% Sustainable</h3>
+                    <p style="color: #6b7280;">Solar-powered facilities and zero-waste operations</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--forest); margin-bottom: 0.5rem;">Wellness Focused</h3>
+                    <p style="color: #6b7280;">Holistic experiences for mind, body, and spirit</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"></path>
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--forest); margin-bottom: 0.5rem;">Locally Sourced</h3>
+                    <p style="color: #6b7280;">Supporting local artisans and organic farmers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unplug Section -->
+    <section class="section">
+        <div class="container">
+            <div class="unplug-cards">
+                <div class="unplug-card">
+                    <div class="unplug-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7v10l10 5 10-5V7z"></path>
+                            <polyline points="2,7 12,12 22,7"></polyline>
+                            <polyline points="12,22 12,12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="unplug-title">Reset</h3>
+                    <p class="unplug-description">Nature is the ultimate healer for body and mind</p>
+                </div>
+                
+                <div class="unplug-card">
+                    <div class="unplug-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 6v6l4 2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="unplug-title">Relax</h3>
+                    <p class="unplug-description">In Nature, we find clarity and perspective</p>
+                </div>
+                
+                <div class="unplug-card">
+                    <div class="unplug-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg>
+                    </div>
+                    <h3 class="unplug-title">Receive</h3>
+                    <p class="unplug-description">Nature sparks creativity and inspiration</p>
+                </div>
+                
+                <div class="unplug-card">
+                    <div class="unplug-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="unplug-title">Realise</h3>
+                    <p class="unplug-description">Nature is a gift for all to embrace and enjoy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Accommodations Section -->
     <section id="accommodations" class="section bg-cream">
         <div class="container">
@@ -529,38 +784,58 @@
     <!-- Experiences Section -->
     <section id="experiences" class="section">
         <div class="container">
-            <h2 class="section-title">Curated Experiences</h2>
+            <h2 class="section-title">Food, Fun and a little magic through our restorative experiences</h2>
             <p class="section-subtitle">
-                Discover mindful activities designed to reconnect you with nature and local traditions
+                Discover wellness, creativity, and connection through our carefully curated experiences designed to rejuvenate your mind, body, and spirit.
             </p>
             
             <div class="grid grid-3">
-                <div class="card">
-                    <img src="/assets/875e18f0-63ff-403a-96b2-00b46f716b15.jpg" alt="Eco Cabin Stay" class="card-image">
-                    <h3 class="card-title">Eco Cabin Stay</h3>
-                    <p class="card-description">Luxury eco cabin overlooking Lough Hyne with private deck and wood-fired bathtub.</p>
-                    <p class="card-price">From €195/night</p>
+                <div class="card experience-card">
+                    <div style="position: relative;">
+                        <img src="/assets/299595f2-bc99-44f7-9ff6-b8e1841f403b.jpg" alt="Sauna Sessions" class="card-image">
+                        <div style="position: absolute; top: 1rem; right: 1rem; background-color: var(--terracotta); color: white; padding: 0.5rem 1rem; border-radius: 1rem; font-weight: bold;">€70</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Sauna Sessions</h3>
+                        <p class="card-description">Experience authentic sauna culture in our traditional wood-fired sauna. Relax, rejuvenate, and connect with nature in this timeless wellness practice.</p>
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                            <span style="background: var(--cream); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.875rem; color: var(--forest);">Wood-fired experience</span>
+                            <span style="background: var(--cream); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.875rem; color: var(--forest);">Natural setting</span>
+                        </div>
+                        <p style="color: #6b7280; font-size: 0.875rem;">1-2 Hours</p>
+                    </div>
                 </div>
                 
-                <div class="card">
-                    <img src="/assets/299595f2-bc99-44f7-9ff6-b8e1841f403b.jpg" alt="Wood-Fired Sauna Session" class="card-image">
-                    <h3 class="card-title">Wood-Fired Sauna Session</h3>
-                    <p class="card-description">Authentic Finnish sauna experience with stunning Lough Hyne views and optional cold water plunge.</p>
-                    <p class="card-price">From €35/session</p>
+                <div class="card experience-card">
+                    <div style="position: relative;">
+                        <img src="/assets/20240828_112944.jpg" alt="Monthly Yoga Mini-Retreats" class="card-image">
+                        <div style="position: absolute; top: 1rem; right: 1rem; background-color: var(--terracotta); color: white; padding: 0.5rem 1rem; border-radius: 1rem; font-weight: bold;">€80</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Monthly Yoga Mini-Retreats</h3>
+                        <p class="card-description">Immerse yourself in tranquil yoga sessions surrounded by the natural beauty of Lough Hyne. Combined with hyper-local, veggie-filled meals inspired by California meets West Cork cuisine.</p>
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                            <span style="background: var(--cream); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.875rem; color: var(--forest);">Peaceful natural setting</span>
+                            <span style="background: var(--cream); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.875rem; color: var(--forest);">All levels welcome</span>
+                        </div>
+                        <p style="color: #6b7280; font-size: 0.875rem;">Full Day</p>
+                    </div>
                 </div>
                 
-                <div class="card">
-                    <img src="/assets/20240828_112944.jpg" alt="Day-Long Yoga Retreat" class="card-image">
-                    <h3 class="card-title">Day-Long Yoga Retreat</h3>
-                    <p class="card-description">Reconnect with nature through mindful movement and meditation in our serene lakeside setting.</p>
-                    <p class="card-price">From €85/day</p>
-                </div>
-                
-                <div class="card">
-                    <img src="/assets/1fcdcbe1-8e25-4379-8348-5cf861dcb9a9.avif" alt="Artisan Bread Making Workshop" class="card-image">
-                    <h3 class="card-title">Artisan Bread Making Workshop</h3>
-                    <p class="card-description">Learn traditional bread making techniques using locally sourced organic ingredients.</p>
-                    <p class="card-price">From €65/workshop</p>
+                <div class="card experience-card">
+                    <div style="position: relative;">
+                        <img src="/assets/1fcdcbe1-8e25-4379-8348-5cf861dcb9a9.avif" alt="Wood-Fired Bread Making Workshop" class="card-image">
+                        <div style="position: absolute; top: 1rem; right: 1rem; background-color: var(--terracotta); color: white; padding: 0.5rem 1rem; border-radius: 1rem; font-weight: bold;">€135</div>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Wood-Fired Bread Making Workshop</h3>
+                        <p class="card-description">Join us monthly as we fire up our traditional wood stove to create artisanal bread and pastries. Learn the ancient art of sourdough baking while connecting with our local community.</p>
+                        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                            <span style="background: var(--cream); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.875rem; color: var(--forest);">Sourdough starter to take home</span>
+                            <span style="background: var(--cream); padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.875rem; color: var(--forest);">Wood-fired oven baking</span>
+                        </div>
+                        <p style="color: #6b7280; font-size: 0.875rem;">11 am - 5pm</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -605,35 +880,41 @@
             
             <div class="grid grid-3">
                 <div class="card">
-                    <h3 class="card-title">Sarah & Tom</h3>
-                    <p class="card-description">
-                        "Absolutely magical stay! The cabin is beautifully designed and the location is breathtaking. 
-                        Waking up to the sunrise over Lough Hyne was unforgettable."
-                    </p>
-                    <div style="color: var(--terracotta); margin-top: 1rem;">
-                        ★★★★★
+                    <div class="card-content">
+                        <h3 class="card-title">Sarah & Tom</h3>
+                        <p class="card-description">
+                            "Absolutely magical stay! The cabin is beautifully designed and the location is breathtaking. 
+                            Waking up to the sunrise over Lough Hyne was unforgettable."
+                        </p>
+                        <div style="color: var(--terracotta); margin-top: 1rem; font-size: 1.25rem;">
+                            ★★★★★
+                        </div>
                     </div>
                 </div>
                 
                 <div class="card">
-                    <h3 class="card-title">Marie</h3>
-                    <p class="card-description">
-                        "The yoga retreat was exactly what I needed. Claire's guidance and the peaceful setting 
-                        created the perfect environment for inner reflection and renewal."
-                    </p>
-                    <div style="color: var(--terracotta); margin-top: 1rem;">
-                        ★★★★★
+                    <div class="card-content">
+                        <h3 class="card-title">Marie</h3>
+                        <p class="card-description">
+                            "The yoga retreat was exactly what I needed. Claire's guidance and the peaceful setting 
+                            created the perfect environment for inner reflection and renewal."
+                        </p>
+                        <div style="color: var(--terracotta); margin-top: 1rem; font-size: 1.25rem;">
+                            ★★★★★
+                        </div>
                     </div>
                 </div>
                 
                 <div class="card">
-                    <h3 class="card-title">James & Lisa</h3>
-                    <p class="card-description">
-                        "The wood-fired sauna experience was incredible! Steven's attention to detail and the 
-                        stunning lake views made it truly special. Can't wait to return."
-                    </p>
-                    <div style="color: var(--terracotta); margin-top: 1rem;">
-                        ★★★★★
+                    <div class="card-content">
+                        <h3 class="card-title">James & Lisa</h3>
+                        <p class="card-description">
+                            "The wood-fired sauna experience was incredible! Steven's attention to detail and the 
+                            stunning lake views made it truly special. Can't wait to return."
+                        </p>
+                        <div style="color: var(--terracotta); margin-top: 1rem; font-size: 1.25rem;">
+                            ★★★★★
+                        </div>
                     </div>
                 </div>
             </div>
@@ -685,7 +966,7 @@
             });
         });
 
-        // Mock API calls for interactivity
+        // Load and display data from APIs
         async function loadExperiences() {
             try {
                 const response = await fetch('/api/experiences');
