@@ -31,7 +31,16 @@ function serveStaticFile(filePath, res) {
     const content = readFileSync(filePath);
     
     res.setHeader('Content-Type', contentType);
-    res.setHeader('Cache-Control', 'public, max-age=31536000');
+    
+    // No cache for HTML files to ensure updates are seen immediately
+    if (ext === '.html') {
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+    } else {
+      res.setHeader('Cache-Control', 'public, max-age=3600');
+    }
+    
     res.writeHead(200);
     res.end(content);
     return true;
@@ -68,7 +77,7 @@ const server = createServer(async (req, res) => {
 
     // Serve static assets
     if (pathname.startsWith('/assets/')) {
-      const filePath = join(__dirname, pathname);
+      const filePath = join(__dirname, 'assets', pathname.replace('/assets/', ''));
       if (serveStaticFile(filePath, res)) {
         return;
       }
