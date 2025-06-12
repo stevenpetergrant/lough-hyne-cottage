@@ -101,7 +101,6 @@ const server = createServer(async (req, res) => {
     // Define SPA routes that should serve the React app
     const spaRoutes = [
       '/', '/index.html',
-      '/sauna-booking', '/yoga-booking', '/bread-booking',
       '/cabin-booking', '/sauna-addon',
       '/events-experiences', '/book',
       '/payment', '/guest-experience', '/guest-experience-demo',
@@ -111,6 +110,9 @@ const server = createServer(async (req, res) => {
     // Check if this is a static HTML page route
     const staticPages = {
       '/booking': 'booking.html',
+      '/sauna-booking': 'sauna-booking.html',
+      '/yoga-booking': 'yoga-booking.html', 
+      '/bread-booking': 'bread-booking.html',
       '/our-story': 'our-story.html', 
       '/vouchers': 'vouchers.html',
       '/wonderful-west-cork': 'wonderful-west-cork.html',
