@@ -3,541 +3,375 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bread Workshop Booking - Lough Hyne Cottage</title>
-    <meta name="description" content="Book your artisan bread making workshop at Lough Hyne Cottage. Learn traditional sourdough techniques in our wood-fired oven.">
-    
-    <!-- Open Graph tags -->
-    <meta property="og:title" content="Bread Workshop Booking - Lough Hyne Cottage">
-    <meta property="og:description" content="Book your artisan bread making workshop at Lough Hyne Cottage. Learn traditional sourdough techniques in our wood-fired oven.">
-    <meta property="og:image" content="./assets/bread-workshop.jpg">
-    <meta property="og:type" content="website">
+    <title>Bread Making Workshop - Lough Hyne Cottage</title>
+    <meta name="description" content="Learn traditional Irish bread making at Lough Hyne Cottage. Hands-on workshops using wood-fired ovens and ancient grains in West Cork.">
     
     <link rel="icon" type="image/png" href="./assets/generated-icon.png">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-            line-height: 1.6;
-            color: #2d3748;
-            background: linear-gradient(135deg, #fefbf3 0%, #fef3e2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .hero {
-            background: url('./assets/bread-workshop.jpg') center/cover;
-            height: 400px;
-            border-radius: 24px;
-            position: relative;
-            margin-bottom: 3rem;
-            overflow: hidden;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
-            display: flex;
-            align-items: end;
-        }
-
-        .hero-content {
-            padding: 2rem;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 600px;
-        }
-
-        .booking-container {
-            display: grid;
-            grid-template-columns: 1fr 400px;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        @media (max-width: 768px) {
-            .booking-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': '#065f46',
+                        'natural-white': '#fefefe'
+                    },
+                    fontFamily: {
+                        'heading': ['Inter', 'sans-serif']
+                    }
+                }
             }
         }
-
-        .booking-info {
+    </script>
+    
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+        }
+        
+        .card {
             background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-
-        .booking-form {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 2rem;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #92400e;
-            margin-bottom: 1rem;
-        }
-
-        .process-steps {
-            margin-bottom: 2rem;
-        }
-
-        .process-step {
-            padding: 1rem;
-            border-left: 4px solid #f59e0b;
-            background: #fffbeb;
-            margin-bottom: 1rem;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .step-number {
-            font-weight: bold;
-            color: #92400e;
-            font-size: 0.9rem;
-        }
-
-        .step-activity {
-            color: #b45309;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .feature-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #f3f4f6;
-            display: flex;
-            align-items: center;
-        }
-
-        .feature-list li:before {
-            content: "🍞";
-            margin-right: 0.75rem;
-            font-size: 1.2rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #374151;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 0.75rem;
+        
+        .workshop-card {
             border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.2s;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: #f59e0b;
-        }
-
-        .workshop-options {
-            display: grid;
-            gap: 0.75rem;
-            margin-top: 0.5rem;
-        }
-
-        .workshop-option {
-            padding: 1rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
+            border-radius: 1rem;
+            padding: 1.5rem;
             cursor: pointer;
-            transition: all 0.2s;
-            background: white;
+            transition: all 0.3s;
         }
-
-        .workshop-option:hover {
-            border-color: #f59e0b;
-            background: #fffbeb;
+        
+        .workshop-card:hover {
+            border-color: #d97706;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-
-        .workshop-option.selected {
-            border-color: #f59e0b;
-            background: #92400e;
+        
+        .workshop-card.selected {
+            border-color: #d97706;
+            background: #fef3c7;
+        }
+        
+        .btn-primary {
+            background: #d97706;
             color: white;
-        }
-
-        .workshop-title {
-            font-weight: bold;
-            margin-bottom: 0.25rem;
-        }
-
-        .workshop-details {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .workshop-price {
-            font-weight: bold;
-            margin-top: 0.5rem;
-        }
-
-        .price-display {
-            background: #fffbeb;
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            margin: 1rem 0;
-        }
-
-        .price-amount {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #92400e;
-        }
-
-        .book-button {
-            width: 100%;
-            background: #f59e0b;
-            color: white;
-            padding: 1rem;
+            padding: 0.75rem 1.5rem;
             border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
+            border-radius: 0.5rem;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.2s;
         }
-
-        .book-button:hover {
-            background: #d97706;
+        
+        .btn-primary:hover {
+            background: #b45309;
         }
-
-        .book-button:disabled {
-            background: #9ca3af;
-            cursor: not-allowed;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            color: #f59e0b;
-            text-decoration: none;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        .benefits {
-            background: #f8fafc;
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-        }
-
-        .benefits h3 {
-            color: #92400e;
-            margin-bottom: 1rem;
-        }
-
-        .benefits ul {
-            list-style: none;
-        }
-
-        .benefits li {
-            padding: 0.25rem 0;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .benefits li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #f59e0b;
-            font-weight: bold;
-        }
-
-        .skill-levels {
-            background: #f0f9ff;
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-top: 2rem;
-            border: 2px solid #0ea5e9;
-        }
-
-        .skill-levels h3 {
-            color: #075985;
-            margin-bottom: 1rem;
-        }
-
-        .skill-level {
+        
+        .form-input {
+            width: 100%;
             padding: 0.75rem;
-            background: white;
-            border-radius: 8px;
-            margin-bottom: 0.5rem;
-            border-left: 4px solid #0ea5e9;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.2s;
         }
-
-        .skill-level-title {
-            font-weight: bold;
-            color: #075985;
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #d97706;
         }
-
-        .skill-level-desc {
-            font-size: 0.9rem;
-            color: #0c4a6e;
+        
+        .process-step {
+            padding: 1rem;
+            border-left: 4px solid #d97706;
+            background: #fef3c7;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <a href="./index.html" class="back-link">
-            ← Back to Home
-        </a>
-
-        <div class="hero">
-            <div class="hero-overlay">
-                <div class="hero-content">
-                    <h1>Artisan Bread Workshops</h1>
-                    <p>Learn the ancient art of sourdough baking in our traditional wood-fired oven with expert guidance and local ingredients</p>
-                </div>
+<body class="min-h-screen bg-natural-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm px-4 py-3">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="./assets/generated-icon.png" alt="Lough Hyne Cottage" class="h-8 w-auto">
+                <span class="ml-3 text-xl font-bold text-forest">Lough Hyne Cottage</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="./index.html" class="text-gray-700 hover:text-forest">Home</a>
+                <a href="./our-story.html" class="text-gray-700 hover:text-forest">Our Story</a>
+                <a href="./wonderful-west-cork.html" class="text-gray-700 hover:text-forest">West Cork</a>
             </div>
         </div>
+    </nav>
 
-        <div class="booking-container">
-            <div class="booking-info">
-                <h2 class="section-title">Traditional Bread Making Workshop</h2>
-                <p style="margin-bottom: 1.5rem;">Master the timeless craft of artisan bread making using traditional techniques passed down through generations. Learn to work with our heritage wood-fired oven and create delicious sourdough using local, organic ingredients.</p>
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <a href="./index.html" class="inline-flex items-center text-forest hover:text-forest/80 mb-6 font-semibold">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Back to Home
+        </a>
 
-                <h3 class="section-title">Workshop Process</h3>
-                <div class="process-steps">
+        <div class="grid lg:grid-cols-2 gap-12 mb-12">
+            <!-- Left Column - Content -->
+            <div>
+                <h1 class="font-heading text-4xl font-bold text-forest mb-6">
+                    Artisan Bread Making Workshops
+                </h1>
+                <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                    Learn the ancient art of bread making using traditional techniques and our wood-fired oven. Create delicious sourdough using heritage grains and time-honored methods passed down through generations.
+                </p>
+                
+                <!-- Image Gallery -->
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <img 
+                        src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
+                        alt="Artisan bread making workshop" 
+                        class="rounded-2xl shadow-lg col-span-2 object-cover h-64" 
+                    />
+                    <img 
+                        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                        alt="Wood-fired oven bread baking" 
+                        class="rounded-2xl shadow-lg object-cover h-32" 
+                    />
+                    <img 
+                        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" 
+                        alt="Fresh baked sourdough loaves" 
+                        class="rounded-2xl shadow-lg object-cover h-32" 
+                    />
+                </div>
+
+                <!-- Process Steps -->
+                <h3 class="font-heading text-2xl font-bold text-forest mb-4">Traditional Process</h3>
+                <div class="space-y-3 mb-8">
                     <div class="process-step">
-                        <div class="step-number">Step 1: Introduction & Ingredients</div>
-                        <div class="step-activity">Learn about sourdough starter and select organic flours</div>
+                        <div class="font-semibold text-amber-800 text-sm">Step 1: Sourdough Starter</div>
+                        <div class="text-amber-700 text-sm">Learn to create and maintain a living sourdough culture</div>
                     </div>
                     <div class="process-step">
-                        <div class="step-number">Step 2: Mixing & Kneading</div>
-                        <div class="step-activity">Master traditional hand-kneading techniques</div>
+                        <div class="font-semibold text-amber-800 text-sm">Step 2: Ancient Grains</div>
+                        <div class="text-amber-700 text-sm">Work with heritage wheat varieties and local ingredients</div>
                     </div>
                     <div class="process-step">
-                        <div class="step-number">Step 3: First Rise</div>
-                        <div class="step-activity">Learn fermentation timing while enjoying refreshments</div>
+                        <div class="font-semibold text-amber-800 text-sm">Step 3: Hand Kneading</div>
+                        <div class="text-amber-700 text-sm">Master traditional techniques for dough development</div>
                     </div>
                     <div class="process-step">
-                        <div class="step-number">Step 4: Shaping & Scoring</div>
-                        <div class="step-activity">Shape your loaves and create decorative scoring patterns</div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">Step 5: Wood-Fired Baking</div>
-                        <div class="step-activity">Bake in our authentic stone oven using traditional methods</div>
-                    </div>
-                    <div class="process-step">
-                        <div class="step-number">Step 6: Tasting & Take-Home</div>
-                        <div class="step-activity">Enjoy fresh bread with local butter and take loaves home</div>
+                        <div class="font-semibold text-amber-800 text-sm">Step 4: Wood-Fired Baking</div>
+                        <div class="text-amber-700 text-sm">Experience the unique flavors of wood-fired oven baking</div>
                     </div>
                 </div>
 
-                <h3 class="section-title">What's Included</h3>
-                <ul class="feature-list">
-                    <li>4-hour hands-on workshop</li>
-                    <li>All organic ingredients provided</li>
-                    <li>Expert instruction & guidance</li>
-                    <li>Traditional wood-fired oven experience</li>
-                    <li>Sourdough starter to take home</li>
-                    <li>2-3 fresh loaves per person</li>
-                    <li>Recipe cards and baking guide</li>
-                    <li>Light refreshments during workshop</li>
-                    <li>Apron and all tools provided</li>
-                </ul>
-
-                <div class="skill-levels">
-                    <h3>Skill Levels Welcome</h3>
-                    <div class="skill-level">
-                        <div class="skill-level-title">Complete Beginner</div>
-                        <div class="skill-level-desc">Never baked bread before? Perfect! We start with the basics.</div>
+                <!-- Skill Levels -->
+                <h3 class="font-heading text-2xl font-bold text-forest mb-4">All Skill Levels Welcome</h3>
+                <div class="grid grid-cols-1 gap-2">
+                    <div class="flex items-start">
+                        <span class="text-amber-600 mr-2">•</span>
+                        <span class="text-gray-700">Complete beginners - learn fundamental techniques</span>
                     </div>
-                    <div class="skill-level">
-                        <div class="skill-level-title">Home Baker</div>
-                        <div class="skill-level-desc">Have some experience? Learn professional techniques and wood-fired methods.</div>
+                    <div class="flex items-start">
+                        <span class="text-amber-600 mr-2">•</span>
+                        <span class="text-gray-700">Home bakers - refine your sourdough skills</span>
                     </div>
-                    <div class="skill-level">
-                        <div class="skill-level-title">Advanced Baker</div>
-                        <div class="skill-level-desc">Experienced baker? Master traditional fermentation and artisan shaping.</div>
+                    <div class="flex items-start">
+                        <span class="text-amber-600 mr-2">•</span>
+                        <span class="text-gray-700">Experienced bakers - master wood-fired techniques</span>
                     </div>
-                </div>
-
-                <div class="benefits">
-                    <h3>Workshop Benefits</h3>
-                    <ul>
-                        <li>Learn sustainable, traditional baking methods</li>
-                        <li>Understand fermentation and timing</li>
-                        <li>Master wood-fired oven techniques</li>
-                        <li>Take home starter for ongoing baking</li>
-                        <li>Connect with local food traditions</li>
-                        <li>Enjoy therapeutic, hands-on activity</li>
-                    </ul>
+                    <div class="flex items-start">
+                        <span class="text-amber-600 mr-2">•</span>
+                        <span class="text-gray-700">Professional development - traditional methods</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="booking-form">
-                <h2 class="section-title">Book Your Workshop</h2>
-                
-                <form id="booking-form">
-                    <div class="form-group">
-                        <label class="form-label">Select Workshop Type</label>
-                        <div class="workshop-options">
-                            <div class="workshop-option" data-type="individual" data-price="85">
-                                <div class="workshop-title">Individual Workshop</div>
-                                <div class="workshop-details">Private 1-on-1 instruction, flexible timing</div>
-                                <div class="workshop-price">€85 per person</div>
-                            </div>
-                            <div class="workshop-option" data-type="group" data-price="65">
-                                <div class="workshop-title">Group Workshop</div>
-                                <div class="workshop-details">2-6 people, scheduled sessions</div>
-                                <div class="workshop-price">€65 per person</div>
-                            </div>
-                            <div class="workshop-option" data-type="couples" data-price="75">
-                                <div class="workshop-title">Couples Workshop</div>
-                                <div class="workshop-details">Perfect for 2 people, romantic setting</div>
-                                <div class="workshop-price">€75 per person</div>
+            <!-- Right Column - Booking Form -->
+            <div class="space-y-8">
+                <div class="card p-6">
+                    <h2 class="text-2xl font-bold text-forest mb-6">Book Your Workshop</h2>
+                    
+                    <form id="booking-form" class="space-y-6">
+                        <!-- Workshop Selection -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-3">Select Workshop Type</label>
+                            <div class="space-y-3">
+                                <div class="workshop-card" data-workshop="beginner" data-price="45" data-duration="3">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-bold text-lg">Beginner Workshop</h4>
+                                        <span class="text-lg font-bold text-amber-600">€45</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-2">3 hours • Perfect for first-time bakers</p>
+                                    <p class="text-xs text-gray-500">Learn basic sourdough techniques and take home a fresh loaf</p>
+                                </div>
+                                
+                                <div class="workshop-card" data-workshop="intermediate" data-price="65" data-duration="4">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-bold text-lg">Intermediate Workshop</h4>
+                                        <span class="text-lg font-bold text-amber-600">€65</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-2">4 hours • Advanced techniques & multiple loaves</p>
+                                    <p class="text-xs text-gray-500">Master shaping, scoring, and take home 2 artisan loaves</p>
+                                </div>
+                                
+                                <div class="workshop-card" data-workshop="private" data-price="120" data-duration="5">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-bold text-lg">Private Group Session</h4>
+                                        <span class="text-lg font-bold text-amber-600">€120</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-2">5 hours • Customized for your group (2-6 people)</p>
+                                    <p class="text-xs text-gray-500">Personalized instruction with lunch included</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Preferred Date</label>
-                        <input type="date" class="form-input" id="workshop-date" min="" required>
-                    </div>
+                        <!-- Date Selection -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Date</label>
+                            <input type="date" class="form-input" id="workshop-date" min="" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Number of Participants</label>
-                        <input type="number" class="form-input" id="participants" min="1" max="6" value="1" required>
-                    </div>
+                        <!-- Participants -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Number of Participants</label>
+                            <select class="form-input" id="participants" required>
+                                <option value="">Select participants</option>
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5 People</option>
+                                <option value="6">6 People</option>
+                            </select>
+                        </div>
 
-                    <div class="price-display">
-                        <div class="price-amount" id="price-display">€65</div>
-                        <div>Per person (4-hour workshop)</div>
-                    </div>
+                        <!-- Price Display -->
+                        <div class="bg-amber-50 p-4 rounded-lg text-center">
+                            <div class="text-2xl font-bold text-amber-800" id="total-price">€45</div>
+                            <div class="text-sm text-amber-700" id="price-details">Per person • 3 hour workshop</div>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Your Name</label>
-                        <input type="text" class="form-input" id="customer-name" required>
-                    </div>
+                        <!-- Contact Information -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                                <input type="text" class="form-input" id="customer-name" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <input type="email" class="form-input" id="customer-email" required>
+                            </div>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Email Address</label>
-                        <input type="email" class="form-input" id="customer-email" required>
-                    </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" class="form-input" id="customer-phone" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Phone Number</label>
-                        <input type="tel" class="form-input" id="customer-phone" required>
-                    </div>
+                        <!-- Experience Level -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Baking Experience</label>
+                            <select class="form-input" id="experience-level" required>
+                                <option value="">Select your experience</option>
+                                <option value="none">Complete beginner</option>
+                                <option value="basic">Some home baking</option>
+                                <option value="intermediate">Regular home baker</option>
+                                <option value="advanced">Experienced baker</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Baking Experience Level</label>
-                        <select class="form-input" id="experience-level" required>
-                            <option value="">Select your level</option>
-                            <option value="beginner">Complete Beginner</option>
-                            <option value="home-baker">Home Baker</option>
-                            <option value="advanced">Advanced Baker</option>
-                        </select>
-                    </div>
+                        <!-- Dietary Requirements -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Dietary Requirements</label>
+                            <textarea class="form-input" id="dietary-requirements" rows="2" placeholder="Any allergies or dietary restrictions?"></textarea>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Dietary Requirements</label>
-                        <textarea class="form-input" id="dietary-requirements" rows="2" placeholder="Any allergies or dietary restrictions?"></textarea>
-                    </div>
+                        <!-- Special Requests -->
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Special Requests</label>
+                            <textarea class="form-input" id="special-requests" rows="3" placeholder="Any special requirements or questions about the workshop?"></textarea>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Special Requests (Optional)</label>
-                        <textarea class="form-input" id="special-requests" rows="3" placeholder="Any specific techniques you'd like to learn or questions?"></textarea>
-                    </div>
-
-                    <button type="submit" class="book-button" id="book-button">
-                        Book Bread Workshop - €65
-                    </button>
-                </form>
+                        <button type="submit" class="w-full btn-primary text-lg py-3 rounded-lg" id="book-button">
+                            Book Workshop - €45
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2024 Lough Hyne Cottage. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
+        // State management
+        let selectedWorkshop = '';
+        let selectedPrice = 45;
+        let selectedDuration = 3;
+        let participants = 1;
+
         // Set minimum date to today
         document.getElementById('workshop-date').min = new Date().toISOString().split('T')[0];
 
-        // Workshop type selection
-        let selectedType = '';
-        let selectedPrice = 65;
-        
-        document.querySelectorAll('.workshop-option').forEach(option => {
-            option.addEventListener('click', function() {
-                document.querySelectorAll('.workshop-option').forEach(o => o.classList.remove('selected'));
+        // Workshop selection
+        document.querySelectorAll('.workshop-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.workshop-card').forEach(c => c.classList.remove('selected'));
                 this.classList.add('selected');
-                selectedType = this.dataset.type;
+                
+                selectedWorkshop = this.dataset.workshop;
                 selectedPrice = parseInt(this.dataset.price);
-                updatePrice();
+                selectedDuration = parseInt(this.dataset.duration);
+                
+                updatePricing();
             });
         });
 
-        function updatePrice() {
-            const participants = parseInt(document.getElementById('participants').value) || 1;
-            const totalPrice = selectedPrice * participants;
-            document.getElementById('price-display').textContent = `€${selectedPrice}`;
-            document.getElementById('book-button').textContent = `Book Bread Workshop - €${totalPrice}`;
-        }
+        // Participants selection
+        document.getElementById('participants').addEventListener('change', function() {
+            participants = parseInt(this.value) || 1;
+            updatePricing();
+        });
 
-        // Update price when participants change
-        document.getElementById('participants').addEventListener('input', updatePrice);
+        function updatePricing() {
+            if (!selectedWorkshop) return;
+            
+            let totalPrice = selectedPrice;
+            let priceDetails = '';
+            
+            if (selectedWorkshop === 'private') {
+                priceDetails = `€${selectedPrice} total for group • ${selectedDuration} hour workshop`;
+                document.getElementById('total-price').textContent = `€${totalPrice}`;
+            } else {
+                totalPrice = selectedPrice * participants;
+                priceDetails = `€${selectedPrice} per person • ${selectedDuration} hour workshop`;
+                document.getElementById('total-price').textContent = `€${totalPrice}`;
+            }
+            
+            document.getElementById('price-details').textContent = priceDetails;
+            document.getElementById('book-button').textContent = `Book Workshop - €${totalPrice}`;
+        }
 
         // Form submission
         document.getElementById('booking-form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            if (!selectedType) {
+            if (!selectedWorkshop) {
                 alert('Please select a workshop type');
                 return;
             }
 
-            const participants = parseInt(document.getElementById('participants').value);
-            const totalPrice = selectedPrice * participants;
-
+            const totalPrice = selectedWorkshop === 'private' ? selectedPrice : selectedPrice * participants;
+            
             const formData = {
                 experienceType: 'bread',
-                workshopType: selectedType,
+                workshopType: selectedWorkshop,
                 date: document.getElementById('workshop-date').value,
                 participants: participants,
                 customerName: document.getElementById('customer-name').value,
@@ -546,29 +380,36 @@
                 experienceLevel: document.getElementById('experience-level').value,
                 dietaryRequirements: document.getElementById('dietary-requirements').value,
                 specialRequests: document.getElementById('special-requests').value,
-                pricePerPerson: selectedPrice,
-                totalPrice: totalPrice
+                totalPrice: totalPrice,
+                duration: selectedDuration
             };
 
             // Disable submit button
-            document.getElementById('book-button').disabled = true;
-            document.getElementById('book-button').textContent = 'Processing...';
+            const button = document.getElementById('book-button');
+            button.disabled = true;
+            button.textContent = 'Processing...';
 
             // Simulate booking process
             setTimeout(() => {
-                alert('Bread workshop booking request submitted! We will contact you shortly to confirm your reservation and provide payment details.');
+                alert('Bread making workshop booking submitted! We will contact you shortly to confirm your reservation and provide payment details.');
                 console.log('Booking data:', formData);
                 
                 // Reset form
                 document.getElementById('booking-form').reset();
-                document.querySelectorAll('.workshop-option').forEach(o => o.classList.remove('selected'));
-                selectedType = '';
-                selectedPrice = 65;
-                document.getElementById('price-display').textContent = '€65';
-                document.getElementById('book-button').disabled = false;
-                document.getElementById('book-button').textContent = 'Book Bread Workshop - €65';
+                document.querySelectorAll('.workshop-card').forEach(c => c.classList.remove('selected'));
+                selectedWorkshop = '';
+                selectedPrice = 45;
+                selectedDuration = 3;
+                participants = 1;
+                document.getElementById('total-price').textContent = '€45';
+                document.getElementById('price-details').textContent = 'Per person • 3 hour workshop';
+                button.disabled = false;
+                button.textContent = 'Book Workshop - €45';
             }, 2000);
         });
+
+        // Initialize with first workshop selected
+        document.querySelector('.workshop-card').click();
     </script>
 </body>
 </html>

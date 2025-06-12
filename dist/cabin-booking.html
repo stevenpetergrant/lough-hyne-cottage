@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabin Booking - Lough Hyne Cottage</title>
+    <meta name="description" content="Book your eco-luxury cabin stay at Lough Hyne Cottage. Sustainable accommodation overlooking Ireland's first marine nature reserve in West Cork.">
+    
+    <link rel="icon" type="image/png" href="./assets/generated-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'forest': '#065f46',
+                        'natural-white': '#fefefe'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-natural-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm px-4 py-3">
+        <div class="max-w-6xl mx-auto flex items-center justify-between">
+            <div class="flex items-center">
+                <img src="./assets/generated-icon.png" alt="Lough Hyne Cottage" class="h-8 w-auto">
+                <span class="ml-3 text-xl font-bold text-forest">Lough Hyne Cottage</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="./index.html" class="text-gray-700 hover:text-forest">Home</a>
+                <a href="./our-story.html" class="text-gray-700 hover:text-forest">Our Story</a>
+                <a href="./wonderful-west-cork.html" class="text-gray-700 hover:text-forest">West Cork</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="max-w-6xl mx-auto px-4 py-8">
+        <a href="./index.html" class="inline-flex items-center text-forest hover:text-forest/80 mb-6 font-semibold">
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            Back to Home
+        </a>
+
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-forest mb-6">Cabin Accommodation</h1>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto">
+                Experience sustainable luxury in our eco-designed cabins overlooking Lough Hyne Marine Nature Reserve. Modern comfort meets environmental responsibility.
+            </p>
+        </div>
+
+        <!-- Booking coming soon message -->
+        <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-3xl p-12 text-center">
+            <svg class="w-16 h-16 text-forest mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H3m2 0h3M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 8h5m-5 0v-4a1 1 0 011-1h3a1 1 0 011 1v4M4 21h2"></path>
+            </svg>
+            <h2 class="text-3xl font-bold text-forest mb-4">Cabin Bookings Coming Soon</h2>
+            <p class="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
+                We're putting the finishing touches on our eco-luxury cabins. Full accommodation bookings will be available soon. In the meantime, enjoy our day experiences.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="./index.html#contact" class="bg-forest text-white px-8 py-3 rounded-lg font-semibold hover:bg-forest/90 transition-colors">
+                    Get Notified When Available
+                </a>
+                <a href="./index.html#experiences" class="border-2 border-forest text-forest px-8 py-3 rounded-lg font-semibold hover:bg-forest hover:text-white transition-colors">
+                    Book Day Experiences
+                </a>
+            </div>
+        </div>
+
+        <!-- Cabin Features Preview -->
+        <div class="mt-16 grid lg:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-2xl font-bold text-forest mb-6">What to Expect</h3>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                        <svg class="w-6 h-6 text-forest mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Sustainable Design</h4>
+                            <p class="text-gray-600">Solar-powered cabins built with locally sourced materials</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <svg class="w-6 h-6 text-forest mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Panoramic Views</h4>
+                            <p class="text-gray-600">Floor-to-ceiling windows overlooking the marine reserve</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <svg class="w-6 h-6 text-forest mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Modern Amenities</h4>
+                            <p class="text-gray-600">Full kitchen, luxury bathroom, comfortable sleeping for 4-6</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <svg class="w-6 h-6 text-forest mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Private Access</h4>
+                            <p class="text-gray-600">Direct access to nature trails and lough shoreline</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div>
+                <img 
+                    src="https://loughhynecottage.com/wp-content/uploads/2024/08/31d30d30-f0ad-4f30-948b-750ffef9b695.avif" 
+                    alt="Eco cabin accommodation preview" 
+                    class="rounded-2xl shadow-2xl w-full"
+                />
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2024 Lough Hyne Cottage. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

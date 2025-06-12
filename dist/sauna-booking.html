@@ -6,12 +6,6 @@
     <title>Sauna Booking - Lough Hyne Cottage</title>
     <meta name="description" content="Book your private sauna session at Lough Hyne Cottage. Experience authentic Finnish sauna culture overlooking Ireland's first marine nature reserve.">
     
-    <!-- Open Graph tags -->
-    <meta property="og:title" content="Sauna Booking - Lough Hyne Cottage">
-    <meta property="og:description" content="Book your private sauna session at Lough Hyne Cottage. Experience authentic Finnish sauna culture overlooking Ireland's first marine nature reserve.">
-    <meta property="og:image" content="./assets/sauna-experience.jpg">
-    <meta property="og:type" content="website">
-    
     <link rel="icon" type="image/png" href="./assets/generated-icon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -134,15 +128,15 @@
             padding: 1rem;
             background: white;
         }
-
     </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-50">
-    <!-- Navigation placeholder -->
+    <!-- Navigation -->
     <nav class="bg-white shadow-sm px-4 py-3">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="flex items-center">
-                <img src="./assets/lough-hyne-logo.png" alt="Lough Hyne Cottage" class="h-8 w-auto">
+                <img src="./assets/generated-icon.png" alt="Lough Hyne Cottage" class="h-8 w-auto">
+                <span class="ml-3 text-xl font-bold text-forest">Lough Hyne Cottage</span>
             </div>
             <div class="flex space-x-6">
                 <a href="./index.html" class="text-gray-700 hover:text-forest">Home</a>
@@ -231,9 +225,9 @@
                 </div>
 
                 <!-- Step 2: Select Time -->
-                <div class="card" id="time-step">
-                    <div class="card-header" id="time-header">
-                        <h3 class="flex items-center font-semibold text-lg" id="time-title">
+                <div class="card" id="time-step" style="opacity: 0.5;">
+                    <div class="card-header" id="time-header" style="background: #f9fafb;">
+                        <h3 class="flex items-center font-semibold text-lg text-gray-500" id="time-title">
                             <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
@@ -241,7 +235,7 @@
                         </h3>
                     </div>
                     <div class="card-content">
-                        <div id="time-selection-content">
+                        <div id="time-selection-content" style="display: none;">
                             <div class="grid md:grid-cols-2 gap-4">
                                 <div class="time-slot" data-time="19:00">
                                     <div class="flex justify-between items-center mb-2">
@@ -266,9 +260,9 @@
                 </div>
 
                 <!-- Step 3: Guest Details -->
-                <div class="card" id="guest-step">
-                    <div class="card-header" id="guest-header">
-                        <h3 class="flex items-center font-semibold text-lg" id="guest-title">
+                <div class="card" id="guest-step" style="opacity: 0.5;">
+                    <div class="card-header" id="guest-header" style="background: #f9fafb;">
+                        <h3 class="flex items-center font-semibold text-lg text-gray-500" id="guest-title">
                             <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                             </svg>
@@ -276,7 +270,7 @@
                         </h3>
                     </div>
                     <div class="card-content">
-                        <div id="guest-form-content" class="space-y-4">
+                        <div id="guest-form-content" class="space-y-4" style="display: none;">
                             <div class="grid md:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-sm font-medium text-gray-700 mb-1">Number of Guests</label>
@@ -351,7 +345,7 @@
                             </div>
                         </div>
                         
-                        <button id="book-button" class="w-full btn-primary text-lg py-3 rounded-lg flex items-center justify-center" disabled>
+                        <button id="book-button" class="w-full btn-primary text-lg py-3 rounded-lg flex items-center justify-center" disabled style="background: #9ca3af;">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3-2-1.343-2-3-2z"></path>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8V6a2 2 0 012-2h0a2 2 0 012 2v.5"></path>
@@ -396,7 +390,7 @@
         </div>
     </div>
 
-    <!-- Footer placeholder -->
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-8 mt-16">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p>&copy; 2024 Lough Hyne Cottage. All rights reserved.</p>
@@ -496,12 +490,6 @@
                 button.style.background = '#9ca3af';
             }
         }
-
-        // Initial state setup
-        document.getElementById('time-step').style.opacity = '0.5';
-        document.getElementById('guest-step').style.opacity = '0.5';
-        document.getElementById('time-selection-content').style.display = 'none';
-        document.getElementById('guest-form-content').style.display = 'none';
 
         // Form submission
         document.getElementById('book-button').addEventListener('click', function() {

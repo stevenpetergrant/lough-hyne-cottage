@@ -1,18 +1,16 @@
 {
   "name": "lough-hyne-cottage",
   "version": "1.0.0",
-  "description": "Lough Hyne Cottage website",
+  "description": "Lough Hyne Cottage - Eco Retreat Website",
   "main": "server.js",
-  "type": "module",
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js"
   },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
   "engines": {
     "node": ">=18.0.0"
-  },
-  "dependencies": {},
-  "keywords": ["cottage", "ireland", "eco", "accommodation"],
-  "author": "Lough Hyne Cottage",
-  "license": "MIT"
+  }
 }
