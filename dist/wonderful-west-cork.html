@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Cork Guide - The Best of West Cork 2025 Edition</title>
+    <meta name="description" content="Discover the best restaurants, attractions, and hidden gems of West Cork. From harbourside dining to local legends, explore what makes West Cork Ireland's culinary capital.">
+    <link rel="icon" type="image/png" href="/assets/generated-icon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        :root {
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-heading: 'Crimson Text', serif;
+            --forest: #1e3a3a;
+            --sage: #7da87d;
+            --terracotta: #d2691e;
+            --cream: #f5f1eb;
+            --natural-white: #fafafa;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--natural-white);
+            color: var(--forest);
+            line-height: 1.6;
+        }
+        
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 50;
+            background-color: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(228, 228, 231, 0.5);
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+        
+        .nav-logo-img {
+            height: 1.5rem;
+            width: auto;
+            margin-right: 0.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .nav-logo-img {
+                height: 2rem;
+            }
+        }
+        
+        .nav-logo-text {
+            font-family: var(--font-heading);
+            font-size: 0.875rem;
+            font-weight: bold;
+            color: var(--forest);
+            display: none;
+        }
+        
+        @media (min-width: 640px) {
+            .nav-logo-text {
+                display: block;
+                font-size: 1.125rem;
+            }
+        }
+        
+        .nav-links {
+            display: none;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+        }
+        
+        .nav-link {
+            color: var(--forest);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .container {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .main-content {
+            padding-top: 5rem;
+            padding-bottom: 4rem;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--forest);
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .page-title { font-size: 3rem; }
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            max-width: 48rem;
+            margin: 0 auto 3rem auto;
+            line-height: 1.7;
+        }
+        
+        .guide-section {
+            margin-bottom: 4rem;
+        }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--forest);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .restaurant-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .restaurant-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        .restaurant-card {
+            background: white;
+            border-radius: 1rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .restaurant-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .restaurant-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 0.5rem;
+        }
+        
+        .restaurant-location {
+            color: var(--terracotta);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        
+        .restaurant-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .restaurant-highlight {
+            background-color: var(--cream);
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-style: italic;
+            color: var(--forest);
+        }
+        
+        .intro-text {
+            background-color: var(--cream);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: #374151;
+        }
+        
+        .attractions-list {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .attractions-list { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        .attraction-item {
+            background: white;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+            padding: 1.5rem;
+        }
+        
+        .attraction-name {
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 0.5rem;
+        }
+        
+        .attraction-description {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo-container">
+                <img src="https://loughhynecottage.com/wp-content/uploads/2024/08/Untitled-design-12.png" alt="Lough Hyne Cottage" class="nav-logo-img">
+                <span class="nav-logo-text">Lough Hyne Cottage</span>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/our-story" class="nav-link">Our Story</a>
+                <a href="/events-experiences" class="nav-link">Experiences</a>
+                <a href="/wonderful-west-cork" class="nav-link">West Cork Guide</a>
+                <a href="/vouchers" class="nav-link">Gift Vouchers</a>
+                <a href="/guest-stories" class="nav-link">Guest Stories</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">The Best of West Cork</h1>
+                <h2 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--terracotta); margin-bottom: 1rem;">2025 Edition</h2>
+                <p class="page-subtitle">
+                    From Harbourside Gems to Local Legends - Discover what makes West Cork Ireland's culinary and cultural capital
+                </p>
+            </div>
+
+            <div class="intro-text">
+                <p>
+                    West Cork is Ireland's best-kept secret—a region where rolling green hills meet dramatic coastlines, where traditional Irish culture mingles with international flair, and where every meal feels like a celebration. Whether you're seeking Michelin-starred dining, cozy pub fare, or hidden gems known only to locals, West Cork delivers experiences that will stay with you long after you've returned home.
+                </p>
+            </div>
+
+            <!-- Restaurants Section -->
+            <div class="guide-section">
+                <h2 class="section-title">Outstanding Restaurants</h2>
+                
+                <div class="restaurant-grid">
+                    <div class="restaurant-card">
+                        <h3 class="restaurant-name">Dede at the Carlton</h3>
+                        <div class="restaurant-location">Kinsale</div>
+                        <p class="restaurant-description">
+                            Award-winning restaurant combining contemporary Irish cuisine with international influences. Chef Ahmet Dede creates innovative dishes using the finest local ingredients.
+                        </p>
+                        <div class="restaurant-highlight">
+                            "The tasting menu is a journey through West Cork's incredible produce, elevated to fine dining perfection."
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card">
+                        <h3 class="restaurant-name">Fishy Fishy</h3>
+                        <div class="restaurant-location">Kinsale</div>
+                        <p class="restaurant-description">
+                            Legendary seafood restaurant that put Kinsale on the culinary map. Known for the freshest catch and an atmosphere that's both elegant and welcoming.
+                        </p>
+                        <div class="restaurant-highlight">
+                            "If you only eat one meal in Kinsale, make it here. The seafood chowder alone is worth the trip."
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card">
+                        <h3 class="restaurant-name">Poachers Inn</h3>
+                        <div class="restaurant-location">Bandon</div>
+                        <p class="restaurant-description">
+                            Charming riverside restaurant serving modern Irish cuisine. The converted 18th-century inn offers intimate dining with views over the Bandon River.
+                        </p>
+                        <div class="restaurant-highlight">
+                            "Perfect for romantic dinners or special occasions. The lamb is exceptional."
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card">
+                        <h3 class="restaurant-name">Manning's Emporium</h3>
+                        <div class="restaurant-location">Ballylickey</div>
+                        <p class="restaurant-description">
+                            Farm-to-table dining at its finest. This family-run establishment grows much of what they serve, creating dishes that truly capture the taste of West Cork.
+                        </p>
+                        <div class="restaurant-highlight">
+                            "The ultimate farm-to-fork experience. Every bite tells the story of this beautiful landscape."
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card">
+                        <h3 class="restaurant-name">O'Connell's Bar</h3>
+                        <div class="restaurant-location">Ahakista</div>
+                        <p class="restaurant-description">
+                            Traditional Irish pub with spectacular views over Dunmanus Bay. Known for excellent seafood and that authentic Irish pub atmosphere.
+                        </p>
+                        <div class="restaurant-highlight">
+                            "Come for the craic, stay for the sunset. The mussels are incredible."
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card">
+                        <h3 class="restaurant-name">The Beacon</h3>
+                        <div class="restaurant-location">Baltimore</div>
+                        <p class="restaurant-description">
+                            Waterfront dining with panoramic harbor views. Specializes in locally caught seafood and has one of the best wine lists in the region.
+                        </p>
+                        <div class="restaurant-highlight">
+                            "Watch the fishing boats come in while enjoying the catch of the day. Pure magic."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Local Legends Section -->
+            <div class="guide-section">
+                <h2 class="section-title">Local Legends & Hidden Gems</h2>
+                
+                <div class="restaurant-grid">
+                    <div class="restaurant-card">
+                        <h3 class="restaurant-name">Mary Ann's Bar</h3>
+                        <div class="restaurant-location">Castletownshend</div>
+                        <p class="restaurant-description">
+                            Unchanged for decades, this authentic Irish pub serves simple, honest food in an atmosphere that feels like stepping back in time.
+                        </p>
+                        <div class="restaurant-highlight">
+                            "Where locals have been drinking for generations. The Irish stew is legendary."
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card">
+                        <h3 class="restaurant-name">Cronin's Pub</h3>
+                        <div class="restaurant-location">Crosshaven</div>
+                        <p class="restaurant-description">
+                            Family-run pub known for traditional music sessions and hearty pub grub. The kind of place where strangers become friends.
+                        </p>
+                        <div class="restaurant-highlight">
+                            "Bring your instrument if you play. The music sessions here are the stuff of legend."
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card">
+                        <h3 class="restaurant-name">Hackett's Bar</h3>
+                        <div class="restaurant-location">Schull</div>
+                        <p class="restaurant-description">
+                            Traditional Irish pub with a modern twist. Excellent craft beer selection and a menu that celebrates local ingredients.
+                        </p>
+                        <div class="restaurant-highlight">
+                            "The perfect balance of traditional and contemporary. Try the black pudding."
+                        </div>
+                    </div>
+
+                    <div class="restaurant-card">
+                        <h3 class="restaurant-name">Bushe's Bar</h3>
+                        <div class="restaurant-location">Baltimore</div>
+                        <p class="restaurant-description">
+                            Historic harbor-side pub with maritime charm. Known for excellent seafood and views over Baltimore's picturesque harbor.
+                        </p>
+                        <div class="restaurant-highlight">
+                            "Order the seafood platter and watch the world go by. Quintessential West Cork."
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Attractions Section -->
+            <div class="guide-section">
+                <h2 class="section-title">Must-Visit Attractions</h2>
+                
+                <div class="attractions-list">
+                    <div class="attraction-item">
+                        <h4 class="attraction-name">Lough Hyne Marine Nature Reserve</h4>
+                        <p class="attraction-description">Ireland's first marine nature reserve, featuring unique saltwater lake ecosystem perfect for swimming and kayaking.</p>
+                    </div>
+
+                    <div class="attraction-item">
+                        <h4 class="attraction-name">Sherkin Island</h4>
+                        <p class="attraction-description">Peaceful island retreat accessible by ferry from Baltimore, perfect for walking, birdwatching, and escaping the crowds.</p>
+                    </div>
+
+                    <div class="attraction-item">
+                        <h4 class="attraction-name">Drombeg Stone Circle</h4>
+                        <p class="attraction-description">Ancient Bronze Age stone circle with dramatic coastal views, offering a glimpse into Ireland's prehistoric past.</p>
+                    </div>
+
+                    <div class="attraction-item">
+                        <h4 class="attraction-name">Mizen Head</h4>
+                        <p class="attraction-description">Ireland's most southwesterly point, featuring dramatic cliffs, lighthouse, and some of the country's most spectacular coastal scenery.</p>
+                    </div>
+
+                    <div class="attraction-item">
+                        <h4 class="attraction-name">Bantry House & Gardens</h4>
+                        <p class="attraction-description">Elegant 18th-century mansion with stunning formal gardens overlooking Bantry Bay, showcasing centuries of Irish history.</p>
+                    </div>
+
+                    <div class="attraction-item">
+                        <h4 class="attraction-name">West Cork Model Railway Village</h4>
+                        <p class="attraction-description">Charming miniature recreation of West Cork's towns and villages, perfect for families and train enthusiasts.</p>
+                    </div>
+
+                    <div class="attraction-item">
+                        <h4 class="attraction-name">Schull Country Market</h4>
+                        <p class="attraction-description">Saturday morning farmers market featuring local produce, artisan foods, and crafts - the heart of the community.</p>
+                    </div>
+
+                    <div class="attraction-item">
+                        <h4 class="attraction-name">Heir Island</h4>
+                        <p class="attraction-description">Small island accessible by boat, offering peaceful walks, art studios, and stunning views back to the mainland.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Planning Your Visit -->
+            <div class="guide-section">
+                <div class="intro-text">
+                    <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--forest); margin-bottom: 1rem;">Planning Your West Cork Adventure</h3>
+                    <p style="margin-bottom: 1rem;">
+                        West Cork rewards slow travel. Give yourself time to wander the coastal roads, stop at viewpoints, and chat with locals. Many of the best experiences can't be rushed—from waiting for the perfect sunset at Mizen Head to lingering over a pint in a traditional pub.
+                    </p>
+                    <p>
+                        The region is particularly beautiful in spring and early autumn when the crowds have thinned but the weather remains mild. Summer brings festivals and long days, while winter offers cozy fireside evenings and dramatic storm-watching opportunities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

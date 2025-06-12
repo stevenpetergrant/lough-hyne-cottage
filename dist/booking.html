@@ -6,13 +6,14 @@
     <title>Book Your Stay - Lough Hyne Cottage West Cork</title>
     <meta name="description" content="Book eco luxury accommodation at Lough Hyne Cottage, Ireland's first marine nature reserve. Choose from cabin stays, sauna sessions, yoga retreats and bread making workshops.">
     <meta name="keywords" content="book West Cork accommodation, Lough Hyne cottage booking, eco cabin rental Ireland, sauna booking Cork, yoga retreat booking">
+    
     <link rel="icon" type="image/png" href="/assets/generated-icon.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
         
         :root {
             --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-heading: 'Playfair Display', serif;
+            --font-heading: 'Crimson Text', serif;
             --forest: #1e3a3a;
             --sage: #7da87d;
             --terracotta: #d2691e;
@@ -20,11 +21,7 @@
             --natural-white: #fafafa;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
             font-family: var(--font-primary);
@@ -35,9 +32,7 @@
         
         .nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 50;
             background-color: rgba(250, 250, 250, 0.95);
             backdrop-filter: blur(10px);
@@ -68,9 +63,7 @@
         }
         
         @media (min-width: 768px) {
-            .nav-links {
-                display: flex;
-            }
+            .nav-links { display: flex; }
         }
         
         .nav-link {
@@ -80,126 +73,227 @@
             transition: color 0.3s ease;
         }
         
-        .nav-link:hover {
-            color: var(--sage);
-        }
-        
         .container {
             max-width: 80rem;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
         
-        .booking-section {
-            padding: 8rem 0 5rem 0;
+        .main-content {
+            padding-top: 5rem;
+            padding-bottom: 4rem;
         }
         
-        .booking-title {
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .page-title {
             font-family: var(--font-heading);
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: var(--forest);
-            text-align: center;
             margin-bottom: 1.5rem;
         }
         
-        .booking-subtitle {
+        @media (min-width: 768px) {
+            .page-title { font-size: 3rem; }
+        }
+        
+        @media (min-width: 1024px) {
+            .page-title { font-size: 4rem; }
+        }
+        
+        .page-subtitle {
             font-size: 1.25rem;
             color: #6b7280;
-            text-align: center;
-            max-width: 42rem;
+            max-width: 32rem;
             margin: 0 auto 3rem auto;
+            line-height: 1.7;
         }
         
         .cottage-details {
             background-color: var(--cream);
-            border-radius: 1.5rem;
+            border-radius: 1rem;
             padding: 2rem;
             margin-bottom: 3rem;
+            text-align: left;
         }
         
-        .cottage-details h2 {
+        .section-title {
             font-family: var(--font-heading);
-            font-size: 2rem;
+            font-size: 1.875rem;
             font-weight: bold;
             color: var(--forest);
             text-align: center;
             margin-bottom: 2rem;
         }
         
-        .cottage-grid {
+        .content-grid {
             display: grid;
-            grid-template-columns: 1fr;
             gap: 2rem;
             align-items: center;
             margin-bottom: 2.5rem;
         }
         
         @media (min-width: 1024px) {
-            .cottage-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .content-grid { grid-template-columns: 1fr 1fr; }
         }
         
-        .cottage-text {
+        .content-text {
             font-size: 1.125rem;
             line-height: 1.7;
-            color: #6b7280;
+            color: #374151;
         }
         
-        .cottage-image {
-            width: 100%;
-            height: 16rem;
-            object-fit: cover;
+        .image-container {
             border-radius: 0.75rem;
+            overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 16rem;
+            background-color: rgba(125, 168, 125, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .image-gallery {
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+        
+        .subsection-title {
+            font-weight: 600;
+            color: var(--forest);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .image-grid-2 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .image-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .image-grid-4 { grid-template-columns: repeat(4, 1fr); }
+        }
+        
+        .image-grid-6 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
             margin-bottom: 2rem;
         }
         
-        .gallery-thumb {
-            width: 100%;
-            height: 6rem;
-            object-fit: cover;
+        @media (min-width: 768px) {
+            .image-grid-6 { grid-template-columns: repeat(4, 1fr); }
+        }
+        
+        @media (min-width: 1024px) {
+            .image-grid-6 { grid-template-columns: repeat(6, 1fr); }
+        }
+        
+        .small-image {
+            height: 8rem;
             border-radius: 0.5rem;
+            overflow: hidden;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: rgba(125, 168, 125, 0.1);
+        }
+        
+        .small-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s ease;
         }
         
-        .gallery-thumb:hover {
+        .small-image:hover img {
             transform: scale(1.05);
         }
         
-        .booking-form-container {
+        .what-included {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(125, 168, 125, 0.2);
+        }
+        
+        .included-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .included-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        .included-item {
+            text-align: center;
+        }
+        
+        .included-icon {
+            background-color: rgba(125, 168, 125, 0.1);
+            border-radius: 50%;
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.75rem auto;
+        }
+        
+        .included-title {
+            font-weight: 500;
+            color: var(--forest);
+            margin-bottom: 0.5rem;
+        }
+        
+        .included-desc {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .booking-section {
+            display: grid;
             gap: 3rem;
         }
         
         @media (min-width: 1024px) {
-            .booking-form-container {
-                grid-template-columns: 1fr 1fr;
-            }
+            .booking-section { grid-template-columns: 1fr 1fr; }
         }
         
-        .form-card {
+        .card {
             background: white;
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
-        .form-title {
+        .card-header {
+            padding: 1.5rem 1.5rem 0 1.5rem;
+        }
+        
+        .card-title {
             font-family: var(--font-heading);
             font-size: 1.5rem;
-            font-weight: 600;
             color: var(--forest);
-            margin-bottom: 1.5rem;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
         }
         
         .form-group {
@@ -217,15 +311,20 @@
             width: 100%;
             padding: 0.75rem;
             border: 1px solid #d1d5db;
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            transition: border-color 0.2s;
         }
         
         .form-input:focus, .form-select:focus {
             outline: none;
             border-color: var(--sage);
             box-shadow: 0 0 0 3px rgba(125, 168, 125, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 4rem;
+            resize: vertical;
         }
         
         .availability-legend {
@@ -260,38 +359,228 @@
             border-radius: 0.25rem;
         }
         
-        .legend-available { background-color: #10b981; }
-        .legend-booked { background-color: #ef4444; }
-        .legend-past { background-color: #d1d5db; }
-        .legend-selected { background-color: var(--terracotta); }
-        
-        .calendar-container {
+        .date-selection {
             margin-bottom: 1.5rem;
         }
         
-        .calendar-grid {
+        .date-labels {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .date-labels {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+        }
+        
+        .date-label {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--forest);
+        }
+        
+        .calendars-container {
             display: grid;
-            grid-template-columns: 1fr;
             gap: 1.5rem;
         }
         
         @media (min-width: 1024px) {
-            .calendar-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .calendars-container { grid-template-columns: 1fr 1fr; }
         }
         
-        .calendar-section {
+        .calendar-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         
-        .calendar-label {
-            font-size: 1.125rem;
+        .calendar {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 20rem;
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .calendar-nav {
+            background: none;
+            border: none;
+            color: var(--sage);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.2s;
+        }
+        
+        .calendar-nav:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .calendar-title {
             font-weight: 600;
             color: var(--forest);
-            margin-bottom: 1rem;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.125rem;
+            padding: 1rem;
+        }
+        
+        .day-header {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #6b7280;
+            padding: 0.5rem;
+            text-align: center;
+        }
+        
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-radius: 0.25rem;
+            margin: 0.125rem;
+        }
+        
+        .calendar-day:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .calendar-day.available {
+            background-color: #10b981;
+            color: white;
+        }
+        
+        .calendar-day.available:hover {
+            background-color: #059669;
+        }
+        
+        .calendar-day.booked {
+            background-color: #ef4444;
+            color: white;
+            cursor: not-allowed;
+        }
+        
+        .calendar-day.past {
+            background-color: #e5e7eb;
+            color: #9ca3af;
+            cursor: not-allowed;
+        }
+        
+        .calendar-day.selected {
+            background-color: var(--terracotta);
+            color: white;
+        }
+        
+        .calendar-day.today {
+            border: 2px solid var(--sage);
+            font-weight: 600;
+        }
+        
+        .calendar-day.other-month {
+            color: #d1d5db;
+        }
+        
+        .form-grid {
+            display: grid;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .form-grid { grid-template-columns: 1fr 1fr; }
+        }
+        
+        .addon-section {
+            background-color: rgba(125, 168, 125, 0.05);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .addon-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+        }
+        
+        .addon-item:not(:last-child) {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .addon-checkbox {
+            margin-top: 0.25rem;
+        }
+        
+        .addon-content {
+            flex: 1;
+        }
+        
+        .addon-title {
+            font-weight: 500;
+            color: var(--forest);
+            margin-bottom: 0.25rem;
+        }
+        
+        .addon-desc {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .addon-price {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--terracotta);
+        }
+        
+        .price-summary {
+            background-color: rgba(125, 168, 125, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            padding-top: 0.5rem;
+            border-top: 1px solid #d1d5db;
+        }
+        
+        .total-label {
+            font-size: 1.125rem;
+            color: var(--forest);
+        }
+        
+        .total-amount {
+            font-size: 1.5rem;
+            color: var(--terracotta);
         }
         
         .btn {
@@ -299,69 +588,39 @@
             align-items: center;
             justify-content: center;
             padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
+            border-radius: 0.375rem;
+            font-size: 1rem;
             font-weight: 500;
             text-decoration: none;
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
-            font-size: 1rem;
+            width: 100%;
         }
         
         .btn-primary {
             background-color: var(--terracotta);
             color: white;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
         }
         
         .btn-primary:hover {
             background-color: #b8591a;
         }
         
-        .btn-primary:disabled {
-            background-color: #9ca3af;
-            cursor: not-allowed;
-        }
-        
-        .pricing-summary {
-            background-color: rgba(125, 168, 125, 0.1);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .pricing-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-        
-        .pricing-total {
-            font-weight: bold;
-            color: var(--terracotta);
-            border-top: 1px solid #d1d5db;
-            padding-top: 0.5rem;
-        }
-        
-        .note {
+        .minimum-stay-note {
             font-size: 0.875rem;
             color: #6b7280;
-            background-color: #eff6ff;
+            background-color: #dbeafe;
             padding: 0.75rem;
             border-radius: 0.5rem;
-            margin-bottom: 1rem;
+            margin-top: 1rem;
         }
         
-        .calendar-placeholder {
-            width: 100%;
-            height: 20rem;
-            background-color: #f9fafb;
-            border: 2px dashed #d1d5db;
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7280;
-            font-style: italic;
+        .note-title {
+            font-weight: bold;
         }
     </style>
 </head>
@@ -374,235 +633,615 @@
                 <a href="/" class="nav-link">Home</a>
                 <a href="/#accommodations" class="nav-link">Stay</a>
                 <a href="/#experiences" class="nav-link">Experiences</a>
-                <a href="/#our-story" class="nav-link">Our Story</a>
+                <a href="/booking" class="nav-link">Book</a>
                 <a href="/#contact" class="nav-link">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Booking Section -->
-    <section class="booking-section">
+    <div class="main-content">
         <div class="container">
-            <h1 class="booking-title">Book Your Stay</h1>
-            <p class="booking-subtitle">
-                Choose your dates and experience the tranquility of Lough Hyne Cottage
-            </p>
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Book Your Stay</h1>
+                <p class="page-subtitle">
+                    Choose your dates and experience the tranquility of Lough Hyne Cottage
+                </p>
+            </div>
 
-            <!-- Cottage Details -->
+            <!-- Cottage Details Section -->
             <div class="cottage-details">
-                <h2>A Contemporary Cabin on Nature's Doorstep</h2>
+                <h2 class="section-title">A Contemporary Cabin on Nature's Doorstep</h2>
                 
-                <div class="cottage-grid">
+                <!-- Introduction -->
+                <div class="content-grid">
                     <div>
-                        <p class="cottage-text">
+                        <p class="content-text">
                             Nestled on the shores of Lough Hyne, our architecturally designed wood cabin combines the best of both worlds: nature and luxury. Built with local timber by skilled craftsmen, the cabin is cosy, bright and inspired by Danish Hygge principles. With heated concrete floors, a luxury double shower and plush Brooklin linens, we've created a space where you can relax, recharge and truly unwind.
                         </p>
                     </div>
+                    <div class="image-container">
+                        <img src="/assets/564ffca7-24e6-4a46-b1c3-01594660fee4 (1).avif" alt="Interior design and furnishings" loading="lazy">
+                    </div>
+                </div>
+
+                <!-- Cosy Comfort section -->
+                <div class="content-grid" style="margin-bottom: 2.5rem;">
                     <div>
-                        <img src="/assets/875e18f0-63ff-403a-96b2-00b46f716b15.jpg" alt="Lough Hyne Cottage cabin exterior" class="cottage-image">
+                        <h3 class="subsection-title">Cosy Comfort with a View</h3>
+                        <p class="content-text" style="margin-bottom: 1rem;">
+                            The open-plan design features a folding double bed, perfect for stretching out after a day of exploring. Want more space? The mezzanine offers an ideal spot for reading or stargazing, with stunning views over Lough Hyne.
+                        </p>
+                        <p class="content-text">
+                            When the weather's nice, the deck becomes your personal sanctuary—perfect for sipping coffee, reading a book or just soaking in the natural beauty.
+                        </p>
+                    </div>
+                    <div class="image-grid-2">
+                        <div class="image-container" style="height: 8rem;">
+                            <img src="/assets/1fcdcbe1-8e25-4379-8348-5cf861dcb9a9.avif" alt="Cabin interior with mezzanine" loading="lazy">
+                        </div>
+                        <div class="image-container" style="height: 8rem;">
+                            <img src="/assets/20240828_112944.jpg" alt="Private cabin deck" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Local Life section -->
+                <div class="content-grid" style="margin-bottom: 2.5rem;">
+                    <div class="image-grid-2" style="order: 2;">
+                        <div class="image-container" style="height: 10rem;">
+                            <img src="/assets/3e6384b4-52b2-4806-a231-cfeac7f37ecd.avif" alt="Cottage exterior and grounds" loading="lazy">
+                        </div>
+                        <div class="image-container" style="height: 10rem;">
+                            <img src="/assets/31d30d30-f0ad-4f30-948b-750ffef9b695.avif" alt="Farm and natural surroundings" loading="lazy">
+                        </div>
+                    </div>
+                    <div style="order: 1;">
+                        <h3 class="subsection-title">A Taste of Local Life</h3>
+                        <p class="content-text">
+                            At Lough Hyne Cottage, we take food seriously. Every Sunday, we bake wood-fired sourdough for the local market, using organic ingredients and old-school baking techniques. We also grow fresh veggies for top local restaurants, so if you're into farm-to-table, you're in the right place. Feel free to wander around the farm and sample whatever's in season. On Saturdays, we offer a breakfast basket with fresh bread and pastries for just €20.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Lough Experience -->
+                <div class="content-grid" style="margin-bottom: 2.5rem;">
+                    <div>
+                        <h3 class="subsection-title">The Lough Experience</h3>
+                        <p class="content-text" style="margin-bottom: 1rem;">
+                            Step outside, and you're just 50 metres from the Lough itself, where you can take a refreshing swim in Europe's only saltwater lake. In the colder months, the outdoor wood-fired bath is perfect for warming up and stargazing.
+                        </p>
+                        <p class="content-text">
+                            In winter, the cottage becomes a snug retreat, ideal for romantic getaways or quiet weekends spent reading, relaxing and enjoying the quiet.
+                        </p>
+                    </div>
+                    <div class="image-grid-2">
+                        <div class="image-container" style="height: 10rem;">
+                            <img src="/assets/299595f2-bc99-44f7-9ff6-b8e1841f403b.jpg" alt="Sunset over Lough Hyne" loading="lazy">
+                        </div>
+                        <div class="image-container" style="height: 10rem;">
+                            <img src="/assets/7a9c92b2-d126-400f-80d1-e94fefe359df.avif" alt="Lough Hyne waterfront" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- West Cork and Year-Round sections -->
+                <div class="content-grid" style="margin-bottom: 2rem;">
+                    <div>
+                        <h3 class="subsection-title">West Cork</h3>
+                        <p class="content-text" style="margin-bottom: 1rem;">
+                            Lough Hyne is situated in the heart of West Cork, known for its culinary scene and bohemian charm. With festivals, food markets and plenty of artistic energy, there's always something to explore.
+                        </p>
+                        <p class="content-text">
+                            But honestly, some of the best days are spent just soaking in the scenery, sipping coffee and enjoying the simple pleasures of life.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="subsection-title">Year-Round Bliss</h3>
+                        <p class="content-text">
+                            Whether it's summer swims in the Lough or winter nights by the outdoor bath, Lough Hyne Cottage offers a peaceful escape all year long. We've created a space where you can slow down and enjoy nature at its best. We can't wait to share it with you!
+                        </p>
                     </div>
                 </div>
 
                 <!-- Image Gallery -->
-                <div class="image-gallery">
-                    <img src="/assets/47f2fc56-77da-4be3-ac46-28261dc0e195-1.avif" alt="Deck overlooking Lough Hyne" class="gallery-thumb">
-                    <img src="/assets/47f2fc56-77da-4be3-ac46-28261dc0e195.avif" alt="Outdoor spaces" class="gallery-thumb">
-                    <img src="/assets/0065e263-1c66-4e24-ac8d-7e970e07c613.avif" alt="Cottage amenities" class="gallery-thumb">
-                    <img src="/assets/564ffca7-24e6-4a46-b1c3-01594660fee4 (1).avif" alt="Interior design" class="gallery-thumb">
-                    <img src="/assets/952f61ad-3790-4119-9d33-e66172515cd5.avif" alt="Living spaces" class="gallery-thumb">
-                    <img src="/assets/40755218-51a7-4bac-8253-f0945d021716.avif" alt="Property facilities" class="gallery-thumb">
-                    <img src="/assets/a9b87a9f-a157-4e44-81b2-4ad272b82ff6.avif" alt="Cabin comfort" class="gallery-thumb">
-                    <img src="/assets/b676476a-ceb8-4432-bf28-51f88ff4f9bd.avif" alt="Nature surroundings" class="gallery-thumb">
-                    <img src="/assets/ce5ac8e3-23d5-4aa9-9fcf-e0e13a896f0a.avif" alt="Architectural details" class="gallery-thumb">
-                    <img src="/assets/fc4dfcd6-c8fe-489e-a579-b1dd9cbb58fc.avif" alt="Scenic views" class="gallery-thumb">
-                    <img src="/assets/fef784d5-721e-4814-939c-9d3ce871e60d.avif" alt="Cottage experience" class="gallery-thumb">
-                    <img src="/assets/299595f2-bc99-44f7-9ff6-b8e1841f403b.jpg" alt="Lough sunset" class="gallery-thumb">
+                <div class="image-grid-6">
+                    <div class="small-image">
+                        <img src="/assets/47f2fc56-77da-4be3-ac46-28261dc0e195-1.avif" alt="Deck overlooking Lough Hyne" loading="lazy">
+                    </div>
+                    <div class="small-image">
+                        <img src="/assets/47f2fc56-77da-4be3-ac46-28261dc0e195.avif" alt="Outdoor spaces" loading="lazy">
+                    </div>
+                    <div class="small-image">
+                        <img src="/assets/0065e263-1c66-4e24-ac8d-7e970e07c613.avif" alt="Cottage amenities" loading="lazy">
+                    </div>
+                    <div class="small-image">
+                        <img src="/assets/875e18f0-63ff-403a-96b2-00b46f716b15.jpg" alt="Cabin exterior" loading="lazy">
+                    </div>
+                    <div class="small-image">
+                        <img src="/assets/952f61ad-3790-4119-9d33-e66172515cd5.avif" alt="Living spaces" loading="lazy">
+                    </div>
+                    <div class="small-image">
+                        <img src="/assets/40755218-51a7-4bac-8253-f0945d021716.avif" alt="Property facilities" loading="lazy">
+                    </div>
+                    <div class="small-image">
+                        <img src="/assets/a9b87a9f-a157-4e44-81b2-4ad272b82ff6.avif" alt="Cabin comfort" loading="lazy">
+                    </div>
+                    <div class="small-image">
+                        <img src="/assets/b676476a-ceb8-4432-bf28-51f88ff4f9bd.avif" alt="Nature surroundings" loading="lazy">
+                    </div>
+                    <div class="small-image">
+                        <img src="/assets/ce5ac8e3-23d5-4aa9-9fcf-e0e13a896f0a.avif" alt="Architectural details" loading="lazy">
+                    </div>
+                    <div class="small-image">
+                        <img src="/assets/fc4dfcd6-c8fe-489e-a579-b1dd9cbb58fc.avif" alt="Scenic views" loading="lazy">
+                    </div>
+                    <div class="small-image" style="grid-column: span 2;">
+                        <img src="/assets/fef784d5-721e-4814-939c-9d3ce871e60d.avif" alt="Cottage experience" loading="lazy">
+                    </div>
+                </div>
+                
+                <!-- What's Included -->
+                <div class="what-included">
+                    <h3 class="subsection-title" style="text-align: center; margin-bottom: 1.5rem;">What's Included</h3>
+                    <div class="included-grid">
+                        <div class="included-item">
+                            <div class="included-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-8 w-8" style="color: var(--sage);">
+                                    <path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>
+                                    <path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>
+                                    <path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>
+                                </svg>
+                            </div>
+                            <h4 class="included-title">Wood-Fired Bathtub</h4>
+                            <p class="included-desc">Private outdoor bathing under the stars with views of the lough</p>
+                        </div>
+                        <div class="included-item">
+                            <div class="included-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-8 w-8" style="color: var(--sage);">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5"/>
+                                    <path d="M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <h4 class="included-title">Nature Access</h4>
+                            <p class="included-desc">Direct access to Ireland's first marine nature reserve and woodlands</p>
+                        </div>
+                        <div class="included-item">
+                            <div class="included-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-8 w-8" style="color: var(--sage);">
+                                    <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                                    <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                                </svg>
+                            </div>
+                            <h4 class="included-title">Sustainable Comfort</h4>
+                            <p class="included-desc">Eco-friendly materials, solar power, and locally-sourced furnishings</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Booking Form -->
-            <div class="booking-form-container">
-                <!-- Experience Selection -->
-                <div class="form-card">
-                    <h2 class="form-title">Select Your Experience</h2>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Accommodation Type *</label>
-                        <select class="form-select" id="experienceType">
-                            <option value="">Select accommodation</option>
-                            <option value="cabin">Cabin at Lough Hyne Cottage w/ woodfired bathtub - €195</option>
-                        </select>
+            <!-- Booking Section -->
+            <div class="booking-section">
+                <!-- Booking Form -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Booking Details</h2>
                     </div>
+                    <div class="card-content">
+                        <form id="booking-form">
+                            <!-- Accommodation Selection -->
+                            <div class="form-group">
+                                <label class="form-label">Accommodation Type *</label>
+                                <select class="form-select" id="accommodation-type">
+                                    <option value="cabin">Cabin at Lough Hyne Cottage w/ woodfired bathtub - €250</option>
+                                </select>
+                            </div>
 
-                    <!-- Availability Legend -->
-                    <div class="availability-legend">
-                        <h4 class="legend-title">Date Availability Guide</h4>
-                        <div class="legend-items">
-                            <div class="legend-item">
-                                <div class="legend-color legend-available"></div>
-                                <span>Available dates</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color legend-booked"></div>
-                                <span>Booked dates</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color legend-past"></div>
-                                <span>Past dates</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color legend-selected"></div>
-                                <span>Selected dates</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Date Selection -->
-                    <div class="calendar-container">
-                        <div class="calendar-grid">
-                            <div class="calendar-section">
-                                <label class="calendar-label">Check-in Date *</label>
-                                <div class="calendar-placeholder">
-                                    Calendar component would be integrated here
+                            <!-- Availability Legend -->
+                            <div class="availability-legend">
+                                <h4 class="legend-title">Date Availability Guide</h4>
+                                <div class="legend-items">
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #10b981;"></div>
+                                        <span>Available dates</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #ef4444;"></div>
+                                        <span>Booked dates</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: #e5e7eb;"></div>
+                                        <span>Past dates</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <div class="legend-color" style="background-color: var(--terracotta);"></div>
+                                        <span>Selected dates</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="calendar-section">
-                                <label class="calendar-label">Check-out Date *</label>
-                                <div class="calendar-placeholder">
-                                    Calendar component would be integrated here
+
+                            <!-- Date Selection -->
+                            <div class="date-selection">
+                                <div class="date-labels">
+                                    <label class="date-label">Check-in Date *</label>
+                                    <label class="date-label">Check-out Date *</label>
+                                </div>
+                                
+                                <div class="calendars-container">
+                                    <div class="calendar-wrapper">
+                                        <div class="calendar" id="checkin-calendar">
+                                            <div class="calendar-header">
+                                                <button type="button" class="calendar-nav" id="checkin-prev">&lt;</button>
+                                                <div class="calendar-title" id="checkin-title"></div>
+                                                <button type="button" class="calendar-nav" id="checkin-next">&gt;</button>
+                                            </div>
+                                            <div class="calendar-grid" id="checkin-grid"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="calendar-wrapper">
+                                        <div class="calendar" id="checkout-calendar">
+                                            <div class="calendar-header">
+                                                <button type="button" class="calendar-nav" id="checkout-prev">&lt;</button>
+                                                <div class="calendar-title" id="checkout-title"></div>
+                                                <button type="button" class="calendar-nav" id="checkout-next">&gt;</button>
+                                            </div>
+                                            <div class="calendar-grid" id="checkout-grid"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="minimum-stay-note">
+                                    <span class="note-title">Note:</span> Cabin bookings require a minimum stay of 2 nights. Check-out must be at least 2 days after check-in.
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="note">
-                        <strong>Note:</strong> Cabin bookings require a minimum stay of 2 nights. Check-out must be at least 2 days after check-in.
-                    </div>
+                            <!-- Personal Information -->
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">Full Name *</label>
+                                    <input type="text" class="form-input" id="customer-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Email *</label>
+                                    <input type="email" class="form-input" id="customer-email" required>
+                                </div>
+                            </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Number of Guests *</label>
-                        <select class="form-select" id="guests">
-                            <option value="1">1 Guest</option>
-                            <option value="2">2 Guests</option>
-                        </select>
+                            <div class="form-group">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-input" id="customer-phone">
+                            </div>
+
+                            <!-- Guests -->
+                            <div class="form-group">
+                                <label class="form-label">Number of Guests</label>
+                                <select class="form-select" id="guests">
+                                    <option value="1">1 Guest</option>
+                                    <option value="2">2 Guests</option>
+                                    <option value="3">3 Guests</option>
+                                    <option value="4">4 Guests</option>
+                                    <option value="5">5 Guests</option>
+                                    <option value="6">6 Guests</option>
+                                    <option value="7">7 Guests</option>
+                                    <option value="8">8 Guests</option>
+                                </select>
+                            </div>
+
+                            <!-- Add-On Options -->
+                            <div class="form-group">
+                                <label class="form-label" style="font-size: 1.125rem; font-weight: 600;">Enhance Your Stay</label>
+                                
+                                <div class="addon-section">
+                                    <div class="addon-item">
+                                        <input type="checkbox" class="addon-checkbox" id="sauna-addon">
+                                        <div class="addon-content">
+                                            <label for="sauna-addon" class="addon-title" style="cursor: pointer;">Sauna Session</label>
+                                            <p class="addon-desc">1-hour authentic sauna experience with eucalyptus aromatherapy</p>
+                                        </div>
+                                        <span class="addon-price">€70</span>
+                                    </div>
+
+                                    <div class="addon-item">
+                                        <input type="checkbox" class="addon-checkbox" id="breakfast-addon">
+                                        <div class="addon-content">
+                                            <label for="breakfast-addon" class="addon-title" style="cursor: pointer;">Morning Breakfast Basket (Saturday only)</label>
+                                            <p class="addon-desc">Fresh artisan breads and local produce from Lough Hyne Bakery - delivered on Saturday mornings</p>
+                                        </div>
+                                        <span class="addon-price">€25</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Special Requests -->
+                            <div class="form-group">
+                                <label class="form-label">Special Requests</label>
+                                <textarea class="form-input form-textarea" id="special-requests" placeholder="Any special requests or dietary requirements..."></textarea>
+                            </div>
+
+                            <!-- Price Summary -->
+                            <div class="price-summary">
+                                <div class="price-row">
+                                    <span>Cabin at Lough Hyne Cottage</span>
+                                    <span id="base-price">€250.00</span>
+                                </div>
+                                <div class="price-row" id="sauna-price-row" style="display: none;">
+                                    <span>Finnish Sauna Session</span>
+                                    <span>€70.00</span>
+                                </div>
+                                <div class="price-row" id="breakfast-price-row" style="display: none;">
+                                    <span>Morning Breakfast Basket</span>
+                                    <span>€25.00</span>
+                                </div>
+                                <div class="price-total">
+                                    <span class="total-label">Total Price:</span>
+                                    <span class="total-amount" id="total-price">€250.00</span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">
+                                Book Your Stay - Complete Booking
+                            </button>
+                        </form>
                     </div>
                 </div>
 
-                <!-- Guest Details -->
-                <div class="form-card">
-                    <h2 class="form-title">Guest Details</h2>
-                    
-                    <div class="form-group">
-                        <label class="form-label">Full Name *</label>
-                        <input type="text" class="form-input" id="customerName" placeholder="Enter your full name">
+                <!-- Summary Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Your Booking Summary</h2>
                     </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Email Address *</label>
-                        <input type="email" class="form-input" id="customerEmail" placeholder="Enter your email address">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Phone Number</label>
-                        <input type="tel" class="form-input" id="customerPhone" placeholder="Enter your phone number">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Special Requests</label>
-                        <textarea class="form-input" id="specialRequests" rows="4" placeholder="Any special requests or dietary requirements?"></textarea>
-                    </div>
-
-                    <!-- Pricing Summary -->
-                    <div class="pricing-summary">
-                        <div class="pricing-row">
-                            <span>Accommodation (2 nights):</span>
-                            <span>€390.00</span>
-                        </div>
-                        <div class="pricing-row pricing-total">
-                            <span>Total:</span>
-                            <span>€390.00</span>
+                    <div class="card-content">
+                        <div id="booking-summary">
+                            <p style="color: #6b7280; font-style: italic;">Select your dates to see booking details</p>
                         </div>
                     </div>
-
-                    <button class="btn btn-primary" style="width: 100%;" onclick="submitBooking()">
-                        Complete Booking
-                    </button>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <script>
-        // Load experiences and availability
-        async function loadBookingData() {
-            try {
-                const [experiencesResponse, bookingsResponse] = await Promise.all([
-                    fetch('/api/experiences'),
-                    fetch('/api/airbnb-bookings')
-                ]);
-                
-                const experiences = await experiencesResponse.json();
-                const bookings = await bookingsResponse.json();
-                
-                console.log('Booking data loaded:', { experiences, bookings });
-                
-                // Populate experience options
-                const experienceSelect = document.getElementById('experienceType');
-                experiences.forEach(exp => {
-                    if (exp.type === 'cabin') {
-                        const option = document.createElement('option');
-                        option.value = exp.type;
-                        option.textContent = `${exp.name} - €${exp.basePrice}`;
-                        experienceSelect.appendChild(option);
-                    }
-                });
-                
-            } catch (error) {
-                console.error('Error loading booking data:', error);
-            }
+        // Calendar functionality
+        let checkinDate = null;
+        let checkoutDate = null;
+        let currentCheckinMonth = new Date();
+        let currentCheckoutMonth = new Date();
+        currentCheckoutMonth.setMonth(currentCheckoutMonth.getMonth() + 1);
+
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"];
+        const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        // Mock booked dates (replace with real data)
+        const bookedDates = [
+            '2025-06-15', '2025-06-16', '2025-06-17',
+            '2025-06-22', '2025-06-23', '2025-06-24',
+            '2025-07-01', '2025-07-02', '2025-07-03'
+        ];
+
+        function isDateBooked(date) {
+            const dateStr = date.toISOString().split('T')[0];
+            return bookedDates.includes(dateStr);
         }
 
-        async function submitBooking() {
-            const bookingData = {
-                experienceType: document.getElementById('experienceType').value,
-                customerName: document.getElementById('customerName').value,
-                customerEmail: document.getElementById('customerEmail').value,
-                customerPhone: document.getElementById('customerPhone').value,
-                guests: document.getElementById('guests').value,
-                specialRequests: document.getElementById('specialRequests').value,
-                checkIn: new Date().toISOString().split('T')[0], // Placeholder
-                checkOut: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // Placeholder
-            };
+        function isDatePast(date) {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            return date < today;
+        }
 
-            if (!bookingData.experienceType || !bookingData.customerName || !bookingData.customerEmail) {
-                alert('Please fill in all required fields');
+        function renderCalendar(calendarId, gridId, titleId, currentMonth, isCheckout = false) {
+            const titleElement = document.getElementById(titleId);
+            const gridElement = document.getElementById(gridId);
+            
+            if (!titleElement || !gridElement) {
+                console.error(`Calendar elements not found: ${titleId}, ${gridId}`);
                 return;
             }
-
-            try {
-                const response = await fetch('/api/bookings', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(bookingData),
-                });
-
-                const result = await response.json();
+            
+            titleElement.textContent = `${monthNames[currentMonth.getMonth()]} ${currentMonth.getFullYear()}`;
+            gridElement.innerHTML = '';
+            
+            // Add day headers
+            dayNames.forEach(day => {
+                const dayHeader = document.createElement('div');
+                dayHeader.className = 'day-header';
+                dayHeader.textContent = day;
+                gridElement.appendChild(dayHeader);
+            });
+            
+            // Get first day of month and number of days
+            const firstDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
+            const lastDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0);
+            const startingDay = firstDay.getDay();
+            const monthLength = lastDay.getDate();
+            
+            // Add empty cells for days before month starts
+            for (let i = 0; i < startingDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'calendar-day other-month';
+                gridElement.appendChild(emptyDay);
+            }
+            
+            // Add days of the month
+            for (let day = 1; day <= monthLength; day++) {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day';
+                dayElement.textContent = day;
                 
-                if (result.success) {
-                    alert('Booking submitted successfully! We will contact you to confirm your dates and arrange payment.');
+                const dayDate = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
+                
+                // Add appropriate classes
+                if (isDatePast(dayDate)) {
+                    dayElement.classList.add('past');
+                } else if (isDateBooked(dayDate)) {
+                    dayElement.classList.add('booked');
                 } else {
-                    alert('Error submitting booking. Please try again.');
+                    dayElement.classList.add('available');
+                    dayElement.addEventListener('click', () => {
+                        if (isCheckout) {
+                            if (checkinDate && dayDate > checkinDate) {
+                                // Check minimum 2 nights
+                                const timeDiff = dayDate.getTime() - checkinDate.getTime();
+                                const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+                                if (daysDiff >= 2) {
+                                    checkoutDate = dayDate;
+                                    updateCalendarsAndSummary();
+                                }
+                            }
+                        } else {
+                            checkinDate = dayDate;
+                            checkoutDate = null; // Reset checkout when checkin changes
+                            updateCalendarsAndSummary();
+                        }
+                    });
                 }
-            } catch (error) {
-                console.error('Error submitting booking:', error);
-                alert('Error submitting booking. Please try again.');
+                
+                // Check if today
+                const today = new Date();
+                if (dayDate.toDateString() === today.toDateString()) {
+                    dayElement.classList.add('today');
+                }
+                
+                // Check if selected
+                if ((isCheckout && checkoutDate && dayDate.getTime() === checkoutDate.getTime()) ||
+                    (!isCheckout && checkinDate && dayDate.getTime() === checkinDate.getTime())) {
+                    dayElement.classList.add('selected');
+                }
+                
+                gridElement.appendChild(dayElement);
             }
         }
 
-        // Load data when page loads
-        document.addEventListener('DOMContentLoaded', loadBookingData);
+        function updateCalendarsAndSummary() {
+            renderCalendar('checkin-calendar', 'checkin-grid', 'checkin-title', currentCheckinMonth, false);
+            renderCalendar('checkout-calendar', 'checkout-grid', 'checkout-title', currentCheckoutMonth, true);
+            updateBookingSummary();
+            updatePricing();
+        }
+
+        function updateBookingSummary() {
+            const summaryDiv = document.getElementById('booking-summary');
+            
+            if (checkinDate && checkoutDate) {
+                const nights = Math.ceil((checkoutDate.getTime() - checkinDate.getTime()) / (1000 * 60 * 60 * 24));
+                const guests = document.getElementById('guests').value;
+                
+                summaryDiv.innerHTML = `
+                    <div style="space-y: 0.5rem;">
+                        <p><strong>Accommodation:</strong> Cabin at Lough Hyne Cottage</p>
+                        <p><strong>Check-in:</strong> ${checkinDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                        <p><strong>Check-out:</strong> ${checkoutDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                        <p><strong>Duration:</strong> ${nights} night${nights > 1 ? 's' : ''}</p>
+                        <p><strong>Guests:</strong> ${guests}</p>
+                    </div>
+                `;
+            } else if (checkinDate) {
+                summaryDiv.innerHTML = `
+                    <div style="space-y: 0.5rem;">
+                        <p><strong>Accommodation:</strong> Cabin at Lough Hyne Cottage</p>
+                        <p><strong>Check-in:</strong> ${checkinDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                        <p style="color: #6b7280; font-style: italic;">Please select your check-out date</p>
+                    </div>
+                `;
+            } else {
+                summaryDiv.innerHTML = `<p style="color: #6b7280; font-style: italic;">Select your dates to see booking details</p>`;
+            }
+        }
+
+        function updatePricing() {
+            const basePrice = 250;
+            let total = basePrice;
+            let nights = 1;
+            
+            if (checkinDate && checkoutDate) {
+                nights = Math.ceil((checkoutDate.getTime() - checkinDate.getTime()) / (1000 * 60 * 60 * 24));
+                total = basePrice * nights;
+            }
+            
+            // Add-ons
+            const saunaChecked = document.getElementById('sauna-addon').checked;
+            const breakfastChecked = document.getElementById('breakfast-addon').checked;
+            
+            if (saunaChecked) {
+                total += 70;
+                document.getElementById('sauna-price-row').style.display = 'flex';
+            } else {
+                document.getElementById('sauna-price-row').style.display = 'none';
+            }
+            
+            if (breakfastChecked) {
+                total += 25;
+                document.getElementById('breakfast-price-row').style.display = 'flex';
+            } else {
+                document.getElementById('breakfast-price-row').style.display = 'none';
+            }
+            
+            document.getElementById('base-price').textContent = `€${(basePrice * nights).toFixed(2)}`;
+            document.getElementById('total-price').textContent = `€${total.toFixed(2)}`;
+        }
+
+        // Initialize calendars
+        renderCalendar('checkin-calendar', 'checkin-grid', 'checkin-title', currentCheckinMonth, false);
+        renderCalendar('checkout-calendar', 'checkout-grid', 'checkout-title', currentCheckoutMonth, true);
+
+        // Calendar navigation
+        document.getElementById('checkin-prev').addEventListener('click', () => {
+            currentCheckinMonth.setMonth(currentCheckinMonth.getMonth() - 1);
+            renderCalendar('checkin-calendar', 'checkin-grid', 'checkin-title', currentCheckinMonth, false);
+        });
+
+        document.getElementById('checkin-next').addEventListener('click', () => {
+            currentCheckinMonth.setMonth(currentCheckinMonth.getMonth() + 1);
+            renderCalendar('checkin-calendar', 'checkin-grid', 'checkin-title', currentCheckinMonth, false);
+        });
+
+        document.getElementById('checkout-prev').addEventListener('click', () => {
+            currentCheckoutMonth.setMonth(currentCheckoutMonth.getMonth() - 1);
+            renderCalendar('checkout-calendar', 'checkout-grid', 'checkout-title', currentCheckoutMonth, true);
+        });
+
+        document.getElementById('checkout-next').addEventListener('click', () => {
+            currentCheckoutMonth.setMonth(currentCheckoutMonth.getMonth() + 1);
+            renderCalendar('checkout-calendar', 'checkout-grid', 'checkout-title', currentCheckoutMonth, true);
+        });
+
+        // Add-on checkboxes
+        document.getElementById('sauna-addon').addEventListener('change', updatePricing);
+        document.getElementById('breakfast-addon').addEventListener('change', updatePricing);
+        document.getElementById('guests').addEventListener('change', updateBookingSummary);
+
+        // Form submission
+        document.getElementById('booking-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (!checkinDate || !checkoutDate) {
+                alert('Please select both check-in and check-out dates.');
+                return;
+            }
+            
+            const formData = {
+                accommodationType: document.getElementById('accommodation-type').value,
+                checkinDate: checkinDate,
+                checkoutDate: checkoutDate,
+                customerName: document.getElementById('customer-name').value,
+                customerEmail: document.getElementById('customer-email').value,
+                customerPhone: document.getElementById('customer-phone').value,
+                guests: document.getElementById('guests').value,
+                saunaAddon: document.getElementById('sauna-addon').checked,
+                breakfastAddon: document.getElementById('breakfast-addon').checked,
+                specialRequests: document.getElementById('special-requests').value,
+                totalPrice: document.getElementById('total-price').textContent
+            };
+            
+            alert('Booking request submitted! We will contact you shortly to confirm your reservation.');
+            console.log('Booking data:', formData);
+        });
+
+        // Initialize pricing
+        updatePricing();
     </script>
 </body>
 </html>

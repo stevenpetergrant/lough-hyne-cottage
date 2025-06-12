@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Lough Hyne Cottage</title>
+    <meta name="description" content="Admin dashboard for managing Lough Hyne Cottage bookings, experiences, and guest management.">
+    <link rel="icon" type="image/png" href="/assets/generated-icon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        :root {
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-heading: 'Crimson Text', serif;
+            --forest: #1e3a3a;
+            --sage: #7da87d;
+            --terracotta: #d2691e;
+            --cream: #f5f1eb;
+            --natural-white: #fafafa;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--natural-white);
+            color: var(--forest);
+            line-height: 1.6;
+        }
+        
+        .nav {
+            background-color: var(--forest);
+            color: white;
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--sage);
+        }
+        
+        .container {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--forest);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            .dashboard-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (min-width: 1024px) {
+            .dashboard-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 1rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--terracotta);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 1rem;
+        }
+        
+        .table-container {
+            background: white;
+            border-radius: 1rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .table th {
+            background-color: var(--cream);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            color: var(--forest);
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .table tbody tr:hover {
+            background-color: #f9fafb;
+        }
+        
+        .status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .status-confirmed {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        
+        .status-pending {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        
+        .status-cancelled {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--terracotta);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #b8591a;
+        }
+        
+        .btn-secondary {
+            background-color: #6b7280;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #4b5563;
+        }
+        
+        .login-form {
+            max-width: 24rem;
+            margin: 4rem auto;
+            background: white;
+            border-radius: 1rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 500;
+            color: var(--forest);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            transition: border-color 0.2s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--sage);
+            box-shadow: 0 0 0 3px rgba(125, 168, 125, 0.1);
+        }
+        
+        .dashboard-content {
+            display: none;
+        }
+        
+        .dashboard-content.active {
+            display: block;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Form -->
+    <div id="login-section">
+        <div class="container">
+            <div class="login-form">
+                <h1 class="page-title" style="margin-bottom: 1.5rem; font-size: 1.5rem;">Admin Login</h1>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-input" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-input" id="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div id="dashboard-section" class="dashboard-content">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-container">
+                <a href="/" class="nav-logo">Lough Hyne Cottage Admin</a>
+                <div class="nav-links">
+                    <a href="/" class="nav-link">Back to Site</a>
+                    <button class="btn btn-secondary" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1 class="page-title">Admin Dashboard</h1>
+
+            <!-- Stats Overview -->
+            <div class="dashboard-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="total-bookings">12</div>
+                    <div class="stat-label">Total Bookings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="pending-bookings">3</div>
+                    <div class="stat-label">Pending Bookings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="monthly-revenue">€3,250</div>
+                    <div class="stat-label">Monthly Revenue</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="occupancy-rate">78%</div>
+                    <div class="stat-label">Occupancy Rate</div>
+                </div>
+            </div>
+
+            <!-- Recent Bookings -->
+            <div class="section">
+                <h2 class="section-title">Recent Bookings</h2>
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Guest Name</th>
+                                <th>Experience</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Guests</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookings-table">
+                            <tr>
+                                <td>Sarah Mitchell</td>
+                                <td>Cabin Retreat</td>
+                                <td>2025-06-15</td>
+                                <td>2025-06-17</td>
+                                <td>2</td>
+                                <td>€500</td>
+                                <td><span class="status status-confirmed">Confirmed</span></td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="btn btn-primary" onclick="viewBooking(1)">View</button>
+                                        <button class="btn btn-secondary" onclick="editBooking(1)">Edit</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>James O'Connor</td>
+                                <td>Sauna Session</td>
+                                <td>2025-06-20</td>
+                                <td>-</td>
+                                <td>1</td>
+                                <td>€70</td>
+                                <td><span class="status status-pending">Pending</span></td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="btn btn-primary" onclick="viewBooking(2)">View</button>
+                                        <button class="btn btn-secondary" onclick="editBooking(2)">Edit</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Maria Santos</td>
+                                <td>Yoga Retreat</td>
+                                <td>2025-06-22</td>
+                                <td>-</td>
+                                <td>1</td>
+                                <td>€80</td>
+                                <td><span class="status status-confirmed">Confirmed</span></td>
+                                <td>
+                                    <div class="actions">
+                                        <button class="btn btn-primary" onclick="viewBooking(3)">View</button>
+                                        <button class="btn btn-secondary" onclick="editBooking(3)">Edit</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Calendar Management -->
+            <div class="section">
+                <h2 class="section-title">Calendar Management</h2>
+                <div class="table-container">
+                    <div style="padding: 2rem; text-align: center;">
+                        <p style="color: #6b7280; margin-bottom: 1rem;">Manage availability and blocked dates</p>
+                        <button class="btn btn-primary" onclick="manageCalendar()">Open Calendar Manager</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="section">
+                <h2 class="section-title">Quick Actions</h2>
+                <div class="dashboard-grid">
+                    <button class="btn btn-primary" onclick="addBooking()" style="padding: 1rem;">
+                        Add New Booking
+                    </button>
+                    <button class="btn btn-primary" onclick="manageExperiences()" style="padding: 1rem;">
+                        Manage Experiences
+                    </button>
+                    <button class="btn btn-primary" onclick="viewReports()" style="padding: 1rem;">
+                        View Reports
+                    </button>
+                    <button class="btn btn-primary" onclick="exportData()" style="padding: 1rem;">
+                        Export Data
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple authentication (in production, use proper auth)
+        const ADMIN_CREDENTIALS = {
+            username: 'admin',
+            password: 'loughhyne2025'
+        };
+
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+                document.getElementById('login-section').style.display = 'none';
+                document.getElementById('dashboard-section').classList.add('active');
+                
+                // Show admin link in main site navigation
+                const adminLink = document.getElementById('admin-link');
+                if (adminLink) {
+                    adminLink.style.display = 'block';
+                }
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        });
+
+        function logout() {
+            document.getElementById('dashboard-section').classList.remove('active');
+            document.getElementById('login-section').style.display = 'block';
+            document.getElementById('login-form').reset();
+            
+            // Hide admin link
+            const adminLink = document.getElementById('admin-link');
+            if (adminLink) {
+                adminLink.style.display = 'none';
+            }
+        }
+
+        function viewBooking(id) {
+            alert(`Viewing booking #${id}\n\nThis would open a detailed view of the booking with guest information, payment status, and special requests.`);
+        }
+
+        function editBooking(id) {
+            alert(`Editing booking #${id}\n\nThis would open an edit form where you can modify dates, guest count, and other booking details.`);
+        }
+
+        function addBooking() {
+            alert('Add New Booking\n\nThis would open a form to manually create a new booking for walk-in customers or phone reservations.');
+        }
+
+        function manageCalendar() {
+            alert('Calendar Manager\n\nThis would open a calendar interface where you can:\n- Block dates for maintenance\n- Set seasonal pricing\n- View booking density\n- Manage availability');
+        }
+
+        function manageExperiences() {
+            alert('Manage Experiences\n\nThis would allow you to:\n- Update experience descriptions\n- Modify pricing\n- Add new experiences\n- Set availability schedules');
+        }
+
+        function viewReports() {
+            alert('Reports Dashboard\n\nThis would show:\n- Revenue analytics\n- Booking trends\n- Guest demographics\n- Seasonal patterns\n- Export options');
+        }
+
+        function exportData() {
+            alert('Export Data\n\nThis would allow you to export:\n- Booking data (CSV/Excel)\n- Guest contact information\n- Financial reports\n- Calendar data');
+        }
+
+        // Auto-login for demo purposes (remove in production)
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('demo') === 'true') {
+                document.getElementById('username').value = ADMIN_CREDENTIALS.username;
+                document.getElementById('password').value = ADMIN_CREDENTIALS.password;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Stories - Lough Hyne Cottage West Cork</title>
+    <meta name="description" content="Read authentic guest stories and reviews from Lough Hyne Cottage. Discover what makes our eco-luxury accommodation special through the eyes of our visitors.">
+    <link rel="icon" type="image/png" href="/assets/generated-icon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        
+        :root {
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-heading: 'Crimson Text', serif;
+            --forest: #1e3a3a;
+            --sage: #7da87d;
+            --terracotta: #d2691e;
+            --cream: #f5f1eb;
+            --natural-white: #fafafa;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--natural-white);
+            color: var(--forest);
+            line-height: 1.6;
+        }
+        
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 50;
+            background-color: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(228, 228, 231, 0.5);
+            padding: 1rem 0;
+        }
+        
+        .nav-container {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .nav-logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+        
+        .nav-logo-img {
+            height: 1.5rem;
+            width: auto;
+            margin-right: 0.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .nav-logo-img {
+                height: 2rem;
+            }
+        }
+        
+        .nav-logo-text {
+            font-family: var(--font-heading);
+            font-size: 0.875rem;
+            font-weight: bold;
+            color: var(--forest);
+            display: none;
+        }
+        
+        @media (min-width: 640px) {
+            .nav-logo-text {
+                display: block;
+                font-size: 1.125rem;
+            }
+        }
+        
+        .nav-links {
+            display: none;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+        }
+        
+        .nav-link {
+            color: var(--forest);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .container {
+            max-width: 80rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .main-content {
+            padding-top: 5rem;
+            padding-bottom: 4rem;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .page-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--forest);
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .page-title { font-size: 3rem; }
+        }
+        
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            max-width: 48rem;
+            margin: 0 auto 3rem auto;
+            line-height: 1.7;
+        }
+        
+        .stories-grid {
+            display: grid;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 768px) {
+            .stories-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        .story-card {
+            background: white;
+            border-radius: 1rem;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .story-image {
+            height: 12rem;
+            background-color: var(--sage);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .story-content {
+            padding: 1.5rem;
+        }
+        
+        .story-quote {
+            font-style: italic;
+            font-size: 1.125rem;
+            color: var(--forest);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .story-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-color: var(--sage);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-name {
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 0.25rem;
+        }
+        
+        .author-location {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        .rating {
+            display: flex;
+            gap: 0.25rem;
+            margin-bottom: 1rem;
+        }
+        
+        .star {
+            color: #fbbf24;
+            font-size: 1.25rem;
+        }
+        
+        .featured-story {
+            background-color: var(--cream);
+            border-radius: 1rem;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .featured-quote {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--forest);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .featured-author {
+            font-weight: 600;
+            color: var(--terracotta);
+            margin-bottom: 0.5rem;
+        }
+        
+        .featured-details {
+            color: #6b7280;
+        }
+        
+        .cta-section {
+            background-color: var(--cream);
+            border-radius: 1rem;
+            padding: 3rem;
+            text-align: center;
+        }
+        
+        .cta-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--forest);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-description {
+            font-size: 1.125rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 2rem;
+            font-size: 1.125rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            background-color: var(--terracotta);
+            color: white;
+        }
+        
+        .btn:hover {
+            background-color: #b8591a;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo-container">
+                <img src="https://loughhynecottage.com/wp-content/uploads/2024/08/Untitled-design-12.png" alt="Lough Hyne Cottage" class="nav-logo-img">
+                <span class="nav-logo-text">Lough Hyne Cottage</span>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/our-story" class="nav-link">Our Story</a>
+                <a href="/events-experiences" class="nav-link">Experiences</a>
+                <a href="/wonderful-west-cork" class="nav-link">West Cork Guide</a>
+                <a href="/vouchers" class="nav-link">Gift Vouchers</a>
+                <a href="/guest-stories" class="nav-link">Guest Stories</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Guest Stories</h1>
+                <p class="page-subtitle">
+                    Hear from the people who have experienced the magic of Lough Hyne Cottage
+                </p>
+            </div>
+
+            <!-- Featured Story -->
+            <div class="featured-story">
+                <div class="featured-quote">
+                    "We came for a weekend but left with our souls restored. The wood-fired bathtub under the stars was pure magic, and waking up to the sunrise over Lough Hyne is something we'll treasure forever."
+                </div>
+                <div class="featured-author">Anna & Marcus</div>
+                <div class="featured-details">Amsterdam, Netherlands • Cabin Retreat</div>
+            </div>
+
+            <!-- Guest Stories Grid -->
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="/assets/875e18f0-63ff-403a-96b2-00b46f716b15.jpg" alt="Cottage view" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <div class="story-quote">
+                            "The most peaceful place I've ever stayed. The cabin is beautifully designed and the location is absolutely stunning. The wood-fired bathtub was the highlight - so romantic!"
+                        </div>
+                        <div class="story-author">
+                            <div class="author-avatar">J</div>
+                            <div class="author-info">
+                                <div class="author-name">Joseph</div>
+                                <div class="author-location">Cork, Ireland</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="/assets/20240828_112944.jpg" alt="Yoga session" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <div class="story-quote">
+                            "The yoga retreat was exactly what I needed. The instructor was amazing and the setting overlooking the lough created such a serene atmosphere. I left feeling completely refreshed."
+                        </div>
+                        <div class="story-author">
+                            <div class="author-avatar">K</div>
+                            <div class="author-info">
+                                <div class="author-name">Kerstin</div>
+                                <div class="author-location">Berlin, Germany</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="/assets/299595f2-bc99-44f7-9ff6-b8e1841f403b.jpg" alt="Sauna experience" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <div class="story-quote">
+                            "The sauna experience was incredible! So authentic and the setting in nature made it extra special. The hosts were wonderful and made us feel so welcome."
+                        </div>
+                        <div class="story-author">
+                            <div class="author-avatar">T</div>
+                            <div class="author-info">
+                                <div class="author-name">Thia</div>
+                                <div class="author-location">London, UK</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="/assets/1fcdcbe1-8e25-4379-8348-5cf861dcb9a9.avif" alt="Bread making" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <div class="story-quote">
+                            "Learning to make sourdough bread in the wood-fired oven was such a unique experience. We took home fresh loaves and so many wonderful memories. Highly recommend!"
+                        </div>
+                        <div class="story-author">
+                            <div class="author-avatar">S</div>
+                            <div class="author-info">
+                                <div class="author-name">Sarah</div>
+                                <div class="author-location">Dublin, Ireland</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="/assets/7a9c92b2-d126-400f-80d1-e94fefe359df.avif" alt="Lough view" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <div class="story-quote">
+                            "Swimming in Ireland's first marine nature reserve was a bucket list experience. The water is crystal clear and the ecosystem is fascinating. The hosts are true guardians of this special place."
+                        </div>
+                        <div class="story-author">
+                            <div class="author-avatar">M</div>
+                            <div class="author-info">
+                                <div class="author-name">Michael</div>
+                                <div class="author-location">Edinburgh, Scotland</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="/assets/564ffca7-24e6-4a46-b1c3-01594660fee4 (1).avif" alt="Interior comfort" loading="lazy">
+                    </div>
+                    <div class="story-content">
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                        </div>
+                        <div class="story-quote">
+                            "The attention to detail in the cabin is remarkable. From the luxury linens to the heated floors, every comfort has been considered. We felt pampered while staying connected to nature."
+                        </div>
+                        <div class="story-author">
+                            <div class="author-avatar">E</div>
+                            <div class="author-info">
+                                <div class="author-name">Emma</div>
+                                <div class="author-location">Barcelona, Spain</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <h2 class="cta-title">Create Your Own Story</h2>
+                <p class="cta-description">
+                    Join our growing community of guests who have discovered the magic of Lough Hyne Cottage. 
+                    Your story could be next.
+                </p>
+                <a href="/booking" class="btn">Book Your Experience</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
