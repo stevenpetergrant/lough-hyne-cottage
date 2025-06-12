@@ -1242,6 +1242,42 @@
 
         // Initialize pricing
         updatePricing();
+
+        // Handle experience-specific booking based on URL parameters
+        function initializeExperienceBooking() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const experienceType = urlParams.get('type');
+            
+            if (experienceType) {
+                const titleElement = document.querySelector('.booking-title');
+                const descriptionElement = document.querySelector('.booking-description');
+                
+                switch(experienceType) {
+                    case 'sauna':
+                        if (titleElement) titleElement.textContent = 'Book Your Sauna Session';
+                        if (descriptionElement) descriptionElement.textContent = 'Experience authentic Finnish sauna culture in our traditional wood-fired sauna overlooking Lough Hyne.';
+                        // Pre-select sauna addon
+                        document.getElementById('sauna-addon').checked = true;
+                        updatePricing();
+                        break;
+                    case 'yoga':
+                        if (titleElement) titleElement.textContent = 'Book Your Yoga Retreat';
+                        if (descriptionElement) descriptionElement.textContent = 'Join our monthly yoga mini-retreats surrounded by the natural beauty of Lough Hyne.';
+                        break;
+                    case 'bread':
+                        if (titleElement) titleElement.textContent = 'Book Your Bread Making Workshop';
+                        if (descriptionElement) descriptionElement.textContent = 'Learn the ancient art of sourdough baking in our traditional wood-fired oven.';
+                        break;
+                    case 'cabin':
+                        if (titleElement) titleElement.textContent = 'Book Your Cabin Stay';
+                        if (descriptionElement) descriptionElement.textContent = 'Experience sustainable luxury at our eco cabin overlooking Ireland\'s first marine nature reserve.';
+                        break;
+                }
+            }
+        }
+
+        // Initialize experience booking on page load
+        initializeExperienceBooking();
     </script>
 </body>
 </html>

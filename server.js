@@ -98,32 +98,36 @@ const server = createServer(async (req, res) => {
       }
     }
 
-    // Serve static files from dist directory
-    let filePath;
-    if (pathname === '/' || pathname === '/index.html') {
-      filePath = join(__dirname, 'dist', 'index.html');
-    } else if (pathname === '/booking' || pathname === '/booking.html') {
-      filePath = join(__dirname, 'dist', 'booking.html');
-    } else if (pathname === '/our-story') {
-      filePath = join(__dirname, 'dist', 'our-story.html');
-    } else if (pathname === '/vouchers') {
-      filePath = join(__dirname, 'dist', 'vouchers.html');
-    } else if (pathname === '/wonderful-west-cork') {
-      filePath = join(__dirname, 'dist', 'wonderful-west-cork.html');
-    } else if (pathname === '/admin') {
-      filePath = join(__dirname, 'dist', 'admin.html');
-    } else if (pathname === '/guest-stories') {
-      filePath = join(__dirname, 'dist', 'guest-stories.html');
-    } else {
-      filePath = join(__dirname, 'dist', pathname);
+    // Define SPA routes that should serve the React app
+    const spaRoutes = [
+      '/', '/index.html',
+      '/sauna-booking', '/yoga-booking', '/bread-booking',
+      '/cabin-booking', '/sauna-addon',
+      '/events-experiences', '/book',
+      '/payment', '/guest-experience', '/guest-experience-demo',
+      '/terms-conditions', '/privacy-policy', '/voucher-success'
+    ];
+
+    // Check if this is a static HTML page route
+    const staticPages = {
+      '/booking': 'booking.html',
+      '/our-story': 'our-story.html', 
+      '/vouchers': 'vouchers.html',
+      '/wonderful-west-cork': 'wonderful-west-cork.html',
+      '/admin': 'admin.html',
+      '/guest-stories': 'guest-stories.html'
+    };
+
+    // Serve static pages
+    if (staticPages[pathname]) {
+      const filePath = join(__dirname, 'dist', staticPages[pathname]);
+      if (serveStaticFile(filePath, res)) {
+        return;
+      }
     }
 
-    if (serveStaticFile(filePath, res)) {
-      return;
-    }
-
-    // Catch-all for SPA routing
-    if (!pathname.startsWith('/api/')) {
+    // Serve SPA routes or unknown routes with React app
+    if (spaRoutes.some(route => pathname.startsWith(route)) || !pathname.startsWith('/api/')) {
       const indexPath = join(__dirname, 'dist', 'index.html');
       if (serveStaticFile(indexPath, res)) {
         return;
