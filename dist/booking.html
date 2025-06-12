@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Your Stay - Lough Hyne Cottage</title>
-    <meta name="description" content="Book your eco-luxury stay at Lough Hyne Cottage, Ireland's first marine nature reserve. Choose from cabin accommodation, sauna sessions, yoga retreats and bread making workshops.">
-    
+    <title>Book Your Stay - Lough Hyne Cottage West Cork</title>
+    <meta name="description" content="Book eco luxury accommodation at Lough Hyne Cottage, Ireland's first marine nature reserve. Choose from cabin stays, sauna sessions, yoga retreats and bread making workshops.">
+    <meta name="keywords" content="book West Cork accommodation, Lough Hyne cottage booking, eco cabin rental Ireland, sauna booking Cork, yoga retreat booking">
     <link rel="icon" type="image/png" href="/assets/generated-icon.png">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
         
         :root {
             --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            --font-heading: 'Crimson Text', serif;
+            --font-heading: 'Playfair Display', serif;
             --forest: #1e3a3a;
             --sage: #7da87d;
             --terracotta: #d2691e;
@@ -20,7 +20,11 @@
             --natural-white: #fafafa;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
         body {
             font-family: var(--font-primary);
@@ -31,7 +35,9 @@
         
         .nav {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 50;
             background-color: rgba(250, 250, 250, 0.95);
             backdrop-filter: blur(10px);
@@ -62,7 +68,9 @@
         }
         
         @media (min-width: 768px) {
-            .nav-links { display: flex; }
+            .nav-links {
+                display: flex;
+            }
         }
         
         .nav-link {
@@ -72,151 +80,126 @@
             transition: color 0.3s ease;
         }
         
+        .nav-link:hover {
+            color: var(--sage);
+        }
+        
         .container {
             max-width: 80rem;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
         
-        .booking-page {
-            padding-top: 6rem;
-            padding-bottom: 4rem;
+        .booking-section {
+            padding: 8rem 0 5rem 0;
         }
         
-        .page-title {
+        .booking-title {
             font-family: var(--font-heading);
             font-size: 3rem;
             font-weight: bold;
             color: var(--forest);
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
         
-        .page-subtitle {
+        .booking-subtitle {
             font-size: 1.25rem;
             color: #6b7280;
             text-align: center;
-            max-width: 48rem;
+            max-width: 42rem;
             margin: 0 auto 3rem auto;
-            line-height: 1.7;
         }
         
-        .booking-grid {
-            display: grid;
-            gap: 2rem;
+        .cottage-details {
+            background-color: var(--cream);
+            border-radius: 1.5rem;
+            padding: 2rem;
             margin-bottom: 3rem;
         }
         
+        .cottage-details h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--forest);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .cottage-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+        
         @media (min-width: 1024px) {
-            .booking-grid {
+            .cottage-grid {
                 grid-template-columns: 1fr 1fr;
             }
         }
         
-        .card {
+        .cottage-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: #6b7280;
+        }
+        
+        .cottage-image {
+            width: 100%;
+            height: 16rem;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .gallery-thumb {
+            width: 100%;
+            height: 6rem;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-thumb:hover {
+            transform: scale(1.05);
+        }
+        
+        .booking-form-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .booking-form-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .form-card {
             background: white;
             border-radius: 1rem;
             padding: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
-        .card-title {
+        .form-title {
             font-family: var(--font-heading);
             font-size: 1.5rem;
             font-weight: 600;
             color: var(--forest);
-            margin-bottom: 1rem;
-        }
-        
-        .calendar-container {
-            margin-bottom: 2rem;
-        }
-        
-        .calendar-grid {
-            display: grid;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-            .calendar-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        
-        .calendar {
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            background: white;
-        }
-        
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        .calendar-title {
-            font-weight: 600;
-            color: var(--forest);
-        }
-        
-        .calendar-nav {
-            background: none;
-            border: none;
-            color: var(--sage);
-            cursor: pointer;
-            padding: 0.25rem;
-            border-radius: 0.25rem;
-            transition: background-color 0.2s;
-        }
-        
-        .calendar-nav:hover {
-            background-color: #f3f4f6;
-        }
-        
-        .calendar-days {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 0.25rem;
-            text-align: center;
-        }
-        
-        .calendar-day-header {
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: #6b7280;
-            padding: 0.5rem 0;
-        }
-        
-        .calendar-day {
-            padding: 0.5rem;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 0.875rem;
-        }
-        
-        .calendar-day:hover {
-            background-color: #f3f4f6;
-        }
-        
-        .calendar-day.selected {
-            background-color: var(--sage);
-            color: white;
-        }
-        
-        .calendar-day.other-month {
-            color: #d1d5db;
-        }
-        
-        .calendar-day.disabled {
-            color: #d1d5db;
-            cursor: not-allowed;
+            margin-bottom: 1.5rem;
         }
         
         .form-group {
@@ -230,40 +213,85 @@
             margin-bottom: 0.5rem;
         }
         
-        .form-input {
+        .form-input, .form-select {
             width: 100%;
             padding: 0.75rem;
             border: 1px solid #d1d5db;
             border-radius: 0.5rem;
             font-size: 1rem;
-            transition: border-color 0.2s;
+            transition: border-color 0.3s ease;
         }
         
-        .form-input:focus {
+        .form-input:focus, .form-select:focus {
             outline: none;
             border-color: var(--sage);
             box-shadow: 0 0 0 3px rgba(125, 168, 125, 0.1);
         }
         
-        .form-textarea {
-            min-height: 4rem;
-            resize: vertical;
-        }
-        
-        .form-select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #d1d5db;
+        .availability-legend {
+            background-color: var(--cream);
+            padding: 1rem;
             border-radius: 0.5rem;
-            font-size: 1rem;
-            background-color: white;
-            transition: border-color 0.2s;
+            margin-bottom: 1rem;
         }
         
-        .form-select:focus {
-            outline: none;
-            border-color: var(--sage);
-            box-shadow: 0 0 0 3px rgba(125, 168, 125, 0.1);
+        .legend-title {
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 0.75rem;
+        }
+        
+        .legend-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .legend-color {
+            width: 1rem;
+            height: 1rem;
+            border-radius: 0.25rem;
+        }
+        
+        .legend-available { background-color: #10b981; }
+        .legend-booked { background-color: #ef4444; }
+        .legend-past { background-color: #d1d5db; }
+        .legend-selected { background-color: var(--terracotta); }
+        
+        .calendar-container {
+            margin-bottom: 1.5rem;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .calendar-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .calendar-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .calendar-label {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--forest);
+            margin-bottom: 1rem;
         }
         
         .btn {
@@ -272,12 +300,12 @@
             justify-content: center;
             padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
-            font-size: 1rem;
             font-weight: 500;
             text-decoration: none;
             transition: all 0.3s ease;
             cursor: pointer;
             border: none;
+            font-size: 1rem;
         }
         
         .btn-primary {
@@ -289,80 +317,51 @@
             background-color: #b8591a;
         }
         
-        .price-summary {
-            background-color: var(--cream);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            margin-top: 2rem;
+        .btn-primary:disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
         }
         
-        .price-row {
+        .pricing-summary {
+            background-color: rgba(125, 168, 125, 0.1);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .pricing-row {
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.5rem;
         }
         
-        .price-total {
-            display: flex;
-            justify-content: space-between;
-            font-weight: bold;
-            font-size: 1.125rem;
-            padding-top: 0.5rem;
-            border-top: 1px solid #d1d5db;
-        }
-        
-        .experience-options {
-            display: grid;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .experience-option {
-            border: 2px solid #e5e7eb;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        
-        .experience-option:hover {
-            border-color: var(--sage);
-        }
-        
-        .experience-option.selected {
-            border-color: var(--sage);
-            background-color: rgba(125, 168, 125, 0.1);
-        }
-        
-        .experience-title {
-            font-weight: 600;
-            color: var(--forest);
-            margin-bottom: 0.25rem;
-        }
-        
-        .experience-price {
+        .pricing-total {
             font-weight: bold;
             color: var(--terracotta);
+            border-top: 1px solid #d1d5db;
+            padding-top: 0.5rem;
         }
         
-        .experience-description {
-            color: #6b7280;
+        .note {
             font-size: 0.875rem;
-            margin-top: 0.5rem;
-        }
-        
-        .gallery-images {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .gallery-image {
-            width: 100%;
-            height: 8rem;
-            object-fit: cover;
+            color: #6b7280;
+            background-color: #eff6ff;
+            padding: 0.75rem;
             border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .calendar-placeholder {
+            width: 100%;
+            height: 20rem;
+            background-color: #f9fafb;
+            border: 2px dashed #d1d5db;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-style: italic;
         }
     </style>
 </head>
@@ -375,343 +374,235 @@
                 <a href="/" class="nav-link">Home</a>
                 <a href="/#accommodations" class="nav-link">Stay</a>
                 <a href="/#experiences" class="nav-link">Experiences</a>
-                <a href="/booking" class="nav-link">Book</a>
+                <a href="/#our-story" class="nav-link">Our Story</a>
                 <a href="/#contact" class="nav-link">Contact</a>
             </div>
         </div>
     </nav>
 
-    <div class="booking-page">
+    <!-- Booking Section -->
+    <section class="booking-section">
         <div class="container">
-            <h1 class="page-title">Book Your Lough Hyne Experience</h1>
-            <p class="page-subtitle">
-                Choose from our cabin accommodation and curated experiences in Ireland's first marine nature reserve
+            <h1 class="booking-title">Book Your Stay</h1>
+            <p class="booking-subtitle">
+                Choose your dates and experience the tranquility of Lough Hyne Cottage
             </p>
 
-            <!-- Gallery Images -->
-            <div class="gallery-images">
-                <img src="/assets/564ffca7-24e6-4a46-b1c3-01594660fee4 (1).avif" alt="Cottage exterior" class="gallery-image">
-                <img src="/assets/47f2fc56-77da-4be3-ac46-28261dc0e195-1.avif" alt="Cottage interior" class="gallery-image">
-                <img src="/assets/299595f2-bc99-44f7-9ff6-b8e1841f403b.jpg" alt="Sauna experience" class="gallery-image">
-                <img src="/assets/20240828_112944.jpg" alt="Yoga session" class="gallery-image">
-                <img src="/assets/1fcdcbe1-8e25-4379-8348-5cf861dcb9a9.avif" alt="Bread making" class="gallery-image">
-                <img src="/assets/a9b87a9f-a157-4e44-81b2-4ad272b82ff6.avif" alt="Cottage view" class="gallery-image">
-            </div>
-
-            <div class="booking-grid">
-                <!-- Experience Selection -->
-                <div class="card">
-                    <h2 class="card-title">Choose Your Experience</h2>
-                    
-                    <div class="experience-options">
-                        <div class="experience-option selected" data-experience="cabin" data-price="250">
-                            <div class="experience-title">Cabin Accommodation</div>
-                            <div class="experience-price">€250/night</div>
-                            <div class="experience-description">
-                                Luxury eco cabin with stunning views of Lough Hyne. Includes breakfast basket and access to all facilities.
-                            </div>
-                        </div>
-                        
-                        <div class="experience-option" data-experience="sauna" data-price="70">
-                            <div class="experience-title">Sauna Session</div>
-                            <div class="experience-price">€70/session</div>
-                            <div class="experience-description">
-                                Traditional wood-fired sauna experience with natural setting and wellness focus.
-                            </div>
-                        </div>
-                        
-                        <div class="experience-option" data-experience="yoga" data-price="80">
-                            <div class="experience-title">Yoga Mini-Retreat</div>
-                            <div class="experience-price">€80/person</div>
-                            <div class="experience-description">
-                                Full day yoga session with California-West Cork fusion meals and peaceful natural setting.
-                            </div>
-                        </div>
-                        
-                        <div class="experience-option" data-experience="bread" data-price="135">
-                            <div class="experience-title">Bread Making Workshop</div>
-                            <div class="experience-price">€135/person</div>
-                            <div class="experience-description">
-                                Wood-fired bread making with sourdough starter and fresh breads to take home.
-                            </div>
-                        </div>
+            <!-- Cottage Details -->
+            <div class="cottage-details">
+                <h2>A Contemporary Cabin on Nature's Doorstep</h2>
+                
+                <div class="cottage-grid">
+                    <div>
+                        <p class="cottage-text">
+                            Nestled on the shores of Lough Hyne, our architecturally designed wood cabin combines the best of both worlds: nature and luxury. Built with local timber by skilled craftsmen, the cabin is cosy, bright and inspired by Danish Hygge principles. With heated concrete floors, a luxury double shower and plush Brooklin linens, we've created a space where you can relax, recharge and truly unwind.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="/assets/875e18f0-63ff-403a-96b2-00b46f716b15.jpg" alt="Lough Hyne Cottage cabin exterior" class="cottage-image">
                     </div>
                 </div>
 
-                <!-- Date Selection -->
-                <div class="card">
-                    <h2 class="card-title">Select Your Dates</h2>
-                    
-                    <div class="calendar-grid">
-                        <!-- Check-in Calendar -->
-                        <div class="calendar-container">
-                            <label class="form-label">Check-in Date</label>
-                            <div class="calendar" id="checkin-calendar">
-                                <div class="calendar-header">
-                                    <button class="calendar-nav" id="checkin-prev">&lt;</button>
-                                    <div class="calendar-title" id="checkin-title"></div>
-                                    <button class="calendar-nav" id="checkin-next">&gt;</button>
-                                </div>
-                                <div class="calendar-days" id="checkin-days"></div>
-                            </div>
-                        </div>
-
-                        <!-- Check-out Calendar -->
-                        <div class="calendar-container">
-                            <label class="form-label">Check-out Date</label>
-                            <div class="calendar" id="checkout-calendar">
-                                <div class="calendar-header">
-                                    <button class="calendar-nav" id="checkout-prev">&lt;</button>
-                                    <div class="calendar-title" id="checkout-title"></div>
-                                    <button class="calendar-nav" id="checkout-next">&gt;</button>
-                                </div>
-                                <div class="calendar-days" id="checkout-days"></div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Image Gallery -->
+                <div class="image-gallery">
+                    <img src="/assets/47f2fc56-77da-4be3-ac46-28261dc0e195-1.avif" alt="Deck overlooking Lough Hyne" class="gallery-thumb">
+                    <img src="/assets/47f2fc56-77da-4be3-ac46-28261dc0e195.avif" alt="Outdoor spaces" class="gallery-thumb">
+                    <img src="/assets/0065e263-1c66-4e24-ac8d-7e970e07c613.avif" alt="Cottage amenities" class="gallery-thumb">
+                    <img src="/assets/564ffca7-24e6-4a46-b1c3-01594660fee4 (1).avif" alt="Interior design" class="gallery-thumb">
+                    <img src="/assets/952f61ad-3790-4119-9d33-e66172515cd5.avif" alt="Living spaces" class="gallery-thumb">
+                    <img src="/assets/40755218-51a7-4bac-8253-f0945d021716.avif" alt="Property facilities" class="gallery-thumb">
+                    <img src="/assets/a9b87a9f-a157-4e44-81b2-4ad272b82ff6.avif" alt="Cabin comfort" class="gallery-thumb">
+                    <img src="/assets/b676476a-ceb8-4432-bf28-51f88ff4f9bd.avif" alt="Nature surroundings" class="gallery-thumb">
+                    <img src="/assets/ce5ac8e3-23d5-4aa9-9fcf-e0e13a896f0a.avif" alt="Architectural details" class="gallery-thumb">
+                    <img src="/assets/fc4dfcd6-c8fe-489e-a579-b1dd9cbb58fc.avif" alt="Scenic views" class="gallery-thumb">
+                    <img src="/assets/fef784d5-721e-4814-939c-9d3ce871e60d.avif" alt="Cottage experience" class="gallery-thumb">
+                    <img src="/assets/299595f2-bc99-44f7-9ff6-b8e1841f403b.jpg" alt="Lough sunset" class="gallery-thumb">
                 </div>
             </div>
 
             <!-- Booking Form -->
-            <div class="card">
-                <h2 class="card-title">Your Details</h2>
-                
-                <form id="booking-form">
-                    <div class="booking-grid">
-                        <div>
-                            <div class="form-group">
-                                <label class="form-label">Full Name</label>
-                                <input type="text" class="form-input" id="customer-name" required>
+            <div class="booking-form-container">
+                <!-- Experience Selection -->
+                <div class="form-card">
+                    <h2 class="form-title">Select Your Experience</h2>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Accommodation Type *</label>
+                        <select class="form-select" id="experienceType">
+                            <option value="">Select accommodation</option>
+                            <option value="cabin">Cabin at Lough Hyne Cottage w/ woodfired bathtub - €195</option>
+                        </select>
+                    </div>
+
+                    <!-- Availability Legend -->
+                    <div class="availability-legend">
+                        <h4 class="legend-title">Date Availability Guide</h4>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <div class="legend-color legend-available"></div>
+                                <span>Available dates</span>
                             </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label">Email</label>
-                                <input type="email" class="form-input" id="customer-email" required>
+                            <div class="legend-item">
+                                <div class="legend-color legend-booked"></div>
+                                <span>Booked dates</span>
                             </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label">Phone</label>
-                                <input type="tel" class="form-input" id="customer-phone" required>
+                            <div class="legend-item">
+                                <div class="legend-color legend-past"></div>
+                                <span>Past dates</span>
                             </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label">Number of Guests</label>
-                                <select class="form-select" id="guests">
-                                    <option value="1">1 Guest</option>
-                                    <option value="2">2 Guests</option>
-                                    <option value="3">3 Guests</option>
-                                    <option value="4">4 Guests</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div class="form-group">
-                                <label class="form-label">Special Requests</label>
-                                <textarea class="form-input form-textarea" id="special-requests" 
-                                    placeholder="Any dietary requirements, accessibility needs, or special occasions..."></textarea>
+                            <div class="legend-item">
+                                <div class="legend-color legend-selected"></div>
+                                <span>Selected dates</span>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="price-summary">
-                        <div class="price-row">
-                            <span>Experience</span>
-                            <span id="experience-cost">€250</span>
-                        </div>
-                        <div class="price-row">
-                            <span>Duration</span>
-                            <span id="duration-display">1 night</span>
-                        </div>
-                        <div class="price-row">
-                            <span>Guests</span>
-                            <span id="guests-display">1</span>
-                        </div>
-                        <div class="price-total">
-                            <span>Total</span>
-                            <span id="total-cost">€250</span>
+
+                    <!-- Date Selection -->
+                    <div class="calendar-container">
+                        <div class="calendar-grid">
+                            <div class="calendar-section">
+                                <label class="calendar-label">Check-in Date *</label>
+                                <div class="calendar-placeholder">
+                                    Calendar component would be integrated here
+                                </div>
+                            </div>
+                            <div class="calendar-section">
+                                <label class="calendar-label">Check-out Date *</label>
+                                <div class="calendar-placeholder">
+                                    Calendar component would be integrated here
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="note">
+                        <strong>Note:</strong> Cabin bookings require a minimum stay of 2 nights. Check-out must be at least 2 days after check-in.
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Number of Guests *</label>
+                        <select class="form-select" id="guests">
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Guest Details -->
+                <div class="form-card">
+                    <h2 class="form-title">Guest Details</h2>
                     
-                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1.5rem;">
-                        Book Now
+                    <div class="form-group">
+                        <label class="form-label">Full Name *</label>
+                        <input type="text" class="form-input" id="customerName" placeholder="Enter your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email Address *</label>
+                        <input type="email" class="form-input" id="customerEmail" placeholder="Enter your email address">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" class="form-input" id="customerPhone" placeholder="Enter your phone number">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Special Requests</label>
+                        <textarea class="form-input" id="specialRequests" rows="4" placeholder="Any special requests or dietary requirements?"></textarea>
+                    </div>
+
+                    <!-- Pricing Summary -->
+                    <div class="pricing-summary">
+                        <div class="pricing-row">
+                            <span>Accommodation (2 nights):</span>
+                            <span>€390.00</span>
+                        </div>
+                        <div class="pricing-row pricing-total">
+                            <span>Total:</span>
+                            <span>€390.00</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" style="width: 100%;" onclick="submitBooking()">
+                        Complete Booking
                     </button>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <script>
-        // Calendar functionality
-        let checkinDate = null;
-        let checkoutDate = null;
-        let currentCheckinMonth = new Date();
-        let currentCheckoutMonth = new Date();
-        currentCheckoutMonth.setMonth(currentCheckoutMonth.getMonth() + 1);
-
-        const monthNames = ["January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"];
-        const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-        function renderCalendar(calendarId, currentMonth, isCheckout = false) {
-            const calendar = document.getElementById(calendarId);
-            const titleElement = calendar.querySelector('.calendar-title');
-            const daysElement = calendar.querySelector('.calendar-days');
-            
-            titleElement.textContent = `${monthNames[currentMonth.getMonth()]} ${currentMonth.getFullYear()}`;
-            
-            daysElement.innerHTML = '';
-            
-            // Add day headers
-            dayNames.forEach(day => {
-                const dayHeader = document.createElement('div');
-                dayHeader.className = 'calendar-day-header';
-                dayHeader.textContent = day;
-                daysElement.appendChild(dayHeader);
-            });
-            
-            // Get first day of month and number of days
-            const firstDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
-            const lastDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0);
-            const startingDay = firstDay.getDay();
-            const monthLength = lastDay.getDate();
-            
-            // Add empty cells for days before month starts
-            for (let i = 0; i < startingDay; i++) {
-                const emptyDay = document.createElement('div');
-                emptyDay.className = 'calendar-day other-month';
-                daysElement.appendChild(emptyDay);
-            }
-            
-            // Add days of the month
-            for (let day = 1; day <= monthLength; day++) {
-                const dayElement = document.createElement('div');
-                dayElement.className = 'calendar-day';
-                dayElement.textContent = day;
+        // Load experiences and availability
+        async function loadBookingData() {
+            try {
+                const [experiencesResponse, bookingsResponse] = await Promise.all([
+                    fetch('/api/experiences'),
+                    fetch('/api/airbnb-bookings')
+                ]);
                 
-                const dayDate = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
+                const experiences = await experiencesResponse.json();
+                const bookings = await bookingsResponse.json();
                 
-                // Disable past dates
-                if (dayDate < today) {
-                    dayElement.className += ' disabled';
-                } else {
-                    dayElement.addEventListener('click', () => {
-                        if (isCheckout) {
-                            checkoutDate = dayDate;
-                            updateSelectedDates();
-                        } else {
-                            checkinDate = dayDate;
-                            checkoutDate = null; // Reset checkout when checkin changes
-                            updateSelectedDates();
-                        }
-                        updatePricing();
-                    });
-                }
+                console.log('Booking data loaded:', { experiences, bookings });
                 
-                // Highlight selected dates
-                if ((isCheckout && checkoutDate && dayDate.getTime() === checkoutDate.getTime()) ||
-                    (!isCheckout && checkinDate && dayDate.getTime() === checkinDate.getTime())) {
-                    dayElement.className += ' selected';
-                }
+                // Populate experience options
+                const experienceSelect = document.getElementById('experienceType');
+                experiences.forEach(exp => {
+                    if (exp.type === 'cabin') {
+                        const option = document.createElement('option');
+                        option.value = exp.type;
+                        option.textContent = `${exp.name} - €${exp.basePrice}`;
+                        experienceSelect.appendChild(option);
+                    }
+                });
                 
-                daysElement.appendChild(dayElement);
+            } catch (error) {
+                console.error('Error loading booking data:', error);
             }
         }
 
-        function updateSelectedDates() {
-            renderCalendar('checkin-days', currentCheckinMonth, false);
-            renderCalendar('checkout-days', currentCheckoutMonth, true);
-        }
-
-        function updatePricing() {
-            const selectedExperience = document.querySelector('.experience-option.selected');
-            const guests = parseInt(document.getElementById('guests').value);
-            
-            if (!selectedExperience) return;
-            
-            const basePrice = parseInt(selectedExperience.dataset.price);
-            const experienceType = selectedExperience.dataset.experience;
-            
-            let total = basePrice;
-            let duration = '1 session';
-            
-            if (experienceType === 'cabin' && checkinDate && checkoutDate) {
-                const timeDiff = checkoutDate.getTime() - checkinDate.getTime();
-                const nights = Math.ceil(timeDiff / (1000 * 3600 * 24));
-                total = basePrice * nights;
-                duration = `${nights} night${nights > 1 ? 's' : ''}`;
-            } else if (experienceType !== 'cabin') {
-                total = basePrice * guests;
-            }
-            
-            document.getElementById('experience-cost').textContent = `€${basePrice}`;
-            document.getElementById('duration-display').textContent = duration;
-            document.getElementById('guests-display').textContent = guests;
-            document.getElementById('total-cost').textContent = `€${total}`;
-        }
-
-        // Initialize calendars
-        renderCalendar('checkin-days', currentCheckinMonth, false);
-        renderCalendar('checkout-days', currentCheckoutMonth, true);
-
-        // Calendar navigation
-        document.getElementById('checkin-prev').addEventListener('click', () => {
-            currentCheckinMonth.setMonth(currentCheckinMonth.getMonth() - 1);
-            renderCalendar('checkin-days', currentCheckinMonth, false);
-        });
-
-        document.getElementById('checkin-next').addEventListener('click', () => {
-            currentCheckinMonth.setMonth(currentCheckinMonth.getMonth() + 1);
-            renderCalendar('checkin-days', currentCheckinMonth, false);
-        });
-
-        document.getElementById('checkout-prev').addEventListener('click', () => {
-            currentCheckoutMonth.setMonth(currentCheckoutMonth.getMonth() - 1);
-            renderCalendar('checkout-days', currentCheckoutMonth, true);
-        });
-
-        document.getElementById('checkout-next').addEventListener('click', () => {
-            currentCheckoutMonth.setMonth(currentCheckoutMonth.getMonth() + 1);
-            renderCalendar('checkout-days', currentCheckoutMonth, true);
-        });
-
-        // Experience selection
-        document.querySelectorAll('.experience-option').forEach(option => {
-            option.addEventListener('click', () => {
-                document.querySelectorAll('.experience-option').forEach(opt => 
-                    opt.classList.remove('selected'));
-                option.classList.add('selected');
-                updatePricing();
-            });
-        });
-
-        // Guests selection
-        document.getElementById('guests').addEventListener('change', updatePricing);
-
-        // Form submission
-        document.getElementById('booking-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('customer-name').value,
-                email: document.getElementById('customer-email').value,
-                phone: document.getElementById('customer-phone').value,
+        async function submitBooking() {
+            const bookingData = {
+                experienceType: document.getElementById('experienceType').value,
+                customerName: document.getElementById('customerName').value,
+                customerEmail: document.getElementById('customerEmail').value,
+                customerPhone: document.getElementById('customerPhone').value,
                 guests: document.getElementById('guests').value,
-                experience: document.querySelector('.experience-option.selected').dataset.experience,
-                checkinDate: checkinDate,
-                checkoutDate: checkoutDate,
-                specialRequests: document.getElementById('special-requests').value,
-                total: document.getElementById('total-cost').textContent
+                specialRequests: document.getElementById('specialRequests').value,
+                checkIn: new Date().toISOString().split('T')[0], // Placeholder
+                checkOut: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // Placeholder
             };
-            
-            alert('Booking request submitted! We will contact you shortly to confirm your reservation.');
-            console.log('Booking data:', formData);
-        });
 
-        // Initialize pricing
-        updatePricing();
+            if (!bookingData.experienceType || !bookingData.customerName || !bookingData.customerEmail) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/bookings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(bookingData),
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('Booking submitted successfully! We will contact you to confirm your dates and arrange payment.');
+                } else {
+                    alert('Error submitting booking. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error submitting booking:', error);
+                alert('Error submitting booking. Please try again.');
+            }
+        }
+
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', loadBookingData);
     </script>
 </body>
 </html>

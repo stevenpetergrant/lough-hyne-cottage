@@ -5,22 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lough Hyne Cottage - Eco Luxury Accommodation in West Cork, Ireland</title>
     <meta name="description" content="Experience sustainable luxury at Lough Hyne Cottage, Ireland's first marine nature reserve. Book cabin stays, sauna sessions, yoga retreats and bread making workshops in beautiful West Cork.">
+    <meta name="keywords" content="West Cork accommodation, eco cottage Ireland, Lough Hyne, sustainable tourism, cabin rental Cork, yoga retreat Ireland, sauna West Cork, bread making workshop, marine nature reserve">
     
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://loughhynecottage.com/">
+    <meta property="og:title" content="Lough Hyne Cottage - Eco Luxury Accommodation in West Cork, Ireland">
+    <meta property="og:description" content="Experience sustainable luxury at Lough Hyne Cottage, Ireland's first marine nature reserve.">
+    <meta property="og:image" content="/assets/875e18f0-63ff-403a-96b2-00b46f716b15.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://loughhynecottage.com/">
+    <meta property="twitter:title" content="Lough Hyne Cottage - Eco Luxury Accommodation in West Cork, Ireland">
+    <meta property="twitter:description" content="Experience sustainable luxury at Lough Hyne Cottage, Ireland's first marine nature reserve.">
+    <meta property="twitter:image" content="/assets/875e18f0-63ff-403a-96b2-00b46f716b15.jpg">
+
     <link rel="icon" type="image/png" href="/assets/generated-icon.png">
     <style>
+        /* Import Google Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
         
         :root {
             --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             --font-heading: 'Crimson Text', serif;
+            
+            /* Color System */
             --forest: #1e3a3a;
             --sage: #7da87d;
             --terracotta: #d2691e;
             --cream: #f5f1eb;
             --natural-white: #fafafa;
+            
+            /* Semantic Colors */
+            --background: 250 250 250;
+            --foreground: 30 58 58;
+            --primary: 125 168 125;
+            --primary-foreground: 250 250 250;
+            --border: 228 228 231;
+            --input: 245 241 235;
+            --ring: 125 168 125;
         }
         
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
         
         body {
             font-family: var(--font-primary);
@@ -29,9 +64,122 @@
             line-height: 1.6;
         }
         
+        .font-heading {
+            font-family: var(--font-heading);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(1.5) translateY(-2rem);
+            pointer-events: none;
+            min-width: 100vw;
+            min-height: 100vh;
+        }
+        
+        .hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.3) 0%,
+                rgba(0, 0, 0, 0.1) 50%,
+                rgba(0, 0, 0, 0.4) 100%
+            );
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 64rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: bold;
+            margin-bottom: 2rem;
+            white-space: nowrap;
+        }
+        
+        .hero-title em {
+            color: white;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 2rem;
+            font-size: 1.125rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--terracotta);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #b8591a;
+            transform: scale(1.05);
+        }
+        
+        .btn-outline {
+            background-color: white;
+            color: var(--forest);
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: #f3f4f6;
+            color: var(--forest);
+        }
+        
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        @media (min-width: 640px) {
+            .hero-buttons {
+                flex-direction: row;
+            }
+        }
+        
+        /* Navigation */
         .nav {
             position: fixed;
-            top: 0; left: 0; right: 0;
+            top: 0;
+            left: 0;
+            right: 0;
             z-index: 50;
             background-color: rgba(250, 250, 250, 0.95);
             backdrop-filter: blur(10px);
@@ -62,7 +210,9 @@
         }
         
         @media (min-width: 768px) {
-            .nav-links { display: flex; }
+            .nav-links {
+                display: flex;
+            }
         }
         
         .nav-link {
@@ -72,76 +222,14 @@
             transition: color 0.3s ease;
         }
         
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
+        .nav-link:hover {
+            color: var(--sage);
         }
         
-        .hero-video {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            transform: scale(1.5) translateY(-2rem);
-            pointer-events: none;
-            min-width: 100vw;
-            min-height: 100vh;
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
         }
-        
-        .hero-gradient {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.1), rgba(0,0,0,0.4));
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            color: white;
-            max-width: 64rem;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-        
-        .hero-title {
-            font-family: var(--font-heading);
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            font-weight: bold;
-            margin-bottom: 2rem;
-            white-space: nowrap;
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 2rem;
-            border-radius: 2rem;
-            font-size: 1.125rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin: 0.5rem;
-            border: none;
-        }
-        
-        .btn-primary {
-            background-color: var(--terracotta);
-            color: white;
-        }
-        
-        .btn-outline {
-            background-color: white;
-            color: var(--forest);
-            border: 2px solid white;
-        }
-        
-        .section { padding: 5rem 0; }
         
         .container {
             max-width: 80rem;
@@ -159,7 +247,9 @@
         }
         
         @media (min-width: 768px) {
-            .section-title { font-size: 3rem; }
+            .section-title {
+                font-size: 3rem;
+            }
         }
         
         .section-subtitle {
@@ -171,19 +261,25 @@
             line-height: 1.7;
         }
         
-        .grid { display: grid; gap: 2rem; }
-        .grid-3 { grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); }
-        .grid-4 { grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
-        .grid-6 { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-        
-        @media (min-width: 768px) {
-            .grid-6 { grid-template-columns: repeat(3, 1fr); }
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: 2rem;
         }
         
-        @media (min-width: 1024px) {
-            .grid-6 { grid-template-columns: repeat(6, 1fr); }
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
         }
         
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        }
+        
+        /* Card Styles */
         .card {
             background: white;
             border-radius: 1rem;
@@ -197,7 +293,31 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         
-        .card-content { padding: 1.5rem; }
+        .experience-card {
+            border: 2px solid rgba(125, 168, 125, 0.1);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .experience-card:hover {
+            border-color: rgba(125, 168, 125, 0.3);
+            transform: translateY(-0.5rem);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 16rem;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .card-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
         
         .card-title {
             font-family: var(--font-heading);
@@ -213,13 +333,13 @@
             line-height: 1.6;
         }
         
-        .card-image {
-            width: 100%;
-            height: 16rem;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+        .card-price {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--terracotta);
         }
         
+        /* Resort Overview */
         .resort-overview {
             display: flex;
             flex-direction: column;
@@ -229,10 +349,14 @@
         }
         
         @media (min-width: 1024px) {
-            .resort-overview { flex-direction: row; }
+            .resort-overview {
+                flex-direction: row;
+            }
         }
         
-        .resort-image-container { flex-shrink: 0; }
+        .resort-image-container {
+            flex-shrink: 0;
+        }
         
         .resort-hero-image {
             width: 20rem;
@@ -242,7 +366,9 @@
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
         }
         
-        .resort-content { flex: 1; }
+        .resort-content {
+            flex: 1;
+        }
         
         .resort-title {
             font-family: var(--font-heading);
@@ -253,7 +379,9 @@
         }
         
         @media (min-width: 768px) {
-            .resort-title { font-size: 3rem; }
+            .resort-title {
+                font-size: 3rem;
+            }
         }
         
         .resort-subtitle {
@@ -269,6 +397,7 @@
             line-height: 1.7;
         }
         
+        /* Unplug Section */
         .unplug-cards {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -276,7 +405,9 @@
         }
         
         @media (min-width: 768px) {
-            .unplug-cards { grid-template-columns: repeat(4, 1fr); }
+            .unplug-cards {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
         
         .unplug-card {
@@ -308,7 +439,13 @@
             line-height: 1.5;
         }
         
-        .image-gallery { margin-bottom: 3rem; }
+        /* Accommodations */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
         
         .gallery-image {
             width: 100%;
@@ -319,11 +456,80 @@
         }
         
         @media (min-width: 768px) {
-            .gallery-image { height: 18rem; }
+            .gallery-image {
+                height: 18rem;
+            }
         }
         
-        .bg-cream { background-color: var(--cream); }
+        /* Background Colors */
+        .bg-cream {
+            background-color: var(--cream);
+        }
         
+        .bg-sage-light {
+            background-color: rgba(125, 168, 125, 0.1);
+        }
+        
+        /* Text Colors */
+        .text-forest {
+            color: var(--forest);
+        }
+        
+        .text-sage {
+            color: var(--sage);
+        }
+        
+        .text-terracotta {
+            color: var(--terracotta);
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+        
+        .mb-12 {
+            margin-bottom: 3rem;
+        }
+        
+        .rounded-xl {
+            border-radius: 0.75rem;
+        }
+        
+        .shadow-lg {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Scroll Animation */
+        .scroll-arrow {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40%, 43% {
+                transform: translateX(-50%) translateY(-1rem);
+            }
+            70% {
+                transform: translateX(-50%) translateY(-0.5rem);
+            }
+            90% {
+                transform: translateX(-50%) translateY(-0.25rem);
+            }
+        }
+        
+        /* Feature Icons */
         .feature-icon {
             width: 3rem;
             height: 3rem;
@@ -335,6 +541,7 @@
             margin: 0 auto 1rem;
         }
         
+        /* Footer */
         .footer {
             background-color: var(--forest);
             color: white;
@@ -374,19 +581,14 @@
             transition: color 0.3s ease;
         }
         
+        .footer-link:hover {
+            color: white;
+        }
+        
         .footer-bottom {
             border-top: 1px solid #374151;
             padding-top: 1rem;
             color: #9ca3af;
-        }
-        
-        .text-center { text-align: center; }
-        .mb-8 { margin-bottom: 2rem; }
-        .mb-12 { margin-bottom: 3rem; }
-        .experience-card {
-            border: 2px solid rgba(125, 168, 125, 0.1);
-            border-radius: 1rem;
-            transition: all 0.3s ease;
         }
     </style>
 </head>
@@ -399,7 +601,7 @@
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#accommodations" class="nav-link">Stay</a>
                 <a href="#experiences" class="nav-link">Experiences</a>
-                <a href="/booking" class="nav-link">Book</a>
+                <a href="#our-story" class="nav-link">Our Story</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
         </div>
@@ -419,10 +621,15 @@
             <h1 class="hero-title">
                 The <em>Lough</em> is calling you home
             </h1>
-            <div>
+            <div class="hero-buttons">
                 <a href="#accommodations" class="btn btn-primary">Book Your Stay</a>
                 <a href="#experiences" class="btn btn-outline">Explore Experiences</a>
             </div>
+        </div>
+        <div class="scroll-arrow">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"></polyline>
+            </svg>
         </div>
     </section>
 
@@ -430,6 +637,7 @@
     <section class="section bg-cream">
         <div class="container">
             <div class="resort-overview">
+                <!-- Image on left -->
                 <div class="resort-image-container">
                     <img 
                         src="/assets/875e18f0-63ff-403a-96b2-00b46f716b15.jpg"
@@ -438,6 +646,7 @@
                     />
                 </div>
                 
+                <!-- Text content on right -->
                 <div class="resort-content">
                     <h2 class="resort-title">
                         Unplug. Unwind. Uncover Lough Hyne.
@@ -451,6 +660,7 @@
                 </div>
             </div>
 
+            <!-- Features -->
             <div class="grid grid-3">
                 <div class="text-center">
                     <div class="feature-icon">
@@ -458,6 +668,9 @@
                             <path d="M7 20h10"></path>
                             <path d="M7 16v4"></path>
                             <path d="M17 16v4"></path>
+                            <path d="M11 12h2"></path>
+                            <path d="M11 8h2"></path>
+                            <path d="M11 4h2"></path>
                         </svg>
                     </div>
                     <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--forest); margin-bottom: 0.5rem;">100% Sustainable</h3>
@@ -493,25 +706,44 @@
         <div class="container">
             <div class="unplug-cards">
                 <div class="unplug-card">
-                    <img src="https://loughhynecottage.com/wp-content/uploads/2024/09/1.png" alt="Reset" class="unplug-icon">
+                    <div class="unplug-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7v10l10 5 10-5V7z"></path>
+                            <polyline points="2,7 12,12 22,7"></polyline>
+                            <polyline points="12,22 12,12"></polyline>
+                        </svg>
+                    </div>
                     <h3 class="unplug-title">Reset</h3>
                     <p class="unplug-description">Nature is the ultimate healer for body and mind</p>
                 </div>
                 
                 <div class="unplug-card">
-                    <img src="https://loughhynecottage.com/wp-content/uploads/2024/09/2.png" alt="Relax" class="unplug-icon">
+                    <div class="unplug-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M12 6v6l4 2"></path>
+                        </svg>
+                    </div>
                     <h3 class="unplug-title">Relax</h3>
                     <p class="unplug-description">In Nature, we find clarity and perspective</p>
                 </div>
                 
                 <div class="unplug-card">
-                    <img src="https://loughhynecottage.com/wp-content/uploads/2024/09/4.png" alt="Receive" class="unplug-icon">
+                    <div class="unplug-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg>
+                    </div>
                     <h3 class="unplug-title">Receive</h3>
                     <p class="unplug-description">Nature sparks creativity and inspiration</p>
                 </div>
                 
                 <div class="unplug-card">
-                    <img src="https://loughhynecottage.com/wp-content/uploads/2024/09/3.png" alt="Realise" class="unplug-icon">
+                    <div class="unplug-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"></path>
+                        </svg>
+                    </div>
                     <h3 class="unplug-title">Realise</h3>
                     <p class="unplug-description">Nature is a gift for all to embrace and enjoy</p>
                 </div>
@@ -522,16 +754,14 @@
     <!-- Accommodations Section -->
     <section id="accommodations" class="section bg-cream">
         <div class="container">
-            <div class="text-center mb-12">
-                <h2 style="font-family: var(--font-heading); font-size: 2.5rem; font-weight: bold; color: var(--forest); margin-bottom: 0.5rem;">
-                    Come stay in our cosy cabin
-                </h2>
-                <p style="font-size: 1.25rem; color: var(--terracotta); font-weight: 500; margin-bottom: 1.5rem;">
-                    unplug from the everyday
-                </p>
-            </div>
+            <h2 class="section-title">A Contemporary Cabin on Nature's Doorstep</h2>
+            <p class="section-subtitle">
+                Experience luxury eco accommodation where sustainable design meets unparalleled comfort, 
+                allowing you to reconnect with nature while enjoying modern amenities and breathtaking views of 
+                Ireland's first marine nature reserve.
+            </p>
             
-            <div class="image-gallery grid grid-6">
+            <div class="image-gallery">
                 <img src="/assets/564ffca7-24e6-4a46-b1c3-01594660fee4 (1).avif" alt="Lough Hyne Cottage with stunning lake views" class="gallery-image">
                 <img src="/assets/47f2fc56-77da-4be3-ac46-28261dc0e195-1.avif" alt="Cozy interior of Lough Hyne Cottage" class="gallery-image">
                 <img src="/assets/a9b87a9f-a157-4e44-81b2-4ad272b82ff6.avif" alt="Lough Hyne Cottage exterior view" class="gallery-image">
@@ -546,124 +776,13 @@
                     Awaken to the melody of birdsong, inhale the fresh West Cork air and enjoy a wood-fired soak 
                     beneath a sky full of stars. Here, there's no rush, just moments to savour.
                 </p>
-                <p style="font-size: 1.125rem; color: #6b7280; max-width: 48rem; margin: 0 auto 2rem auto; line-height: 1.7;">
-                    Be as active or as lazy as you like. Ensconce yourself fully in the comforts of the cottage or explore the native Irish woodland of Knockomagh and the Lough's stunning shores.
-                </p>
                 <a href="/booking" class="btn btn-primary">Book Your Stay</a>
             </div>
         </div>
     </section>
 
-    <!-- Cabin Guest Reviews Section -->
-    <section class="section">
-        <div class="container">
-            <div class="text-center mb-12">
-                <h2 class="section-title">Cabin Guest Reviews</h2>
-                <p class="section-subtitle">Hear from those who've found renewal at Lough Hyne Cottage</p>
-            </div>
-            
-            <div class="grid grid-4">
-                <div class="card">
-                    <div class="card-content">
-                        <div style="color: var(--terracotta); margin-bottom: 1rem; font-size: 1.25rem;">
-                            ★★★★★
-                        </div>
-                        <p style="font-style: italic; margin-bottom: 1.5rem; color: #6b7280;">
-                            "We had a really relaxing stay at Lough Hyne Cottage. The accommodation is set is a wonderful location overlooking the lake and is decorated very tastefully. Steven is a top class host and a lovely fella. We will be back!"
-                        </p>
-                        <div style="display: flex; align-items: center;">
-                            <div style="width: 3rem; height: 3rem; border-radius: 50%; overflow: hidden; margin-right: 1rem;">
-                                <img 
-                                    src="https://loughhynecottage.com/wp-content/uploads/2024/09/4d18acd7-7cd2-449a-9f11-a608b5e8ea7e.avif"
-                                    alt="Joseph"
-                                    style="width: 100%; height: 100%; object-fit: cover;"
-                                />
-                            </div>
-                            <div>
-                                <h4 style="font-weight: 600; color: var(--forest); margin-bottom: 0.25rem;">Joseph</h4>
-                                <p style="font-size: 0.875rem; color: #6b7280;">June 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-content">
-                        <div style="color: var(--terracotta); margin-bottom: 1rem; font-size: 1.25rem;">
-                            ★★★★★
-                        </div>
-                        <p style="font-style: italic; margin-bottom: 1.5rem; color: #6b7280;">
-                            "We had such a wonderful stay at the Lough Hyne Cottage! It was the most beautiful, tranquil oasis. I don't think it matters what the weather's like, but we were blessed with sun, each window delivers luscious green views. Absolutely perfect getaway."
-                        </p>
-                        <div style="display: flex; align-items: center;">
-                            <div style="width: 3rem; height: 3rem; border-radius: 50%; overflow: hidden; margin-right: 1rem;">
-                                <img 
-                                    src="https://loughhynecottage.com/wp-content/uploads/2024/09/4a24c08e-de08-4ba1-bc41-9ba7c651f6ce-150x150.avif"
-                                    alt="Anna"
-                                    style="width: 100%; height: 100%; object-fit: cover;"
-                                />
-                            </div>
-                            <div>
-                                <h4 style="font-weight: 600; color: var(--forest); margin-bottom: 0.25rem;">Anna</h4>
-                                <p style="font-size: 0.875rem; color: #6b7280;">June 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-content">
-                        <div style="color: var(--terracotta); margin-bottom: 1rem; font-size: 1.25rem;">
-                            ★★★★★
-                        </div>
-                        <p style="font-style: italic; margin-bottom: 1.5rem; color: #6b7280;">
-                            "Steven and Claire are great hosts, very friendly and helpful. They gave us great tips for exploring the area. And we had the best brownies we've ever had! So delicious. Not to mention the eggs right out of the cage!"
-                        </p>
-                        <div style="display: flex; align-items: center;">
-                            <div style="width: 3rem; height: 3rem; border-radius: 50%; overflow: hidden; margin-right: 1rem;">
-                                <img 
-                                    src="https://loughhynecottage.com/wp-content/uploads/2024/09/62d1d0db-4a6d-40da-951f-59749000cb2d-150x150.avif"
-                                    alt="Kerstin"
-                                    style="width: 100%; height: 100%; object-fit: cover;"
-                                />
-                            </div>
-                            <div>
-                                <h4 style="font-weight: 600; color: var(--forest); margin-bottom: 0.25rem;">Kerstin</h4>
-                                <p style="font-size: 0.875rem; color: #6b7280;">May 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-content">
-                        <div style="color: var(--terracotta); margin-bottom: 1rem; font-size: 1.25rem;">
-                            ★★★★★
-                        </div>
-                        <p style="font-style: italic; margin-bottom: 1.5rem; color: #6b7280;">
-                            "We stayed three nights in the Lough Hyne Cottage and only wish we could have stayed longer! The space was beautiful and all details thoughtful — the eco-friendly design and amenities only adding to the peaceful, relaxing experience."
-                        </p>
-                        <div style="display: flex; align-items: center;">
-                            <div style="width: 3rem; height: 3rem; border-radius: 50%; overflow: hidden; margin-right: 1rem;">
-                                <img 
-                                    src="https://loughhynecottage.com/wp-content/uploads/2024/09/409c9978-7053-40b6-b960-60b61717f4a7-150x150.avif"
-                                    alt="Thia"
-                                    style="width: 100%; height: 100%; object-fit: cover;"
-                                />
-                            </div>
-                            <div>
-                                <h4 style="font-weight: 600; color: var(--forest); margin-bottom: 0.25rem;">Thia</h4>
-                                <p style="font-size: 0.875rem; color: #6b7280;">July 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Experiences Section -->
-    <section id="experiences" class="section bg-cream">
+    <section id="experiences" class="section">
         <div class="container">
             <h2 class="section-title">Food, Fun and a little magic through our restorative experiences</h2>
             <p class="section-subtitle">
@@ -673,7 +792,7 @@
             <div class="grid grid-3">
                 <div class="card experience-card">
                     <div style="position: relative;">
-                        <img src="https://loughhynecottage.com/wp-content/uploads/2024/08/sauna-experience-8.jpg" alt="Sauna Sessions" class="card-image">
+                        <img src="/assets/299595f2-bc99-44f7-9ff6-b8e1841f403b.jpg" alt="Sauna Sessions" class="card-image">
                         <div style="position: absolute; top: 1rem; right: 1rem; background-color: var(--terracotta); color: white; padding: 0.5rem 1rem; border-radius: 1rem; font-weight: bold;">€70</div>
                     </div>
                     <div class="card-content">
@@ -689,7 +808,7 @@
                 
                 <div class="card experience-card">
                     <div style="position: relative;">
-                        <img src="https://loughhynecottage.com/wp-content/uploads/2024/08/yoga-3-1.jpg" alt="Monthly Yoga Mini-Retreats" class="card-image">
+                        <img src="/assets/20240828_112944.jpg" alt="Monthly Yoga Mini-Retreats" class="card-image">
                         <div style="position: absolute; top: 1rem; right: 1rem; background-color: var(--terracotta); color: white; padding: 0.5rem 1rem; border-radius: 1rem; font-weight: bold;">€80</div>
                     </div>
                     <div class="card-content">
@@ -705,7 +824,7 @@
                 
                 <div class="card experience-card">
                     <div style="position: relative;">
-                        <img src="https://loughhynecottage.com/wp-content/uploads/2024/08/bread-course-4-1.jpg" alt="Wood-Fired Bread Making Workshop" class="card-image">
+                        <img src="/assets/1fcdcbe1-8e25-4379-8348-5cf861dcb9a9.avif" alt="Wood-Fired Bread Making Workshop" class="card-image">
                         <div style="position: absolute; top: 1rem; right: 1rem; background-color: var(--terracotta); color: white; padding: 0.5rem 1rem; border-radius: 1rem; font-weight: bold;">€135</div>
                     </div>
                     <div class="card-content">
@@ -722,8 +841,88 @@
         </div>
     </section>
 
+    <!-- Our Story Section -->
+    <section id="our-story" class="section bg-sage-light">
+        <div class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="grid grid-2">
+                <div>
+                    <p class="mb-8">
+                        We're Claire and Steven, and we've traded the hustle and bustle of London life for the 
+                        tranquil shores of Lough Hyne. After years of dreaming about a slower pace of life, 
+                        we took the leap and made West Cork our home.
+                    </p>
+                    <p class="mb-8">
+                        What started as a personal journey to reconnect with nature has blossomed into something 
+                        we're passionate about sharing. Our cottage isn't just a place to stay – it's a gateway 
+                        to experiencing the magic of Ireland's first marine nature reserve.
+                    </p>
+                    <p>
+                        In our short time here, we've become part of a thriving artisan and artistic community 
+                        that's as inspiring as it is welcoming. We feel incredibly lucky to have found a place 
+                        where we can live, create and share this beautiful life we've built.
+                    </p>
+                </div>
+                <div>
+                    <img src="/assets/875e18f0-63ff-403a-96b2-00b46f716b15.jpg" alt="Claire and Steven's journey to Lough Hyne" class="rounded-xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guest Experiences -->
+    <section id="testimonials" class="section">
+        <div class="container">
+            <h2 class="section-title">Guest Stories</h2>
+            <p class="section-subtitle">
+                Hear from our guests about their transformative experiences at Lough Hyne Cottage
+            </p>
+            
+            <div class="grid grid-3">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">Sarah & Tom</h3>
+                        <p class="card-description">
+                            "Absolutely magical stay! The cabin is beautifully designed and the location is breathtaking. 
+                            Waking up to the sunrise over Lough Hyne was unforgettable."
+                        </p>
+                        <div style="color: var(--terracotta); margin-top: 1rem; font-size: 1.25rem;">
+                            ★★★★★
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">Marie</h3>
+                        <p class="card-description">
+                            "The yoga retreat was exactly what I needed. Claire's guidance and the peaceful setting 
+                            created the perfect environment for inner reflection and renewal."
+                        </p>
+                        <div style="color: var(--terracotta); margin-top: 1rem; font-size: 1.25rem;">
+                            ★★★★★
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">James & Lisa</h3>
+                        <p class="card-description">
+                            "The wood-fired sauna experience was incredible! Steven's attention to detail and the 
+                            stunning lake views made it truly special. Can't wait to return."
+                        </p>
+                        <div style="color: var(--terracotta); margin-top: 1rem; font-size: 1.25rem;">
+                            ★★★★★
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="section bg-cream">
         <div class="container">
             <h2 class="section-title">Plan Your Visit</h2>
             <p class="section-subtitle">
@@ -731,7 +930,7 @@
             </p>
             
             <div class="text-center">
-                <a href="/booking" class="btn btn-primary">Book Your Stay</a>
+                <a href="/booking" class="btn btn-primary" style="margin-right: 1rem;">Book Your Stay</a>
                 <a href="mailto:hello@loughhynecottage.com" class="btn btn-outline">Get In Touch</a>
             </div>
         </div>
@@ -754,5 +953,45 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Load and display data from APIs
+        async function loadExperiences() {
+            try {
+                const response = await fetch('/api/experiences');
+                const experiences = await response.json();
+                console.log('Experiences loaded:', experiences);
+            } catch (error) {
+                console.error('Error loading experiences:', error);
+            }
+        }
+
+        async function loadGuestExperiences() {
+            try {
+                const response = await fetch('/api/guest-experiences/public');
+                const guestExperiences = await response.json();
+                console.log('Guest experiences loaded:', guestExperiences);
+            } catch (error) {
+                console.error('Error loading guest experiences:', error);
+            }
+        }
+
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            loadExperiences();
+            loadGuestExperiences();
+        });
+    </script>
 </body>
 </html>
