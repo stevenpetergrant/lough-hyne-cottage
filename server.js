@@ -37,6 +37,8 @@ function serveStaticFile(filePath, res) {
       res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
       res.setHeader('Pragma', 'no-cache');
       res.setHeader('Expires', '0');
+      res.setHeader('Last-Modified', new Date().toUTCString());
+      res.setHeader('ETag', `"${Date.now()}"`);
     } else {
       res.setHeader('Cache-Control', 'public, max-age=3600');
     }
