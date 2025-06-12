@@ -91,42 +91,42 @@ const server = createServer(async (req, res) => {
     if (pathname === '/api/experiences') {
       const experiences = [
         {
-          "id": 3,
+          "id": 1,
+          "type": "sauna",
+          "name": "Sauna Sessions",
+          "description": "Experience authentic sauna culture in our traditional wood-fired sauna. Relax, rejuvenate, and connect with nature in this timeless wellness practice.",
+          "basePrice": 70,
+          "duration": "1-2 Hours",
+          "maxParticipants": 6,
+          "isActive": true
+        },
+        {
+          "id": 2,
           "type": "yoga",
-          "name": "Day-Long Yoga Retreat",
-          "description": "Reconnect with nature through mindful movement and meditation in our serene lakeside setting.",
-          "basePrice": 85,
-          "duration": "Full day (10am-4pm)",
+          "name": "Monthly Yoga Mini-Retreats",
+          "description": "Immerse yourself in tranquil yoga sessions surrounded by the natural beauty of Lough Hyne. Combined with hyper-local, veggie-filled meals inspired by California meets West Cork cuisine.",
+          "basePrice": 80,
+          "duration": "Full Day",
           "maxParticipants": 8,
           "isActive": true
         },
         {
-          "id": 4,
-          "type": "sauna",
-          "name": "Wood-Fired Sauna Session",
-          "description": "Authentic Finnish sauna experience with stunning Lough Hyne views and optional cold water plunge.",
-          "basePrice": 35,
-          "duration": "90 minutes",
-          "maxParticipants": 6,
-          "isActive": true
-        },
-        {
-          "id": 5,
+          "id": 3,
           "type": "bread",
-          "name": "Artisan Bread Making Workshop",
-          "description": "Learn traditional bread making techniques using locally sourced organic ingredients.",
-          "basePrice": 65,
-          "duration": "4 hours",
+          "name": "Wood-Fired Bread Making Workshop",
+          "description": "Join us monthly as we fire up our traditional wood stove to create artisanal bread and pastries. Learn the ancient art of sourdough baking while connecting with our local community.",
+          "basePrice": 135,
+          "duration": "11 am - 5pm",
           "maxParticipants": 6,
           "isActive": true
         },
         {
-          "id": 1,
+          "id": 4,
           "type": "cabin",
-          "name": "Eco Cabin Stay",
-          "description": "Luxury eco cabin overlooking Lough Hyne with private deck and wood-fired bathtub.",
-          "basePrice": 195,
-          "duration": "Per night (minimum 2 nights)",
+          "name": "Cabin Accommodation",
+          "description": "Come stay in our cosy cabin and unplug from the everyday. At Lough Hyne Cottage, we invite you to immerse yourself in the rhythm of nature's embrace.",
+          "basePrice": 250,
+          "duration": "Per night",
           "maxParticipants": 2,
           "isActive": true
         }
@@ -165,33 +165,47 @@ const server = createServer(async (req, res) => {
       const guestExperiences = [
         {
           "id": 1,
-          "guestName": "Sarah & Tom",
+          "guestName": "Joseph",
           "experience": "cabin",
           "rating": 5,
-          "feedback": "Absolutely magical stay! The cabin is beautifully designed and the location is breathtaking. Waking up to the sunrise over Lough Hyne was unforgettable.",
+          "feedback": "We had a really relaxing stay at Lough Hyne Cottage. The accommodation is set is a wonderful location overlooking the lake and is decorated very tastefully. Steven is a top class host and a lovely fella. We will be back!",
           "isPublic": true,
-          "visitDate": "2024-09-15",
-          "createdAt": "2024-09-16T10:30:00.000Z"
+          "visitDate": "2024-06-15",
+          "createdAt": "2024-06-16T10:30:00.000Z",
+          "photo": "https://loughhynecottage.com/wp-content/uploads/2024/09/4d18acd7-7cd2-449a-9f11-a608b5e8ea7e.avif"
         },
         {
           "id": 2,
-          "guestName": "Marie",
-          "experience": "yoga",
+          "guestName": "Anna",
+          "experience": "cabin",
           "rating": 5,
-          "feedback": "The yoga retreat was exactly what I needed. Claire's guidance and the peaceful setting created the perfect environment for inner reflection and renewal.",
+          "feedback": "We had such a wonderful stay at the Lough Hyne Cottage! It was the most beautiful, tranquil oasis. I don't think it matters what the weather's like, but we were blessed with sun, each window delivers luscious green views. Absolutely perfect getaway. Great recommendations from Steven & Claire, super friendly and helpful!",
           "isPublic": true,
-          "visitDate": "2024-09-22",
-          "createdAt": "2024-09-23T14:15:00.000Z"
+          "visitDate": "2024-06-22",
+          "createdAt": "2024-06-23T14:15:00.000Z",
+          "photo": "https://loughhynecottage.com/wp-content/uploads/2024/09/4a24c08e-de08-4ba1-bc41-9ba7c651f6ce-150x150.avif"
         },
         {
           "id": 3,
-          "guestName": "James & Lisa",
-          "experience": "sauna",
+          "guestName": "Kerstin",
+          "experience": "cabin",
           "rating": 5,
-          "feedback": "The wood-fired sauna experience was incredible! Steven's attention to detail and the stunning lake views made it truly special. Can't wait to return.",
+          "feedback": "Steven and Claire are great hosts, very friendly and helpful. They gave us great tips for exploring the area. And we had the best brownies we've ever had! So delicious. Not to mention the eggs right out of the cage! Very nice and peaceful place. And I loved the view into the trees waking up. Highly recommended!",
           "isPublic": true,
-          "visitDate": "2024-10-01",
-          "createdAt": "2024-10-02T16:45:00.000Z"
+          "visitDate": "2024-05-18",
+          "createdAt": "2024-05-19T16:45:00.000Z",
+          "photo": "https://loughhynecottage.com/wp-content/uploads/2024/09/62d1d0db-4a6d-40da-951f-59749000cb2d-150x150.avif"
+        },
+        {
+          "id": 4,
+          "guestName": "Thia",
+          "experience": "cabin",
+          "rating": 5,
+          "feedback": "We stayed three nights in the Lough Hyne Cottage and only wish we could have stayed longer! The space was beautiful and all details thoughtful — the eco-friendly design and amenities only adding to the peaceful, relaxing experience. We also did a seaweed bath on-site that exceeded all expectations.",
+          "isPublic": true,
+          "visitDate": "2024-07-12",
+          "createdAt": "2024-07-13T12:20:00.000Z",
+          "photo": "https://loughhynecottage.com/wp-content/uploads/2024/09/409c9978-7053-40b6-b960-60b61717f4a7-150x150.avif"
         }
       ];
       
