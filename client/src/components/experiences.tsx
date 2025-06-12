@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Clock, Users, CreditCard, Sun, Leaf, Mountain, Wheat, Flame, Gift } from "lucide-react";
+import { Clock, Users, IdCard, Sun, Leaf, Mountain, WheatIcon, Flame, Gift } from "lucide-react";
 
 export default function Experiences() {
   const experiences = [
@@ -42,9 +42,9 @@ export default function Experiences() {
       price: "€135",
       image: "https://loughhynecottage.com/wp-content/uploads/2024/08/bread-course-4-1.jpg",
       duration: "11 am - 5pm",
-      icon: CreditCard,
+      icon: IdCard,
       features: [
-        { icon: Wheat, text: "Sourdough starter to take home" },
+        { icon: WheatIcon, text: "Sourdough starter to take home" },
         { icon: Flame, text: "Wood-fired oven baking" },
         { icon: Gift, text: "Fresh breads to take home" }
       ],

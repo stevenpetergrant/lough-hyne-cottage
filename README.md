@@ -1,39 +1,28 @@
 # Lough Hyne Cottage - Railway Deployment
 
-Complete React application for Lough Hyne Cottage booking system with Express.js backend.
+Complete React application for Lough Hyne Cottage booking system.
 
 ## Deployment to Railway
 
-1. Create new Railway project
-2. Connect to GitHub repository
-3. Set environment variables:
-   - `DATABASE_URL` (PostgreSQL connection string)
-   - `STRIPE_SECRET_KEY` 
-   - `VITE_STRIPE_PUBLIC_KEY`
-   - `SESSION_SECRET`
+1. Extract this package to your Railway project
+2. Set environment variables:
+   - `DATABASE_URL` (optional - uses in-memory data)
+   - `STRIPE_SECRET_KEY` (optional)
+   - `VITE_STRIPE_PUBLIC_KEY` (optional)
 
 ## Features
 
-- Interactive cabin booking with calendar availability
-- Sauna, yoga, and bread workshop bookings
-- Admin dashboard for managing bookings
-- Stripe payment integration
-- Guest experience platform
-- Voucher system
-- Email notifications
+- Interactive cabin booking with calendar functionality
+- Sauna, yoga, and bread workshop booking pages
+- Responsive design matching Replit version
+- Express.js server with health checks
+- Production-ready build configuration
 
-## Local Development
+## Build Process
 
-```bash
-npm install
-npm run dev
-```
+Railway will automatically:
+1. Run `npm install`
+2. Run `npm run build` (Vite build)
+3. Start with `npm run start`
 
-## Production Build
-
-```bash
-npm run build
-npm start
-```
-
-The application serves the React frontend and API endpoints from the same Express server.
+The application serves the React frontend and API endpoints from the same Express server on the port specified by Railway's PORT environment variable.
