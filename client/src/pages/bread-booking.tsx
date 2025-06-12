@@ -4,7 +4,7 @@ import Footer from "@/components/footer";
 import BookingForm from "@/components/booking-form";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ArrowLeft, WheatIcon, Flame, Gift, Clock, Users, ChefHat } from "lucide-react";
+import { ArrowLeft, Wheat, Flame, Gift, Clock, Users, ChefHat } from "lucide-react";
 import { Link } from "wouter";
 import type { Experience } from "@shared/schema";
 
@@ -49,7 +49,7 @@ export default function BreadBooking() {
 
   const schedule = [
     { time: "9:00 AM - 9:30 AM", activity: "Welcome & Introduction to Artisan Bread Making", icon: Users },
-    { time: "9:30 AM - 11:00 AM", activity: "Creating Your Sourdough Starter", icon: WheatIcon },
+    { time: "9:30 AM - 11:00 AM", activity: "Creating Your Sourdough Starter", icon: Wheat },
     { time: "11:00 AM - 12:30 PM", activity: "Mixing and Kneading Traditional Doughs", icon: ChefHat },
     { time: "12:30 PM - 1:30 PM", activity: "Farm-to-Table Lunch Break", icon: Gift },
     { time: "1:30 PM - 3:00 PM", activity: "Shaping and Scoring Techniques", icon: ChefHat },
