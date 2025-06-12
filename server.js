@@ -17,7 +17,10 @@ const mimeTypes = {
   '.jpeg': 'image/jpeg',
   '.png': 'image/png',
   '.avif': 'image/avif',
-  '.svg': 'image/svg+xml'
+  '.webp': 'image/webp',
+  '.gif': 'image/gif',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon'
 };
 
 function serveStaticFile(filePath, res) {
@@ -32,13 +35,16 @@ function serveStaticFile(filePath, res) {
     
     res.setHeader('Content-Type', contentType);
     
-    // No cache for HTML files to ensure updates are seen immediately
+    // Cache control based on file type
     if (ext === '.html') {
       res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
       res.setHeader('Pragma', 'no-cache');
       res.setHeader('Expires', '0');
       res.setHeader('Last-Modified', new Date().toUTCString());
       res.setHeader('ETag', `"${Date.now()}"`);
+    } else if (ext.match(/\.(jpg|jpeg|png|avif|webp|gif|svg|ico)$/)) {
+      // Long cache for images
+      res.setHeader('Cache-Control', 'public, max-age=86400');
     } else {
       res.setHeader('Cache-Control', 'public, max-age=3600');
     }
@@ -77,10 +83,17 @@ const server = createServer(async (req, res) => {
       return;
     }
 
-    // Serve static assets
+    // Serve static assets - MUST be before HTML routing
     if (pathname.startsWith('/assets/')) {
       const filePath = join(__dirname, 'assets', pathname.replace('/assets/', ''));
+      console.log('Attempting to serve asset:', filePath);
       if (serveStaticFile(filePath, res)) {
+        console.log('Asset served successfully:', filePath);
+        return;
+      } else {
+        console.log('Asset not found:', filePath);
+        res.writeHead(404);
+        res.end('Asset not found');
         return;
       }
     }
