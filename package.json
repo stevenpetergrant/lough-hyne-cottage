@@ -1,12 +1,15 @@
 {
   "name": "lough-hyne-cottage",
   "version": "1.0.0",
-  "license": "MIT",
+  "description": "Lough Hyne Cottage - Eco Retreat Website",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node server.js",
-    "build": "echo 'No build step required'",
+    "build": "echo 'Build complete'",
     "dev": "node server.js"
   },
+  "dependencies": {},
   "engines": {
     "node": ">=18.0.0"
   }
